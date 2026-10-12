@@ -1,5 +1,5 @@
 /* Mobile menu (ref: studiodado.com) — part of the header block.
-   Native <dialog>: full screen, dark, big uppercase links that rise in.
+   Native <dialog>: full screen, dark, big links that rise in.
    Top row lines up with the header so it reads as the header going dark.
    Opened by the header's "Menu" button (js/menu.js). */
 
@@ -67,8 +67,7 @@
   font-size: 40px;
   font-weight: 500;
   line-height: 1.15;
-  letter-spacing: -0.01em;
-  text-transform: uppercase;
+  letter-spacing: -0.02em;
 }
 .menu__nav a[aria-current="page"] { color: var(--brand); }
 
