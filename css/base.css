@@ -10,6 +10,7 @@
   --bg-primary: #eeeeee;         /* Background/bg-primary */
   --text-primary: #222222;       /* Text/text-primary */
   --text-secondary: #eeeeee;     /* Text/text-secondary — on brand colour */
+  --text-muted: rgb(34 34 34 / 0.55); /* answers, secondary lines */
   --neutral-200: #afafaf;        /* Neutral/200 — dividers */
   --neutral-100: #d9d9d9;        /* light borders, dot grid */
   --dot: var(--neutral-100);
@@ -28,6 +29,7 @@
 
   --heading-xl: clamp(48px, 5.6vw, 84px); /* Headings/80 */
   --heading-lg: clamp(36px, 4.67vw, 78px);
+  --heading-md: clamp(28px, 2.4vw, 36px);
   --eyebrow: 20px;                        /* Labels/Eyebrow 20 */
   --body-lg: 20px;
   --body: 16px;

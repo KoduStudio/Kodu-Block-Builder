@@ -15,10 +15,11 @@ Then open http://localhost:3200.
 ## Structure
 
 ```
-index.html              home: dots hero, marquee, services
+index.html              home: dots hero, marquee
 heroes.html             block library: hero variants
-lists.html              block library: lists
+lists.html              block library: lists, FAQs
 image-text.html         block library: image + text blocks
+cards.html              block library: cards
                         (each block marked <!-- BLOCK: name --> so it can be copied out)
 css/base.css            brand tokens, reset, grid, type, buttons
 css/blocks/<name>.css   one file per block
@@ -34,7 +35,7 @@ assets/images/          web-sized photos (originals in placeholder-images/, not 
 
 ## Pages
 
-The nav links to one page per block type, so the library stays easy to browse as it grows. New block types get their own page and nav link. Pages are plain HTML: the header is copied into each one, so nav changes go in all four. Each page only loads the CSS and JS its blocks need.
+The nav links to one page per block type, so the library stays easy to browse as it grows. New block types get their own page and nav link. Pages are plain HTML: the header is copied into each one, so nav changes go in every page. Each page only loads the CSS and JS its blocks need.
 
 ## Blocks
 
@@ -44,6 +45,7 @@ The nav links to one page per block type, so the library stays easy to browse as
 | Hero, centred             | `.hero-centred`            | Hero_Simple_Centred (+ Image w. Dots) |
 | Marquee info bar          | `.marquee`                 | Marquee Info Bar                    |
 | Services bento            | `.services-bento`          | from the Tarlo site                 |
+| FAQ, split                | `.faq-split`               | ref: marketer.com                   |
 | Modern list               | `.modern-list`             | List_Modern                         |
 | Modern tall image + text  | `.modern-tall-image-text`  | ref: studiodado.com/approach        |
 
@@ -82,5 +84,6 @@ If a marquee comes straight after the hero, they fill the first screen together.
 - **Dot field:** `data-dots` works on any section. Dot colour is `--dot`; spacing and glow size are `--dot-gap` / `--dot-r`. Only animates while the mouse moves.
 - **Marquee:** write one group of items; `js/marquee.js` adds as many copies as the screen needs and loops by exactly one group, so it never gaps on wide screens. Speed is `MARQUEE_SPEED` in the script. Pauses on hover; still for reduced motion.
 - **Services bento:** cards 1–7 follow the bento layout; extra cards fall into rows of three. Icons are Lucide, inline.
+- **FAQ:** native `<details>`, no JS. Items sharing a `name` open one at a time (drop `name` to allow several); add `open` to start one expanded. Answers glide open in Chrome/Edge/Arc and open instantly elsewhere.
 - **List numbers** (01, 02, …) are automatic.
 - **Mobile:** nav links hide under 768px until there's a mobile menu block. The list stacks to number | title, text under the title, then a full-width image.

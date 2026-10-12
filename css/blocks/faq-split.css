@@ -1,0 +1,77 @@
+/* FAQ — Split (ref: marketer.com)
+   Heading left, accordion right. Native <details> sharing a name, so one
+   answer is open at a time; no JS. Answers glide open where the browser
+   supports animating to height: auto, and open instantly elsewhere. */
+
+.faq-split {
+  padding-block: var(--section-md);
+  row-gap: 40px;
+  align-items: start;
+}
+
+.faq-split__heading {
+  grid-column: 1 / span 5;
+  font-family: var(--font-heading);
+  font-size: var(--heading-md);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+.faq-split__heading span { display: block; color: var(--text-muted); }
+
+.faq-split__items { grid-column: 7 / span 6; }
+
+.faq-split__item {
+  border-top: 1px solid var(--neutral-100);
+  interpolate-size: allow-keywords;
+}
+.faq-split__item:last-child { border-bottom: 1px solid var(--neutral-100); }
+
+.faq-split__q {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding-block: 22px;
+  font-family: var(--font-primary);
+  font-size: var(--body-lg);
+  font-weight: 500;
+  line-height: 1.35;
+  list-style: none;
+  cursor: pointer;
+}
+.faq-split__q::-webkit-details-marker { display: none; }
+
+.faq-split__q svg {
+  flex: none;
+  transition: transform 0.4s var(--ease);
+}
+.faq-split__item[open] .faq-split__q svg { transform: rotate(45deg); }
+
+@media (hover: hover) and (pointer: fine) {
+  .faq-split__q span { transition: opacity 0.3s var(--ease); }
+  .faq-split__q:hover span { opacity: 0.6; }
+}
+
+.faq-split__a {
+  max-width: 580px;
+  padding-bottom: 22px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* Smooth open/close */
+@media (prefers-reduced-motion: no-preference) {
+  .faq-split__item::details-content {
+    block-size: 0;
+    overflow: clip;
+    transition: block-size 0.5s var(--ease), content-visibility 0.5s allow-discrete;
+  }
+  .faq-split__item[open]::details-content { block-size: auto; }
+}
+
+@media (max-width: 767px) {
+  .faq-split__heading,
+  .faq-split__items { grid-column: 1 / -1; }
+  .faq-split__q { font-size: var(--body); }
+}
