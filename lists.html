@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Inter:wght@400;500&display=swap">
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/blocks/header.css">
+  <link rel="stylesheet" href="css/blocks/menu.css">
   <link rel="stylesheet" href="css/blocks/modern/list.css">
   <link rel="stylesheet" href="css/blocks/icon-list.css">
   <link rel="stylesheet" href="css/blocks/faq-split.css">
@@ -19,7 +20,9 @@
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.min.js" defer></script>
   <script src="js/smooth-scroll.js" defer></script>
   <script src="js/roll.js" defer></script>
+  <script src="js/menu.js" defer></script>
   <script src="js/reveal.js" defer></script>
+  <script src="js/faq.js" defer></script>
   <script src="js/parallax.js" defer></script>
 </head>
 <body>
@@ -38,8 +41,29 @@
       <a class="header__link" href="ctas.html">CTAs</a>
       <a class="btn" href="#">Hero Button</a>
     </nav>
+    <button class="header__menu-btn" type="button" aria-controls="menu" aria-expanded="false" data-menu-open>Menu</button>
   </div>
 </header>
+
+<!-- Mobile menu (part of the header block) -->
+<dialog class="menu" id="menu" aria-label="Menu" data-menu>
+  <div class="menu__top">
+    <a class="menu__logo" href="index.html" aria-label="Kodu Blocks, home"><img src="assets/logo.svg" alt="" width="185" height="20"></a>
+    <button class="menu__close" type="button" data-menu-close autofocus>Close</button>
+  </div>
+  <p class="menu__label">Navigate</p>
+  <nav class="menu__nav" aria-label="Mobile">
+      <a href="heroes.html">Heroes</a>
+      <a href="lists.html" aria-current="page">Lists</a>
+      <a href="image-text.html">Image &amp; Text</a>
+      <a href="cards.html">Cards</a>
+      <a href="ctas.html">CTAs</a>
+  </nav>
+  <div class="menu__contact">
+    <a href="mailto:hello@yourdomain.com">hello@yourdomain.com</a>
+    <a href="tel:+61400000000">0400 000 000</a>
+  </div>
+</dialog>
 
 <main>
 

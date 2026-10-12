@@ -31,6 +31,8 @@ js/reveal.js            load-in reveals as blocks scroll into view
 js/parallax.js          parallax fallback for browsers without CSS scroll timelines (Firefox)
 js/dots.js              interactive dot field for any section with data-dots
 js/marquee.js           endless marquee: fills any screen width, seamless loop
+js/menu.js              mobile menu open/close (header)
+js/faq.js               smooth FAQ accordion in every browser
 assets/favicon.png      browser tab icon (192px, from BlockBuilder_thumbnail.png)
 assets/images/          web-sized photos (originals in placeholder-images/, not committed)
 ```
@@ -44,6 +46,7 @@ The nav links to one page per block type, so the library stays easy to browse as
 | Block                     | Class                      | Source                              |
 | ------------------------- | -------------------------- | ----------------------------------- |
 | Header                    | `.header`                  | Grid_Container                      |
+| Mobile menu (header)      | `.menu`                    | ref: studiodado.com                 |
 | Hero, centred             | `.hero-centred`            | Hero_Simple_Centred (+ Image w. Dots) |
 | Marquee info bar          | `.marquee`                 | Marquee Info Bar                    |
 | Services bento            | `.services-bento`          | from the Tarlo site                 |
@@ -93,6 +96,7 @@ If a marquee comes straight after the hero, they fill the first screen together.
 - **Dot field:** `data-dots` works on any section. Dot colour is `--dot`; spacing and glow size are `--dot-gap` / `--dot-r`. Only animates while the mouse moves.
 - **Marquee:** write one group of items; `js/marquee.js` adds as many copies as the screen needs and loops by exactly one group, so it never gaps on wide screens. Speed is `MARQUEE_SPEED` in the script. Pauses on hover; still for reduced motion.
 - **Services bento:** cards 1–7 follow the bento layout; extra cards fall into rows of three. Icons are Lucide, inline.
-- **FAQ:** native `<details>`, no JS. Items sharing a `name` open one at a time (drop `name` to allow several); add `open` to start one expanded. Answers glide open in Chrome/Edge/Arc and open instantly elsewhere.
+- **FAQ:** native `<details>`; `js/faq.js` animates open/close smoothly in every browser (incl. iPhone) and keeps one open at a time per `name`. Drop `name` to allow several; add `open` to start one expanded. Without JS the native accordion still works.
 - **List numbers** (01, 02, …) are automatic.
-- **Mobile:** nav links hide under 768px until there's a mobile menu block. The list stacks to number | title, text under the title, then a full-width image.
+- **Mobile menu:** under 768px the header shows the logo (140px) and a Menu button that opens a full-screen `<dialog>` (Esc, Close or tapping a link closes it; page scroll pauses). Its links and contact details live in the dialog right after `</header>` on each page.
+- **Mobile:** The list stacks to number | title, text under the title, then a full-width image.

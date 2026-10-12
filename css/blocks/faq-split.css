@@ -1,7 +1,7 @@
 /* FAQ — Split (ref: marketer.com)
    Heading left, accordion right. Native <details> sharing a name, so one
-   answer is open at a time; no JS. Answers glide open where the browser
-   supports animating to height: auto, and open instantly elsewhere. */
+   answer is open at a time. js/faq.js animates open/close smoothly in every
+   browser; without JS the native accordion still works. */
 
 .faq-split {
   padding-block: var(--section-md);
@@ -46,7 +46,7 @@
   flex: none;
   transition: transform 0.4s var(--ease);
 }
-.faq-split__item[open] .faq-split__q svg { transform: rotate(45deg); }
+.faq-split__item[open]:not(.is-closing) .faq-split__q svg { transform: rotate(45deg); }
 
 @media (hover: hover) and (pointer: fine) {
   .faq-split__q span { transition: opacity 0.3s var(--ease); }
@@ -58,16 +58,6 @@
   padding-bottom: 22px;
   color: var(--text-muted);
   line-height: 1.6;
-}
-
-/* Smooth open/close */
-@media (prefers-reduced-motion: no-preference) {
-  .faq-split__item::details-content {
-    block-size: 0;
-    overflow: clip;
-    transition: block-size 0.5s var(--ease), content-visibility 0.5s allow-discrete;
-  }
-  .faq-split__item[open]::details-content { block-size: auto; }
 }
 
 @media (max-width: 767px) {

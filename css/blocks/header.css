@@ -28,8 +28,22 @@
   text-underline-offset: 6px;
 }
 
+/* "Menu" button: mobile only, opens the menu (css/blocks/menu.css) */
+.header__menu-btn {
+  display: none;
+  min-height: 44px;
+  padding: 0;
+  border: 0;
+  background: none;
+  font-size: var(--body-lg);
+  line-height: 1.4;
+  cursor: pointer;
+}
+
+/* Mobile: smaller logo + Menu button */
 @media (max-width: 767px) {
   .header__logo { grid-column: 1 / span 7; }
-  .header__nav { grid-column: 8 / span 5; }
-  .header__link { display: none; } /* mobile menu block to come */
+  .header__logo img { width: 140px; height: auto; }
+  .header__nav { display: none; }
+  .header__menu-btn { display: block; grid-column: 8 / -1; justify-self: end; }
 }
