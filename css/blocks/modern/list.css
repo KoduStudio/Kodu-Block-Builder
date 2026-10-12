@@ -33,18 +33,15 @@
 
 .modern-list__text { grid-column: 6 / span 4; }
 
-/* Placeholder colour shows until an <img> is dropped inside */
+/* Image frame: portrait by default, add --landscape for 3:2.
+   Brand colour shows while the image loads. */
 .modern-list__media {
   grid-column: 11 / span 2;
   aspect-ratio: 216 / 296;
   background: var(--brand);
   overflow: hidden;
 }
-.modern-list__media img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+.modern-list__media--landscape { aspect-ratio: 3 / 2; }
 
 @media (max-width: 1023px) {
   .modern-list__item { row-gap: 24px; }

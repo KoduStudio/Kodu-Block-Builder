@@ -184,3 +184,38 @@ a:focus-visible .roll .char { transform: translateY(-100%); }
   .js .is-in[data-reveal-stagger] > *,
   .js .is-in .word > span { opacity: 1; transform: none; }
 }
+
+/* ---------- Image frames ----------
+   A block's __media element sets the shape; its image fills it. */
+
+[class*="__media"] > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---------- Parallax image ----------
+   <div class="…__media" data-parallax><img …></div>
+   The frame needs overflow: hidden and a fixed shape (aspect-ratio).
+   Image is 20% taller than its frame and drifts as it scrolls past.
+   Pure CSS scroll-driven animation (off the main thread, no JS).
+   Unsupported browsers and reduced motion get a still image. */
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    [data-parallax] { position: relative; }
+    [data-parallax] > img {
+      position: absolute;
+      top: -10%;
+      left: 0;
+      height: 120%;
+      animation: parallax linear both;
+      animation-timeline: view();
+    }
+  }
+}
+
+@keyframes parallax {
+  from { transform: translateY(-8%); }
+  to   { transform: translateY(8%); }
+}

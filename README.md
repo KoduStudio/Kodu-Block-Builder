@@ -22,7 +22,7 @@ css/blocks/<style>/     blocks grouped by style, e.g. modern/
 js/smooth-scroll.js     Lenis smooth scroll (loaded from jsDelivr)
 js/roll.js              staggered text roll on button hover
 js/reveal.js            load-in reveals as blocks scroll into view
-assets/                 logo and images
+assets/images/          web-sized photos (originals in placeholder-images/, not committed)
 ```
 
 ## Blocks
@@ -52,8 +52,9 @@ Blocks that share a look are grouped by style in their own folder and named `<st
   - `data-reveal`: the element fades up as it scrolls into view (e.g. each list row).
   - `data-reveal-stagger`: its children fade up one after another (e.g. the hero).
   - `data-reveal-words`: heading words slide up out of a mask.
-- **Parallax:** the Modern tall image + text image drifts as it scrolls past. Pure CSS (`animation-timeline: view()`), no JS. Chrome, Edge and Safari 26+; other browsers and reduced motion get a still image.
+- **Parallax:** add `data-parallax` to any `__media` frame and its image drifts as it scrolls past. Pure CSS (`animation-timeline: view()`), no JS. Chrome, Edge and Safari 26+; other browsers and reduced motion get a still image.
 - **Icons:** [Lucide](https://lucide.dev), pasted inline as SVG so they take the text colour.
-- **Images:** the orange boxes are placeholders (`assets/placeholder.svg` in the tall block). Put an `<img>` inside any `__media` element and it fills the frame.
+- **Images:** put an `<img>` in a block's `__media` frame and it fills it. Export at about 2x the size it shows (list ~800px wide, tall block ~1000px) and keep each under ~300KB.
+- **Modern list image shape:** portrait by default; add `modern-list__media--landscape` for 3:2.
 - **List numbers** (01, 02, …) are automatic.
 - **Mobile:** nav links hide under 768px until there's a mobile menu block. The list stacks to number | title, text under the title, then a full-width image.
