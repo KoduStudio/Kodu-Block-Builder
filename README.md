@@ -32,6 +32,7 @@ js/parallax.js          parallax fallback for browsers without CSS scroll timeli
 js/dots.js              interactive dot field for any section with data-dots
 js/marquee.js           endless marquee: fills any screen width, seamless loop
 js/menu.js              mobile menu open/close (header)
+js/header.js            header hides on scroll down, slides back on scroll up
 js/faq.js               smooth FAQ accordion in every browser
 assets/favicon.png      browser tab icon (192px, from BlockBuilder_thumbnail.png)
 assets/images/          web-sized photos (originals in placeholder-images/, not committed)
@@ -98,5 +99,6 @@ If a marquee comes straight after the hero, they fill the first screen together.
 - **Services bento:** cards 1–7 follow the bento layout; extra cards fall into rows of three. Icons are Lucide, inline.
 - **FAQ:** native `<details>`; `js/faq.js` animates open/close smoothly in every browser (incl. iPhone) and keeps one open at a time per `name`. Drop `name` to allow several; add `open` to start one expanded. Without JS the native accordion still works.
 - **List numbers** (01, 02, …) are automatic.
+- **Header on scroll:** scrolls away as you go down, slides back down with a blurred backdrop the moment you scroll up, and returns to normal at the top. It stays in the page flow (`position: sticky`), so nothing jumps.
 - **Mobile menu:** under 768px the header shows the logo (140px) and a Menu button that opens a full-screen `<dialog>` (Esc, Close or tapping a link closes it; page scroll pauses). Its links and contact details live in the dialog right after `</header>` on each page.
 - **Mobile:** The list stacks to number | title, text under the title, then a full-width image.

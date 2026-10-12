@@ -1,9 +1,36 @@
 /* Header — logo left, nav + button right (Figma Grid_Container) */
 
 .header {
-  position: relative;
-  z-index: 2;
+  position: sticky;
+  top: calc(-1 * var(--header-h)); /* scrolls away like normal… */
+  z-index: 10;
   padding-block: 24px;
+  transition: top 0.5s var(--ease);
+}
+
+/* …and slides back down when you scroll up (js/header.js adds .is-pinned) */
+.header.is-pinned { top: 0; }
+
+/* Soft blurred backdrop, only while pinned: page colour fading to clear */
+.header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    color-mix(in srgb, var(--bg-primary) 90%, transparent),
+    color-mix(in srgb, var(--bg-primary) 55%, transparent));
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  mask-image: linear-gradient(#000 65%, transparent);
+  opacity: 0;
+  transition: opacity 0.4s var(--ease);
+  pointer-events: none;
+}
+.header.is-pinned::before { opacity: 1; }
+
+@media (prefers-reduced-motion: reduce) {
+  .header, .header::before { transition: none; }
 }
 
 .header__inner { align-items: center; }
