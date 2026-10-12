@@ -1,6 +1,8 @@
 /* Modern — Tall Image + Text (ref: studiodado.com/approach)
    Big statement top left, intro + link pinned to the bottom,
-   tall portrait image in the last 5 columns. */
+   tall portrait image in the last 5 columns.
+   Option: add .modern-tall-image-text--image-left to flip it (image in
+   the first 5 columns, text on the right). */
 
 .modern-tall-image-text {
   padding-block: var(--section-md);
@@ -53,7 +55,14 @@
   background: var(--brand);
 }
 
-/* Mobile: heading, image, then intro + link */
+/* ---------- Option: image left ---------- */
+@media (min-width: 768px) {
+  .modern-tall-image-text--image-left .modern-tall-image-text__media { grid-column: 1 / span 5; grid-row: 1; }
+  .modern-tall-image-text--image-left .modern-tall-image-text__content { grid-column: 6 / span 7; grid-row: 1; }
+  .modern-tall-image-text--image-left .modern-tall-image-text__footer { grid-column: 2 / span 6; }
+}
+
+/* Mobile: heading, image, then intro + link (both versions) */
 @media (max-width: 767px) {
   .modern-tall-image-text { row-gap: 40px; }
   .modern-tall-image-text__content { display: contents; }

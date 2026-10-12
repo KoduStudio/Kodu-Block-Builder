@@ -88,6 +88,7 @@ If a marquee comes straight after the hero, they fill the first screen together.
 - **Parallax:** add `data-parallax` to any `__media` frame and its image drifts as it scrolls past. CSS scroll-driven animation in Chrome, Edge, Arc and Safari 26+ (no JS); `js/parallax.js` covers Firefox. Off for reduced motion. Frames use `overflow: clip` — `hidden` would break the CSS version.
 - **Icons:** [Lucide](https://lucide.dev), pasted inline as SVG so they take the text colour.
 - **Images:** put an `<img>` in a block's `__media` frame and it fills it. Export at about 2x the size it shows (list ~800px wide, tall block ~1000px) and keep each under ~300KB.
+- **Modern tall image + text, image left (option):** add `modern-tall-image-text--image-left` to the section to flip it. Mobile stacks the same either way.
 - **Modern list image shape:** portrait by default; add `modern-list__media--landscape` for 3:2.
 - **Dot field:** `data-dots` works on any section. Dot colour is `--dot`; spacing and glow size are `--dot-gap` / `--dot-r`. Only animates while the mouse moves.
 - **Marquee:** write one group of items; `js/marquee.js` adds as many copies as the screen needs and loops by exactly one group, so it never gaps on wide screens. Speed is `MARQUEE_SPEED` in the script. Pauses on hover; still for reduced motion.
