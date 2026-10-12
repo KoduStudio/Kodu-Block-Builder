@@ -31,8 +31,8 @@
 /* "Menu" button: mobile only, opens the menu (css/blocks/menu.css) */
 .header__menu-btn {
   display: none;
-  min-height: 44px;
-  padding: 0;
+  padding: 8px 0;
+  margin-block: -8px; /* hugs the text, but keeps a 44px tap area */
   border: 0;
   background: none;
   font-size: var(--body-lg);

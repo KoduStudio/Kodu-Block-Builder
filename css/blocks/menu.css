@@ -36,8 +36,8 @@
 }
 
 .menu__close {
-  min-height: 44px;
-  padding: 0;
+  padding: 8px 0;
+  margin-block: -8px; /* hugs the text, but keeps a 44px tap area */
   border: 0;
   background: none;
   color: inherit;
