@@ -16,25 +16,34 @@
   font-weight: 600;
   line-height: 1.26;
 }
-.faq-split__heading span { display: block; font-weight: 400; color: var(--text-tertiary); }
+.faq-split__heading span { display: block; color: var(--text-tertiary); }
 
-.faq-split__items { grid-column: 7 / span 6; }
+/* Items (Figma FAQ Simple 6col): line above the list and under each item,
+   20px rhythm throughout. The answer carries its own 20px top gap so the
+   open/close animation (js/faq.js) measures it with the answer. */
+.faq-split__items {
+  grid-column: 7 / span 6;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--neutral-200);
+}
 
 .faq-split__item {
-  border-top: 1px solid var(--neutral-100);
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--neutral-200);
 }
-.faq-split__item:last-child { border-bottom: 1px solid var(--neutral-100); }
 
 .faq-split__q {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 24px;
-  padding-block: 22px;
-  font-family: var(--font-primary);
+  gap: 32px;
+  color: var(--black);
   font-size: var(--body-lg);
   font-weight: 500;
-  line-height: 1.35;
+  line-height: 1.44;
   list-style: none;
   cursor: pointer;
 }
@@ -52,10 +61,10 @@
 }
 
 .faq-split__a {
-  max-width: 580px;
-  padding-bottom: 22px;
-  color: var(--text-muted);
-  line-height: 1.6;
+  max-width: 540px;
+  padding-top: 20px;
+  color: var(--neutral-600);
+  line-height: 1.44;
 }
 
 @media (max-width: 767px) {
