@@ -13,11 +13,10 @@
   grid-column: 1 / span 5;
   font-family: var(--font-heading);
   font-size: var(--heading-md);
-  font-weight: 500;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
+  font-weight: 600;
+  line-height: 1.26;
 }
-.faq-split__heading span { display: block; color: var(--text-muted); }
+.faq-split__heading span { display: block; font-weight: 400; color: var(--text-tertiary); }
 
 .faq-split__items { grid-column: 7 / span 6; }
 

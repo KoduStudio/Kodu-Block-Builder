@@ -12,6 +12,7 @@
   --text-secondary: #eeeeee;     /* Text/text-secondary — on brand colour */
   --text-muted: rgb(34 34 34 / 0.55); /* answers, secondary lines */
   --text-soft: #525252;          /* second line of two-tone headings */
+  --text-tertiary: #757575;      /* lighter second line (FAQ heading) */
   --text-on-image: #ffffff;      /* text over photos */
   --overlay: rgb(17 17 17 / 0.5); /* darkens photos behind text */
   --neutral-200: #afafaf;        /* Neutral/200 — dividers */
