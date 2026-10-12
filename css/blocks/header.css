@@ -5,7 +5,8 @@
   top: calc(-1 * var(--header-h)); /* scrolls away like normal… */
   z-index: 10;
   padding-block: 24px;
-  transition: top 0.5s var(--ease);
+  color: var(--text-primary);
+  transition: top 0.5s var(--ease), color 0.4s var(--ease);
 }
 
 /* …and slides back down when you scroll up (js/header.js adds .is-pinned) */
@@ -29,8 +30,14 @@
 }
 .header.is-pinned::before { opacity: 1; }
 
+/* Over a dark first block (full-image hero): light text and logo until it
+   pins with its light backdrop */
+.header__logo img { transition: filter 0.4s var(--ease); }
+.header:has(~ main > .hero-full-image:first-child):not(.is-pinned) { color: var(--text-secondary); }
+.header:has(~ main > .hero-full-image:first-child):not(.is-pinned) .header__logo img { filter: brightness(0) invert(1); }
+
 @media (prefers-reduced-motion: reduce) {
-  .header, .header::before { transition: none; }
+  .header, .header::before, .header__logo img { transition: none; }
 }
 
 .header__inner { align-items: center; }

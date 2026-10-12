@@ -51,6 +51,7 @@ The nav links to one page per block type, so the library stays easy to browse as
 | Header                    | `.header`                  | Grid_Container                      |
 | Mobile menu (header)      | `.menu`                    | ref: studiodado.com                 |
 | Hero, centred             | `.hero-centred`            | Hero_Simple_Centred (+ Image w. Dots) |
+| Hero, full image + CTA card | `.hero-full-image`     | Hero Full Image w. CTA Card         |
 | Marquee info bar          | `.marquee`                 | Marquee Info Bar                    |
 | Services bento            | `.services-bento`          | from the Tarlo site                 |
 | Icon list, simple         | `.icon-list`               | Icon Simple List                    |
@@ -71,6 +72,10 @@ The centred hero is one block with optional extras. Add or delete them as needed
 
 If a marquee comes straight after the hero, they fill the first screen together.
 
+### Hero, full image + CTA card
+
+Full-screen photo (`.hero-full-image__bg`) under a 40% overlay (`--overlay-hero`), heading/text/buttons bottom left. The glass CTA card is optional: delete `.hero-full-image__card` to drop it. As the first block on a page it runs up behind the header, which switches to light text automatically and back to dark when it slides in on scroll. On mobile the content centres and the card runs along the bottom (image left, text right).
+
 ## New client site
 
 1. Copy this repo.
@@ -82,7 +87,7 @@ If a marquee comes straight after the hero, they fill the first screen together.
 
 - **Fonts:** Inter Tight (headings, eyebrows, buttons) and Inter (body), loaded from Google Fonts in `index.html`. For a client, change the Google Fonts link and `--font-primary` / `--font-body`.
 - **Text buttons:** `.text-btn` is a label-only button (no box) that hugs its text at min 38px tall with a 44px tap area. Used for the mobile Menu / Close.
-- **Buttons:** `.btn` is Square / 36 / Fill. Add `btn--44`, `btn--pill` and `btn--outline` to match the Figma variants. For an icon, put an inline SVG after the label (`<a class="btn">Label <svg…></a>`); it nudges right on hover and the label still rolls.
+- **Buttons:** `.btn` is Square / 36 / Fill. Add `btn--44`, `btn--pill`, `btn--outline` or `btn--light` (light fill, dark text, for dark backgrounds) to match the Figma variants. For an icon, put an inline SVG after the label (`<a class="btn">Label <svg…></a>`); it nudges right on hover and the label still rolls.
 - **Two-tone headings:** `.heading-48` with the second line in a `<span>` (CTA, icon list).
 - **Icon list:** built for 4 items but any number shares the row; 2 x 2 on tablet, stacked on mobile.
 - **CTA gradient:** mixed from `--brand` with `color-mix()`, so it follows the client colour.

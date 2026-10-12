@@ -28,6 +28,7 @@
   --text-tertiary: var(--neutral-400);    /* lighter second line (FAQ heading) */
   --text-on-image: var(--white);          /* text over photos */
   --overlay: rgb(17 17 17 / 0.5);         /* darkens photos behind text */
+  --overlay-hero: rgb(0 0 0 / 0.4);       /* full-image hero */
   --surface: var(--white);                /* cards */
   --dot: #d9d9d9;                         /* dot field grid (Figma hero dots) */
 
@@ -176,6 +177,11 @@ button { font: inherit; color: inherit; }
 
 .btn--44 { padding: 11px 21px; }
 .btn--pill { border-radius: 999px; }
+.btn--light {
+  background: var(--bg-primary);
+  border-color: var(--bg-primary);
+  color: var(--text-primary);
+}
 .btn--outline {
   background: var(--btn-outline-bg);
   border-color: var(--btn-outline-border);

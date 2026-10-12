@@ -35,7 +35,7 @@
 /* ---------- Option: dots ----------
    Slides up under the header so the dot field runs behind it too. */
 
-.hero-centred[data-dots] {
+.hero-centred[data-dots]:first-child {
   margin-top: calc(-1 * var(--header-h));
   padding-top: var(--header-h);
 }
