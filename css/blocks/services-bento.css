@@ -1,0 +1,119 @@
+/* Services — Bento (from the Tarlo site)
+   Centred heading, then service cards on the 12-column grid. Each card is a
+   link: on hover it lifts, fills with the brand colour from the bottom, the
+   icon grows and an arrow appears. Cards 8+ fall into rows of three. */
+
+.services-bento {
+  padding-block: var(--section-md);
+}
+
+.services-bento__head {
+  max-width: 914px;
+  margin: 0 auto 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  text-align: center;
+}
+
+.services-bento__lede { max-width: 600px; }
+
+.services-bento__grid {
+  row-gap: var(--gutter);
+  grid-auto-rows: minmax(156px, auto);
+}
+
+.services-bento__card {
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding: 32px;
+  background: var(--surface);
+  border: 1px solid var(--neutral-100);
+  border-radius: var(--radius);
+  box-shadow: 0 0 3px rgb(0 0 0 / 0.1);
+  transition:
+    transform 0.6s var(--ease),
+    box-shadow 0.6s var(--ease),
+    border-color 0.6s var(--ease);
+}
+
+/* Brand fill that rises from the bottom on hover */
+.services-bento__card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--brand);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.6s var(--ease);
+}
+
+.services-bento__icon { transition: transform 0.6s var(--ease); }
+
+.services-bento__go {
+  position: absolute;
+  right: 28px;
+  bottom: 28px;
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: var(--text-primary);
+  color: var(--surface);
+  opacity: 0;
+  transform: translate(-8px, 8px) scale(0.8);
+  transition: opacity 0.35s var(--ease), transform 0.6s var(--ease);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .services-bento__card:hover {
+    transform: translateY(-4px);
+    border-color: var(--brand);
+    box-shadow: 0 24px 48px -28px rgb(0 0 0 / 0.35);
+  }
+  .services-bento__card:hover::before { transform: scaleY(1); }
+  .services-bento__card:hover .services-bento__icon { transform: scale(1.12); }
+  .services-bento__card:hover .services-bento__go { opacity: 1; transform: none; }
+}
+.services-bento__card:focus-visible::before { transform: scaleY(1); }
+.services-bento__card:focus-visible .services-bento__go { opacity: 1; transform: none; }
+
+/* Touch: quick press feedback instead of hover */
+@media (hover: none) {
+  .services-bento__card:active::before { transform: scaleY(1); }
+}
+
+/* Bento layout */
+.services-bento__card:nth-child(1) { grid-column: 1 / span 6; grid-row: 1; }
+.services-bento__card:nth-child(2) { grid-column: 7 / span 3; grid-row: 1; }
+.services-bento__card:nth-child(3) { grid-column: 10 / span 3; grid-row: 1 / span 2; }
+.services-bento__card:nth-child(4) { grid-column: 1 / span 4; grid-row: 2 / span 2; }
+.services-bento__card:nth-child(5) { grid-column: 5 / span 5; grid-row: 2; }
+.services-bento__card:nth-child(6) { grid-column: 5 / span 4; grid-row: 3; }
+.services-bento__card:nth-child(7) { grid-column: 9 / span 4; grid-row: 3; }
+.services-bento__card:nth-child(n+8) { grid-column: span 4; }
+
+/* Tablet: two columns, first card full width */
+@media (max-width: 1023px) {
+  .services-bento__card:nth-child(n) { grid-column: span 6; grid-row: auto; }
+  .services-bento__card:nth-child(1) { grid-column: 1 / -1; }
+  .services-bento__card:nth-child(3),
+  .services-bento__card:nth-child(4) { grid-row: span 2; }
+}
+
+/* Mobile: compact 2-up cards, no arrow */
+@media (max-width: 767px) {
+  .services-bento__grid { grid-auto-rows: minmax(132px, auto); }
+  .services-bento__card:nth-child(3),
+  .services-bento__card:nth-child(4) { grid-row: auto; }
+  .services-bento__card { padding: 18px; gap: 20px; }
+  .services-bento__go { display: none; }
+}

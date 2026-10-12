@@ -9,7 +9,11 @@
   --brand: #ff3c1a;              /* Brand/Hot Orange-500 */
   --bg-primary: #eeeeee;         /* Background/bg-primary */
   --text-primary: #222222;       /* Text/text-primary */
+  --text-secondary: #eeeeee;     /* Text/text-secondary — on brand colour */
   --neutral-200: #afafaf;        /* Neutral/200 — dividers */
+  --neutral-100: #d9d9d9;        /* light borders, dot grid */
+  --dot: var(--neutral-100);
+  --surface: #ffffff;            /* cards */
 
   --btn-primary-bg: var(--brand);
   --btn-primary-text: #ffffff;
@@ -35,7 +39,9 @@
   --section-md: clamp(64px, 6.9vw, 104px); /* Section/section-md */
   --text-gap-md: 28px;                     /* Text Gap/text-gap-md */
   --max: 1680px;
+  --radius: 16px;
   --header-h: 84px;
+  --marquee-h: 93px;
 
   /* Motion */
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
@@ -101,6 +107,13 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* Large body text (Modern list rows, intro paragraphs) */
+.heading-lg {
+  font-family: var(--font-heading);
+  font-size: var(--heading-lg);
+  font-weight: 700;
+  line-height: 1.04;
+}
+
 .text-lg {
   font-size: var(--body-lg);
   line-height: 1.44;
@@ -174,24 +187,29 @@ a:focus-visible .roll .char { transform: translateY(-100%); }
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .js [data-reveal],
-  .js [data-reveal-stagger] > :not([data-reveal-words]) {
-    opacity: 0;
-    transform: translateY(var(--reveal-y));
-    transition: opacity var(--reveal-dur) var(--ease), transform var(--reveal-dur) var(--ease);
-    transition-delay: calc(var(--reveal-i, 0) * var(--reveal-step));
+  /* Blocks: one-shot animation (not a transition) so it never takes over an
+     element's own hover transitions once it has played */
+  .js [data-reveal]:not(.is-in),
+  .js [data-reveal-stagger]:not(.is-in) > :not([data-reveal-words]) { opacity: 0; }
+
+  .js .is-in[data-reveal],
+  .js .is-in[data-reveal-stagger] > :not([data-reveal-words]) {
+    animation: reveal var(--reveal-dur) var(--ease) backwards;
+    animation-delay: calc(var(--reveal-i, 0) * var(--reveal-step));
   }
 
+  /* Heading words slide up out of their mask */
   .js .word > span {
     display: inline-block;
     transform: translateY(120%);
     transition: transform var(--reveal-dur) var(--ease);
     transition-delay: calc(var(--reveal-i, 0) * var(--reveal-step) + var(--word-i) * var(--word-step));
   }
+  .js .is-in .word > span { transform: none; }
+}
 
-  .js .is-in[data-reveal],
-  .js .is-in[data-reveal-stagger] > *,
-  .js .is-in .word > span { opacity: 1; transform: none; }
+@keyframes reveal {
+  from { opacity: 0; transform: translateY(var(--reveal-y)); }
 }
 
 /* ---------- Image frames ----------
@@ -235,3 +253,51 @@ a:focus-visible .roll .char { transform: translateY(-100%); }
   from { transform: translateY(-8%); }
   to   { transform: translateY(8%); }
 }
+
+/* ---------- Dot field (js/dots.js) ----------
+   <section data-dots> … </section>  (js/dots.js adds the .dots layer)
+   Grid of dots that darken and swell around the mouse, easing after it.
+   Layers: .dots = base grid, ::before = darker glow, ::after = bigger dots.
+   --mx / --my / --glow are eased in js/dots.js; touch and reduced motion
+   keep the soft resting glow. */
+
+[data-dots] {
+  --mx: 50%;
+  --my: 42%;
+  --glow: 0.4;
+  --dot-gap: 48px;
+  --dot-r: 380px; /* glow radius */
+  position: relative;
+  isolation: isolate;
+}
+
+.dots,
+.dots::before,
+.dots::after {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: radial-gradient(circle, var(--dot) 2px, transparent 2.5px);
+  background-size: var(--dot-gap) var(--dot-gap);
+  background-position: calc(2px - var(--dot-gap) / 2) calc(-7px - var(--dot-gap) / 2);
+}
+.dots::before,
+.dots::after { content: ""; }
+
+.dots::before {
+  background-image: radial-gradient(circle, var(--text-primary) 2px, transparent 2.5px);
+  opacity: var(--glow);
+  mask-image: radial-gradient(circle var(--dot-r) at var(--mx) var(--my), rgb(0 0 0 / 0.55), rgb(0 0 0 / 0.2) 50%, transparent);
+}
+
+.dots::after {
+  background-image: radial-gradient(circle, var(--text-primary) 3.5px, transparent 4px);
+  opacity: calc((var(--glow) - 0.4) / 0.6);
+  mask-image: radial-gradient(circle calc(var(--dot-r) * 0.42) at var(--mx) var(--my), rgb(0 0 0 / 0.6), rgb(0 0 0 / 0.28) 45%, transparent);
+}
+
+@media (max-width: 767px) {
+  [data-dots] { --dot-gap: 32px; --dot-r: 260px; }
+}
+

@@ -1,0 +1,39 @@
+/* Marquee Info Bar (Figma Marquee Info Bar)
+   Endless scrolling strip. js/marquee.js adds copies so it covers any screen
+   and loops seamlessly; pauses on hover, still for reduced motion. */
+
+.marquee {
+  --marquee-gap: clamp(24px, 3.2vw, 48px);
+  height: var(--marquee-h);
+  display: flex;
+  align-items: center;
+  overflow: clip;
+  background: var(--brand);
+  color: var(--text-secondary);
+  font-size: var(--body-lg);
+  line-height: 1.44;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.marquee__track {
+  display: flex;
+  padding-left: var(--margin);
+}
+
+.marquee__group {
+  display: flex;
+  gap: var(--marquee-gap);
+  padding-right: var(--marquee-gap);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .marquee.is-ready .marquee__track {
+    animation: marquee var(--marquee-dur) linear infinite;
+  }
+  .marquee:hover .marquee__track { animation-play-state: paused; }
+}
+
+@keyframes marquee {
+  to { transform: translate3d(var(--marquee-shift), 0, 0); }
+}

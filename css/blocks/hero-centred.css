@@ -1,7 +1,10 @@
-/* Hero — Simple Centred (Figma Hero_Simple_Centred)
-   Fills the first screen under the header. */
+/* Hero — Centred (Figma Hero_Simple_Centred, Hero_Simple_Centred | Image w. Dots)
+   Fills the first screen under the header. Options, mix and match:
+   - Dots:          add data-dots to the <section> (js/dots.js adds the layer)
+   - Photo circles: include .hero-centred__faces
+   - Eyebrow:       include .hero-centred__eyebrow */
 
-.hero-centred {
+.hero-centred__inner {
   min-height: calc(100svh - var(--header-h));
   display: flex;
   flex-direction: column;
@@ -10,6 +13,11 @@
   gap: var(--text-gap-md);
   padding-bottom: 72px;
   text-align: center;
+}
+
+/* Followed by a marquee: hero + bar fill the first screen together */
+.hero-centred:has(+ .marquee) .hero-centred__inner {
+  min-height: calc(100svh - var(--header-h) - var(--marquee-h));
 }
 
 .hero-centred__heading { max-width: 688px; }
@@ -22,4 +30,50 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 8px;
+}
+
+/* ---------- Option: dots ----------
+   Slides up under the header so the dot field runs behind it too. */
+
+.hero-centred[data-dots] {
+  margin-top: calc(-1 * var(--header-h));
+  padding-top: var(--header-h);
+}
+
+/* ---------- Option: photo circles ---------- */
+
+.hero-centred__faces {
+  display: flex;
+  margin-bottom: -6px; /* 22px to the heading, as Figma */
+}
+
+.hero-centred__faces li {
+  width: 104px;
+  height: 104px;
+  margin-right: -16px;
+  border: 4px solid var(--brand);
+  border-radius: 999px;
+  background: var(--brand);
+  overflow: clip;
+  transition: transform 0.6s var(--ease), margin 0.6s var(--ease);
+}
+.hero-centred__faces li:last-child { margin-right: 0; }
+.hero-centred__faces img { width: 100%; height: 100%; object-fit: cover; }
+
+@media (hover: hover) and (pointer: fine) {
+  .hero-centred__faces:hover li { margin-right: -4px; }
+  .hero-centred__faces:hover li:last-child { margin-right: 0; }
+  .hero-centred__faces li:hover { transform: translateY(-4px) rotate(-3deg); }
+}
+
+/* Circles pop in one after another as the hero loads */
+@media (prefers-reduced-motion: no-preference) {
+  .js .is-in > .hero-centred__faces li { animation: pop 0.9s var(--ease) backwards; }
+  .js .is-in > .hero-centred__faces li:nth-child(2) { animation-delay: 0.08s; }
+  .js .is-in > .hero-centred__faces li:nth-child(3) { animation-delay: 0.16s; }
+}
+@keyframes pop { from { opacity: 0; transform: scale(0.8); } }
+
+@media (max-width: 767px) {
+  .hero-centred__faces li { width: 76px; height: 76px; margin-right: -12px; border-width: 3px; }
 }

@@ -1,6 +1,8 @@
 /* Header — logo left, nav + button right (Figma Grid_Container) */
 
 .header {
+  position: relative;
+  z-index: 2;
   padding-block: 24px;
 }
 
