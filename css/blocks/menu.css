@@ -36,8 +36,9 @@
 }
 
 .menu__close {
-  padding: 8px 0;
-  margin-block: -8px; /* hugs the text, but keeps a 44px tap area */
+  position: relative;
+  min-height: 38px; /* same as the header's Menu button */
+  padding: 0;
   border: 0;
   background: none;
   color: inherit;
@@ -45,6 +46,7 @@
   line-height: 1.4;
   cursor: pointer;
 }
+.menu__close::before { content: ""; position: absolute; inset: -3px 0; } /* 44px tap area */
 
 .menu__label {
   margin-top: 80px;

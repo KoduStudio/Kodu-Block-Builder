@@ -31,13 +31,20 @@
 /* "Menu" button: mobile only, opens the menu (css/blocks/menu.css) */
 .header__menu-btn {
   display: none;
-  padding: 8px 0;
-  margin-block: -8px; /* hugs the text, but keeps a 44px tap area */
+  position: relative;
+  min-height: 38px; /* hugs the text, never shorter than 38px */
+  padding: 0;
   border: 0;
   background: none;
   font-size: var(--body-lg);
   line-height: 1.4;
   cursor: pointer;
+}
+/* Invisible tap area: 44px tall without changing the layout */
+.header__menu-btn::before {
+  content: "";
+  position: absolute;
+  inset: -3px 0;
 }
 
 /* Mobile: smaller logo + Menu button */
