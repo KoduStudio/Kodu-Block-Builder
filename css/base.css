@@ -35,6 +35,11 @@
   --text-gap-md: 28px;                     /* Text Gap/text-gap-md */
   --max: 1680px;
   --header-h: 84px;
+
+  /* Motion */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --roll-dur: 0.55s;
+  --roll-step: 16ms; /* stagger between letters */
 }
 
 /* ---------- Reset ---------- */
@@ -108,9 +113,7 @@ a { color: inherit; text-decoration: none; }
   font-weight: 500;
   line-height: 1.36;
   white-space: nowrap;
-  transition: opacity 0.2s;
 }
-.btn:hover { opacity: 0.85; }
 
 .btn--44 { padding: 11px 21px; }
 .btn--pill { border-radius: 999px; }
@@ -118,4 +121,27 @@ a { color: inherit; text-decoration: none; }
   background: var(--btn-outline-bg);
   border-color: var(--btn-outline-border);
   color: var(--btn-outline-text);
+}
+
+/* ---------- Text roll on hover (js/roll.js) ---------- */
+
+.roll {
+  position: relative;
+  display: block;
+  overflow: hidden;
+}
+.roll__text { display: block; }
+.roll__text--clone { position: absolute; top: 100%; left: 0; }
+
+.roll .char {
+  display: inline-block;
+  white-space: pre;
+  transition: transform var(--roll-dur) var(--ease);
+  transition-delay: calc(var(--i) * var(--roll-step));
+}
+:hover > .roll .char,
+:focus-visible > .roll .char { transform: translateY(-100%); }
+
+@media (hover: none), (prefers-reduced-motion: reduce) {
+  .roll .char { transition: none; }
 }

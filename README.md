@@ -1,6 +1,6 @@
 # Kodu Block Builder
 
-Template for building simple client sites from blocks. Plain HTML and CSS: no build step, no dependencies.
+Template for building simple client sites from blocks. Plain HTML, CSS and a little JS: no build step, no dependencies.
 
 Design source: Figma, Kodu Design Lab – Website Template (page "Master Designs").
 
@@ -18,6 +18,7 @@ Then open http://localhost:3200.
 index.html              page: blocks stacked in order, each marked <!-- BLOCK: name -->
 css/base.css            brand tokens, reset, grid, type, buttons
 css/blocks/<name>.css   one file per block
+js/roll.js              staggered text roll on button hover
 assets/                 logo and images
 ```
 
@@ -42,6 +43,7 @@ New layouts of the same block get their own name and file, e.g. `faq-accordion.c
 
 - **Fonts:** Inter Tight (headings, eyebrows, buttons) and Inter (body), loaded from Google Fonts in `index.html`. For a client, change the Google Fonts link and `--font-primary` / `--font-body`.
 - **Buttons:** `.btn` is Square / 36 / Fill. Add `btn--44`, `btn--pill` and `btn--outline` to match the Figma variants.
+- **Hover roll:** every `.btn` gets the staggered letter roll from kodudesignlab.com. Add `data-roll` to any other link to opt in. Speed and stagger are `--roll-dur` / `--roll-step` in `base.css`.
 - **List images:** the orange box is a placeholder. Put an `<img>` inside `.list-modern__media` and it fills the frame.
 - **List numbers** (01, 02, …) are automatic.
 - **Mobile:** nav links hide under 768px until there's a mobile menu block.
