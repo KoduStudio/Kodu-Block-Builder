@@ -31,6 +31,7 @@ js/reveal.js            load-in reveals as blocks scroll into view
 js/parallax.js          parallax fallback for browsers without CSS scroll timelines (Firefox)
 js/dots.js              interactive dot field for any section with data-dots
 js/marquee.js           endless marquee: fills any screen width, seamless loop
+assets/favicon.png      browser tab icon (192px, from BlockBuilder_thumbnail.png)
 assets/images/          web-sized photos (originals in placeholder-images/, not committed)
 ```
 
