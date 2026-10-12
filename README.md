@@ -96,7 +96,7 @@ If a marquee comes straight after the hero, they fill the first screen together.
 - **Modern list image shape:** portrait by default; add `modern-list__media--landscape` for 3:2.
 - **Dot field:** `data-dots` works on any section. Dot colour is `--dot`; spacing and glow size are `--dot-gap` / `--dot-r`. Only animates while the mouse moves.
 - **Marquee:** write one group of items; `js/marquee.js` adds as many copies as the screen needs and loops by exactly one group, so it never gaps on wide screens. Speed is `MARQUEE_SPEED` in the script. Pauses on hover; still for reduced motion.
-- **Services bento:** cards 1–7 follow the bento layout; extra cards fall into rows of three. Icons are Lucide, inline.
+- **Services bento:** cards 1–7 follow the bento layout; extra cards fall into rows of three. Above 1380px the grid is inset to page columns 2–11; at 1380px and below it is full width. Icons are Lucide, inline.
 - **FAQ:** native `<details>`; `js/faq.js` animates open/close smoothly in every browser (incl. iPhone) and keeps one open at a time per `name`. Drop `name` to allow several; add `open` to start one expanded. Without JS the native accordion still works.
 - **List numbers** (01, 02, …) are automatic.
 - **Header on scroll:** scrolls away as you go down, slides back down with a blurred backdrop the moment you scroll up, and returns to normal at the top. It stays in the page flow (`position: sticky`), so nothing jumps.

@@ -24,6 +24,14 @@
   grid-auto-rows: minmax(156px, auto);
 }
 
+/* Wide screens: inset one page column each side (spans columns 2–11).
+   1380px and below: full width. */
+@media (min-width: 1381px) {
+  .services-bento__grid {
+    margin-inline: calc((100% - 11 * var(--gutter)) / 12 + var(--gutter));
+  }
+}
+
 .services-bento__card {
   position: relative;
   isolation: isolate;
