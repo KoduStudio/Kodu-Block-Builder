@@ -51,7 +51,6 @@
   grid-column: 8 / span 5;
   aspect-ratio: 601 / 878;
   background: var(--brand);
-  overflow: hidden;
 }
 
 /* Mobile: heading, image, then intro + link */

@@ -195,7 +195,11 @@ a:focus-visible .roll .char { transform: translateY(-100%); }
 }
 
 /* ---------- Image frames ----------
-   A block's __media element sets the shape; its image fills it. */
+   A block's __media element sets the shape; its image fills it.
+   overflow: clip (not hidden) so the frame isn't a scroll container,
+   which would stop the parallax timeline tracking the page. */
+
+[class*="__media"] { overflow: clip; }
 
 [class*="__media"] > img {
   width: 100%;
@@ -205,19 +209,22 @@ a:focus-visible .roll .char { transform: translateY(-100%); }
 
 /* ---------- Parallax image ----------
    <div class="…__media" data-parallax><img …></div>
-   The frame needs overflow: hidden and a fixed shape (aspect-ratio).
    Image is 20% taller than its frame and drifts as it scrolls past.
-   Pure CSS scroll-driven animation (off the main thread, no JS).
-   Unsupported browsers and reduced motion get a still image. */
+   CSS scroll-driven animation where supported (off the main thread, no JS);
+   js/parallax.js does the same in other browsers (Firefox).
+   Reduced motion gets a still image. */
 
-@supports (animation-timeline: view()) {
-  @media (prefers-reduced-motion: no-preference) {
-    [data-parallax] { position: relative; }
+@media (prefers-reduced-motion: no-preference) {
+  [data-parallax] { position: relative; }
+  [data-parallax] > img {
+    position: absolute;
+    top: -10%;
+    left: 0;
+    height: 120%;
+  }
+
+  @supports (animation-timeline: view()) {
     [data-parallax] > img {
-      position: absolute;
-      top: -10%;
-      left: 0;
-      height: 120%;
       animation: parallax linear both;
       animation-timeline: view();
     }

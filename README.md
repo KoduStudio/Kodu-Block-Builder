@@ -22,6 +22,7 @@ css/blocks/<style>/     blocks grouped by style, e.g. modern/
 js/smooth-scroll.js     Lenis smooth scroll (loaded from jsDelivr)
 js/roll.js              staggered text roll on button hover
 js/reveal.js            load-in reveals as blocks scroll into view
+js/parallax.js          parallax fallback for browsers without CSS scroll timelines (Firefox)
 assets/images/          web-sized photos (originals in placeholder-images/, not committed)
 ```
 
@@ -52,7 +53,7 @@ Blocks that share a look are grouped by style in their own folder and named `<st
   - `data-reveal`: the element fades up as it scrolls into view (e.g. each list row).
   - `data-reveal-stagger`: its children fade up one after another (e.g. the hero).
   - `data-reveal-words`: heading words slide up out of a mask.
-- **Parallax:** add `data-parallax` to any `__media` frame and its image drifts as it scrolls past. Pure CSS (`animation-timeline: view()`), no JS. Chrome, Edge and Safari 26+; other browsers and reduced motion get a still image.
+- **Parallax:** add `data-parallax` to any `__media` frame and its image drifts as it scrolls past. CSS scroll-driven animation in Chrome, Edge, Arc and Safari 26+ (no JS); `js/parallax.js` covers Firefox. Off for reduced motion. Frames use `overflow: clip` — `hidden` would break the CSS version.
 - **Icons:** [Lucide](https://lucide.dev), pasted inline as SVG so they take the text colour.
 - **Images:** put an `<img>` in a block's `__media` frame and it fills it. Export at about 2x the size it shows (list ~800px wide, tall block ~1000px) and keep each under ~300KB.
 - **Modern list image shape:** portrait by default; add `modern-list__media--landscape` for 3:2.
