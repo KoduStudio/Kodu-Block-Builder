@@ -40,7 +40,7 @@ New layouts of the same block get their own name and file, e.g. `faq-accordion.c
 
 ## Notes
 
-- **Fonts:** the design uses SF Pro, which can't be licensed for the web. It shows on Apple devices; everything else falls back to the system font. Set a client web font in `--font-primary` / `--font-body`.
+- **Fonts:** Inter Tight (headings, eyebrows, buttons) and Inter (body), loaded from Google Fonts in `index.html`. For a client, change the Google Fonts link and `--font-primary` / `--font-body`.
 - **Buttons:** `.btn` is Square / 36 / Fill. Add `btn--44`, `btn--pill` and `btn--outline` to match the Figma variants.
 - **List images:** the orange box is a placeholder. Put an `<img>` inside `.list-modern__media` and it fills the frame.
 - **List numbers** (01, 02, …) are automatic.

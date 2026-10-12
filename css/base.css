@@ -18,9 +18,9 @@
   --btn-outline-border: #8b8b8b;
 
   /* Type */
-  --font-primary: "SF Pro Display", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font-primary: "Inter Tight", system-ui, sans-serif; /* eyebrows, buttons */
   --font-heading: var(--font-primary);
-  --font-body: "SF Pro Text", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
 
   --heading-xl: clamp(48px, 5.6vw, 84px); /* Headings/80 */
   --eyebrow: 20px;                        /* Labels/Eyebrow 20 */
