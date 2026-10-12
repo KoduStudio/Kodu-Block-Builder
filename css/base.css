@@ -40,6 +40,10 @@
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --roll-dur: 0.55s;
   --roll-step: 16ms; /* stagger between letters */
+  --reveal-dur: 1s;
+  --reveal-y: 24px;
+  --reveal-step: 90ms; /* stagger between items */
+  --word-step: 40ms;   /* stagger between heading words */
 }
 
 /* ---------- Reset ---------- */
@@ -144,4 +148,36 @@ a { color: inherit; text-decoration: none; }
 
 @media (hover: none), (prefers-reduced-motion: reduce) {
   .roll .char { transition: none; }
+}
+
+/* ---------- Load-in reveals (js/reveal.js) ----------
+   Hidden states only apply when JS runs (.js on <html>) and motion is allowed. */
+
+.word {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  padding-block: 0.1em;   /* room for ascenders/descenders inside the mask */
+  margin-block: -0.1em;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .js [data-reveal],
+  .js [data-reveal-stagger] > :not([data-reveal-words]) {
+    opacity: 0;
+    transform: translateY(var(--reveal-y));
+    transition: opacity var(--reveal-dur) var(--ease), transform var(--reveal-dur) var(--ease);
+    transition-delay: calc(var(--reveal-i, 0) * var(--reveal-step));
+  }
+
+  .js .word > span {
+    display: inline-block;
+    transform: translateY(120%);
+    transition: transform var(--reveal-dur) var(--ease);
+    transition-delay: calc(var(--reveal-i, 0) * var(--reveal-step) + var(--word-i) * var(--word-step));
+  }
+
+  .js .is-in[data-reveal],
+  .js .is-in[data-reveal-stagger] > *,
+  .js .is-in .word > span { opacity: 1; transform: none; }
 }

@@ -53,10 +53,11 @@
   .list-modern__media { grid-column: 3 / span 4; }
 }
 
+/* Mobile: number | title, text under the title, full-width image */
 @media (max-width: 767px) {
-  .list-modern__item { row-gap: 16px; }
-  .list-modern__item::before { grid-column: 1 / span 2; }
-  .list-modern__title { grid-column: 3 / -1; }
-  .list-modern__text { grid-column: 1 / -1; }
-  .list-modern__media { grid-column: 1 / span 6; }
+  .list-modern__item { row-gap: 40px; font-size: var(--body); }
+  .list-modern__item::before { grid-column: 1 / span 3; }
+  .list-modern__title,
+  .list-modern__text { grid-column: 4 / -1; }
+  .list-modern__media { grid-column: 1 / -1; }
 }

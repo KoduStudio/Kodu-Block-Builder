@@ -20,6 +20,7 @@ css/base.css            brand tokens, reset, grid, type, buttons
 css/blocks/<name>.css   one file per block
 js/smooth-scroll.js     Lenis smooth scroll (loaded from jsDelivr)
 js/roll.js              staggered text roll on button hover
+js/reveal.js            load-in reveals as blocks scroll into view
 assets/                 logo and images
 ```
 
@@ -45,6 +46,10 @@ New layouts of the same block get their own name and file, e.g. `faq-accordion.c
 - **Fonts:** Inter Tight (headings, eyebrows, buttons) and Inter (body), loaded from Google Fonts in `index.html`. For a client, change the Google Fonts link and `--font-primary` / `--font-body`.
 - **Buttons:** `.btn` is Square / 36 / Fill. Add `btn--44`, `btn--pill` and `btn--outline` to match the Figma variants.
 - **Hover roll:** every `.btn` gets the staggered letter roll from kodudesignlab.com. Add `data-roll` to any other link to opt in. Speed and stagger are `--roll-dur` / `--roll-step` in `base.css`.
+- **Load-ins:** add to any element in a block. CSS transitions on transform/opacity only, so they stay smooth on slow devices. Timing is `--reveal-*` / `--word-step` in `base.css`. Off for reduced motion.
+  - `data-reveal`: the element fades up as it scrolls into view (e.g. each list row).
+  - `data-reveal-stagger`: its children fade up one after another (e.g. the hero).
+  - `data-reveal-words`: heading words slide up out of a mask.
 - **List images:** the orange box is a placeholder. Put an `<img>` inside `.list-modern__media` and it fills the frame.
 - **List numbers** (01, 02, …) are automatic.
-- **Mobile:** nav links hide under 768px until there's a mobile menu block.
+- **Mobile:** nav links hide under 768px until there's a mobile menu block. The list stacks to number | title, text under the title, then a full-width image.
