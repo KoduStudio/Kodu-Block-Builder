@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <script>document.documentElement.classList.add('js')</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Heroes — Kodu Block Builder</title>
+  <meta name="description" content="Site description goes here.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;700&family=Inter:wght@400&display=swap">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/blocks/header.css">
+  <link rel="stylesheet" href="css/blocks/hero-centred.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.css">
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.min.js" defer></script>
+  <script src="js/smooth-scroll.js" defer></script>
+  <script src="js/roll.js" defer></script>
+  <script src="js/reveal.js" defer></script>
+  <script src="js/dots.js" defer></script>
+</head>
+<body>
+
+<!-- BLOCK: header -->
+<header class="header" data-reveal>
+  <div class="container grid header__inner">
+    <a class="header__logo" href="index.html" aria-label="Kodu Blocks, home">
+      <img src="assets/logo.svg" alt="Kodu Blocks" width="185" height="20">
+    </a>
+    <nav class="header__nav" aria-label="Main">
+      <a class="header__link" href="heroes.html" aria-current="page">Heroes</a>
+      <a class="header__link" href="lists.html">Lists</a>
+      <a class="header__link" href="image-text.html">Image &amp; Text</a>
+      <a class="btn" href="#">Hero Button</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- BLOCK: hero-centred (options: data-dots, photo circles) -->
+  <section class="hero-centred" data-dots>
+    <div class="container hero-centred__inner" data-reveal-stagger>
+      <ul class="hero-centred__faces" aria-label="Our work">
+        <li><img src="assets/images/hero-face-1.jpg" alt="Wiring at the bench" width="240" height="240"></li>
+        <li><img src="assets/images/hero-face-2.jpg" alt="Electrician on site" width="240" height="240"></li>
+        <li><img src="assets/images/hero-face-3.jpg" alt="Testing a switchboard" width="240" height="240"></li>
+      </ul>
+      <h1 class="heading-xl hero-centred__heading" data-reveal-words>Centred heading goes here</h1>
+      <p class="hero-centred__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at iaculis tellus. Vestibulum leo dui, egestas nec lorem et, accumsan tincidunt eros.</p>
+      <div class="hero-centred__actions">
+        <a class="btn btn--44 btn--pill" href="#">Hero Button</a>
+        <a class="btn btn--44 btn--pill btn--outline" href="#">Hero Button</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOCK: hero-centred (no options: eyebrow only) -->
+  <section class="hero-centred">
+    <div class="container hero-centred__inner" data-reveal-stagger>
+      <p class="eyebrow hero-centred__eyebrow">Eyebrow here</p>
+      <h2 class="heading-xl hero-centred__heading" data-reveal-words>Centred heading goes here</h2>
+      <p class="hero-centred__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at iaculis tellus. Vestibulum leo dui, egestas nec lorem et, accumsan tincidunt eros.</p>
+      <div class="hero-centred__actions">
+        <a class="btn btn--44 btn--pill" href="#">Hero Button</a>
+        <a class="btn btn--44 btn--pill btn--outline" href="#">Hero Button</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+</body>
+</html>

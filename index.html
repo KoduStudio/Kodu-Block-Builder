@@ -14,14 +14,11 @@
   <link rel="stylesheet" href="css/blocks/hero-centred.css">
   <link rel="stylesheet" href="css/blocks/marquee.css">
   <link rel="stylesheet" href="css/blocks/services-bento.css">
-  <link rel="stylesheet" href="css/blocks/modern/list.css">
-  <link rel="stylesheet" href="css/blocks/modern/tall-image-text.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.css">
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.min.js" defer></script>
   <script src="js/smooth-scroll.js" defer></script>
   <script src="js/roll.js" defer></script>
   <script src="js/reveal.js" defer></script>
-  <script src="js/parallax.js" defer></script>
   <script src="js/dots.js" defer></script>
   <script src="js/marquee.js" defer></script>
 </head>
@@ -30,15 +27,13 @@
 <!-- BLOCK: header -->
 <header class="header" data-reveal>
   <div class="container grid header__inner">
-    <a class="header__logo" href="/" aria-label="Kodu Blocks, home">
+    <a class="header__logo" href="index.html" aria-label="Kodu Blocks, home">
       <img src="assets/logo.svg" alt="Kodu Blocks" width="185" height="20">
     </a>
     <nav class="header__nav" aria-label="Main">
-      <a class="header__link" href="#">NavItem</a>
-      <a class="header__link" href="#">NavItem</a>
-      <a class="header__link" href="#">NavItem</a>
-      <a class="header__link" href="#">NavItem</a>
-      <a class="header__link" href="#">NavItem</a>
+      <a class="header__link" href="heroes.html">Heroes</a>
+      <a class="header__link" href="lists.html">Lists</a>
+      <a class="header__link" href="image-text.html">Image &amp; Text</a>
       <a class="btn" href="#">Hero Button</a>
     </nav>
   </div>
@@ -112,63 +107,6 @@
           <p class="text-lg">Fault finding</p>
           <span class="services-bento__go" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
         </a>
-    </div>
-  </section>
-
-  <!-- BLOCK: hero-centred (no options: eyebrow only) -->
-  <section class="hero-centred">
-    <div class="container hero-centred__inner" data-reveal-stagger>
-      <p class="eyebrow hero-centred__eyebrow">Eyebrow here</p>
-      <h2 class="heading-xl hero-centred__heading" data-reveal-words>Centred heading goes here</h2>
-      <p class="hero-centred__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at iaculis tellus. Vestibulum leo dui, egestas nec lorem et, accumsan tincidunt eros.</p>
-      <div class="hero-centred__actions">
-        <a class="btn btn--44 btn--pill" href="#">Hero Button</a>
-        <a class="btn btn--44 btn--pill btn--outline" href="#">Hero Button</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- BLOCK: modern-list -->
-  <section class="container modern-list">
-    <ol class="modern-list__items">
-      <li class="grid text-lg modern-list__item" data-reveal>
-        <h3 class="modern-list__title">Research</h3>
-        <p class="modern-list__text">Our best ideas start with knowing our clients. And our clients' clients. The deeper the connection, the more distinctive the design.</p>
-        <div class="modern-list__media" data-parallax>
-          <img src="assets/images/person-on-rock.jpg" alt="Person standing on a rock" width="800" height="1200" loading="lazy" decoding="async">
-        </div>
-      </li>
-      <li class="grid text-lg modern-list__item" data-reveal>
-        <h3 class="modern-list__title">Storyline</h3>
-        <p class="modern-list__text">We begin by scripting a narrative or storyline that informs every decision. The result is design that feels rooted, intentional, and alive.</p>
-        <div class="modern-list__media modern-list__media--landscape" data-parallax>
-          <img src="assets/images/cattle-in-field.jpg" alt="Cattle grazing in a field" width="800" height="533" loading="lazy" decoding="async">
-        </div>
-      </li>
-      <li class="grid text-lg modern-list__item" data-reveal>
-        <h3 class="modern-list__title">Creation</h3>
-        <p class="modern-list__text">The story unfolds with through a series of memorable experiences. From big, bold gestures to the smallest of details, every element builds the foundation for an emotional connection with the guest.</p>
-        <div class="modern-list__media" data-parallax>
-          <img src="assets/images/concrete-road.jpg" alt="Concrete road" width="800" height="1200" loading="lazy" decoding="async">
-        </div>
-      </li>
-    </ol>
-  </section>
-
-  <!-- BLOCK: modern-tall-image-text -->
-  <section class="container grid modern-tall-image-text">
-    <div class="modern-tall-image-text__content">
-      <h2 class="modern-tall-image-text__heading" data-reveal-words>A big statement about the brand goes here, set across a few confident lines that hold the space.</h2>
-      <div class="text-lg modern-tall-image-text__footer" data-reveal>
-        <p class="modern-tall-image-text__text">A supporting paragraph that introduces the approach. Keep it to a few sentences that explain what makes the work distinctive and why it matters to the people it's for.</p>
-        <a class="modern-tall-image-text__link" href="#">
-          <span data-roll>Let's work together</span>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg><!-- Lucide arrow-right -->
-        </a>
-      </div>
-    </div>
-    <div class="modern-tall-image-text__media" data-reveal data-parallax>
-      <img src="assets/images/mountain-water.jpg" alt="Mountain above a lake" width="1000" height="1500" loading="lazy" decoding="async">
     </div>
   </section>
 
