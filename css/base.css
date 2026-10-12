@@ -323,7 +323,7 @@ a:focus-visible .roll .char { transform: translateY(-100%); }
 }
 
 @media (max-width: 767px) {
-  :root { --header-h: 70px; } /* 1rem + 38px Menu button + 1rem */
+  :root { --header-h: 78px; } /* 20px + 38px Menu button + 20px */
   [data-dots] { --dot-gap: 32px; --dot-r: 260px; }
 }
 

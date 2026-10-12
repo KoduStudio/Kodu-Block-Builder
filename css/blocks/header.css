@@ -49,7 +49,7 @@
 
 /* Mobile: smaller logo + Menu button */
 @media (max-width: 767px) {
-  .header { padding-block: 1rem; }
+  .header { padding-block: 20px; }
   .header__logo { grid-column: 1 / span 7; }
   .header__logo img { width: 140px; height: auto; }
   .header__nav { display: none; }

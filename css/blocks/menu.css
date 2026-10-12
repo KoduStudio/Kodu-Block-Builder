@@ -11,7 +11,7 @@
   max-width: none;
   max-height: none;
   margin: 0;
-  padding: 1rem var(--margin); /* top matches the mobile header */
+  padding: 20px var(--margin); /* top matches the mobile header */
   border: 0;
   background: var(--text-primary);
   color: var(--text-on-image);
