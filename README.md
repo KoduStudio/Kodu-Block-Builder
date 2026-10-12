@@ -15,7 +15,7 @@ Then open http://localhost:3200.
 ## Structure
 
 ```
-index.html              home: dots hero, marquee
+index.html              home: a full example page (hero, marquee, services, image + text, list, FAQ, CTA)
 heroes.html             block library: hero variants
 lists.html              block library: lists, FAQs
 image-text.html         block library: image + text blocks
