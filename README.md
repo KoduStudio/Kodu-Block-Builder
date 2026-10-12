@@ -18,6 +18,7 @@ Then open http://localhost:3200.
 index.html              page: blocks stacked in order, each marked <!-- BLOCK: name -->
 css/base.css            brand tokens, reset, grid, type, buttons
 css/blocks/<name>.css   one file per block
+js/smooth-scroll.js     Lenis smooth scroll (loaded from jsDelivr)
 js/roll.js              staggered text roll on button hover
 assets/                 logo and images
 ```
