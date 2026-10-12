@@ -41,7 +41,8 @@
   --max: 1680px;
   --radius: 16px;
   --header-h: 84px;
-  --marquee-h: 93px;
+  --marquee-pad: 1.25rem;
+  --marquee-h: calc(var(--marquee-pad) * 2 + var(--body-lg) * 1.44); /* used by the hero */
 
   /* Motion */
   --ease: cubic-bezier(0.22, 1, 0.36, 1);

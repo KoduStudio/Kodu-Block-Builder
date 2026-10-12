@@ -4,7 +4,7 @@
 
 .marquee {
   --marquee-gap: clamp(24px, 3.2vw, 48px);
-  height: var(--marquee-h);
+  padding-block: var(--marquee-pad);
   display: flex;
   align-items: center;
   overflow: clip;
