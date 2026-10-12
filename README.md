@@ -36,7 +36,7 @@ js/marquee.js           endless marquee: fills any screen width, seamless loop
 js/menu.js              mobile menu open/close (header)
 js/header.js            header hides on scroll down, slides back on scroll up
 js/faq.js               smooth FAQ accordion in every browser
-assets/favicon.png      browser tab icon (192px, from BlockBuilder_thumbnail.png)
+assets/favicon.png      browser tab icon (192px, made from assets/BlockBuilder_thumbnail.png)
 assets/images/          web-sized photos (originals in placeholder-images/, not committed)
 ```
 
