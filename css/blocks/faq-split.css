@@ -23,7 +23,6 @@
 
 .faq-split__item {
   border-top: 1px solid var(--neutral-100);
-  interpolate-size: allow-keywords;
 }
 .faq-split__item:last-child { border-bottom: 1px solid var(--neutral-100); }
 

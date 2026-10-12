@@ -3,59 +3,53 @@
 // "one open at a time" itself so the previous answer glides shut instead of
 // snapping (which made the page jump). Without JS, native <details> still works.
 
-const FAQ_EASE = 'cubic-bezier(0.22, 1, 0.36, 1)';
-const faqDuration = matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 450;
+const ease = getComputedStyle(document.documentElement).getPropertyValue('--ease').trim();
+const duration = matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 450;
+const accordions = new Map(); // <details> -> { group, close }
 
 document.querySelectorAll('.faq-split__item').forEach(item => {
   const group = item.getAttribute('name');
-  item.removeAttribute('name'); // we handle exclusivity, animated
-  if (group) item.dataset.group = group;
-
-  const summary = item.querySelector('summary');
+  item.removeAttribute('name'); // exclusivity is handled below, animated
   const answer = item.querySelector('.faq-split__a');
+  let anim = null;
 
-  const animate = (from, to, done) => {
-    item._anim?.cancel();
+  const closing = () => item.classList.contains('is-closing');
+
+  const animateHeight = (from, to, done) => {
     item.style.overflow = 'clip';
-    const anim = item.animate({ height: [`${from}px`, `${to}px`] }, { duration: faqDuration, easing: FAQ_EASE });
-    item._anim = anim;
+    anim = item.animate({ height: [`${from}px`, `${to}px`] }, { duration, easing: ease });
     anim.finished
-      .then(() => { item.style.overflow = ''; item._anim = null; done?.(); })
+      .then(() => { item.style.overflow = ''; anim = null; done?.(); })
       .catch(() => {}); // cancelled: the next animation takes over
   };
 
-  item.openSmooth = () => {
-    const from = item.getBoundingClientRect().height;
+  const open = () => {
+    const from = item.getBoundingClientRect().height; // may be mid-animation
+    anim?.cancel();
     item.classList.remove('is-closing');
     item.open = true;
-    item._anim?.cancel();
-    animate(from, item.getBoundingClientRect().height);
-    answer.animate({ opacity: [0, 1] }, { duration: faqDuration, easing: FAQ_EASE });
+    animateHeight(from, item.getBoundingClientRect().height);
+    answer.animate({ opacity: [0, 1] }, { duration, easing: ease });
   };
 
-  item.closeSmooth = () => {
-    if (!item.open || item.classList.contains('is-closing')) return;
+  const close = () => {
+    if (!item.open || closing()) return;
     const from = item.getBoundingClientRect().height; // may be mid-animation
-    item._anim?.cancel();
-    const closed = item.getBoundingClientRect().height - answer.offsetHeight; // full height minus answer
+    anim?.cancel();
+    const to = item.getBoundingClientRect().height - answer.offsetHeight;
     item.classList.add('is-closing');
-    animate(from, closed, () => {
+    animateHeight(from, to, () => {
       item.open = false;
       item.classList.remove('is-closing');
     });
   };
 
-  summary.addEventListener('click', e => {
+  accordions.set(item, { group, close });
+
+  item.querySelector('summary').addEventListener('click', e => {
     e.preventDefault();
-    if (item.open && !item.classList.contains('is-closing')) {
-      item.closeSmooth();
-      return;
-    }
-    if (item.dataset.group) {
-      document.querySelectorAll(`.faq-split__item[data-group="${item.dataset.group}"]`).forEach(other => {
-        if (other !== item) other.closeSmooth();
-      });
-    }
-    item.openSmooth();
+    if (item.open && !closing()) return close();
+    if (group) accordions.forEach((a, other) => { if (other !== item && a.group === group) a.close(); });
+    open();
   });
 });

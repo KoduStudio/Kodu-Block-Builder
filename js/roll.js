@@ -3,8 +3,8 @@
 // Applies to every .btn, and to anything else marked data-roll. Only the text
 // label rolls, so icons inside a button are left alone.
 
-const escape = ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' })[ch] || ch;
-const chars = text => [...text].map((ch, i) => `<span class="char" style="--i:${i}">${escape(ch)}</span>`).join('');
+const escapeHtml = ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' })[ch] || ch;
+const chars = text => [...text].map((ch, i) => `<span class="char" style="--i:${i}">${escapeHtml(ch)}</span>`).join('');
 
 document.querySelectorAll('.btn, [data-roll]').forEach(el => {
   const label = [...el.childNodes].find(n => n.nodeType === Node.TEXT_NODE && n.textContent.trim());

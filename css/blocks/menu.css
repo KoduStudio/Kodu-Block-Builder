@@ -35,19 +35,6 @@
   filter: brightness(0) invert(1); /* logo in white */
 }
 
-.menu__close {
-  position: relative;
-  min-height: 38px; /* same as the header's Menu button */
-  padding: 0;
-  border: 0;
-  background: none;
-  color: inherit;
-  font-size: var(--body-lg);
-  line-height: 1.4;
-  cursor: pointer;
-}
-.menu__close::before { content: ""; position: absolute; inset: -3px 0; } /* 44px tap area */
-
 .menu__label {
   margin-top: 80px;
   padding-bottom: 20px;

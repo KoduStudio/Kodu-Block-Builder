@@ -109,23 +109,20 @@ button { font: inherit; color: inherit; }
   text-transform: uppercase;
 }
 
-.heading-xl {
-  font-family: var(--font-heading);
-  font-size: var(--heading-xl);
-  font-weight: 700;
-  line-height: 1.04;
-}
+.heading-xl,
+.heading-lg,
+.heading-48 { font-family: var(--font-heading); }
 
+.heading-xl,
 .heading-lg {
-  font-family: var(--font-heading);
-  font-size: var(--heading-lg);
   font-weight: 700;
   line-height: 1.04;
 }
+.heading-xl { font-size: var(--heading-xl); }
+.heading-lg { font-size: var(--heading-lg); }
 
 /* Two-tone heading: wrap the second line in <span> (CTA, icon list) */
 .heading-48 {
-  font-family: var(--font-heading);
   font-size: var(--heading-48);
   font-weight: 600;
   line-height: 1.1;
@@ -134,7 +131,6 @@ button { font: inherit; color: inherit; }
 .heading-48 > span { display: block; color: var(--text-soft); }
 
 /* Large body text (Modern list rows, intro paragraphs) */
-
 .text-lg {
   font-size: var(--body-lg);
   line-height: 1.44;
@@ -174,6 +170,20 @@ button { font: inherit; color: inherit; }
   color: var(--btn-outline-text);
 }
 
+/* Text button: label only, no box. Hugs its text (min 38px tall) with an
+   invisible 44px tap area. Used by the mobile Menu / Close buttons. */
+.text-btn {
+  position: relative;
+  min-height: 38px;
+  padding: 0;
+  border: 0;
+  background: none;
+  font-size: var(--body-lg);
+  line-height: 1.4;
+  cursor: pointer;
+}
+.text-btn::before { content: ""; position: absolute; inset: -3px 0; }
+
 /* ---------- Text roll on hover (js/roll.js) ---------- */
 
 .roll {
@@ -190,10 +200,7 @@ button { font: inherit; color: inherit; }
   transition: transform var(--roll-dur) var(--ease);
   transition-delay: calc(var(--i) * var(--roll-step));
 }
-:hover > .roll .char,
-:focus-visible > .roll .char,
-a:hover .roll .char,
-a:focus-visible .roll .char { transform: translateY(-100%); }
+:is(a, button):is(:hover, :focus-visible) .roll .char { transform: translateY(-100%); }
 
 @media (hover: none), (prefers-reduced-motion: reduce) {
   .roll .char { transition: none; }

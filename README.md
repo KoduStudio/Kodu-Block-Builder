@@ -12,6 +12,8 @@ npx serve . -l 3200
 
 Then open http://localhost:3200.
 
+The scripts are ES modules (`<script type="module">`), so each file keeps its own scope. Modules need a server: open the site through `npx serve` (or Vercel), not by double-clicking the HTML file.
+
 ## Structure
 
 ```
@@ -79,6 +81,7 @@ If a marquee comes straight after the hero, they fill the first screen together.
 ## Notes
 
 - **Fonts:** Inter Tight (headings, eyebrows, buttons) and Inter (body), loaded from Google Fonts in `index.html`. For a client, change the Google Fonts link and `--font-primary` / `--font-body`.
+- **Text buttons:** `.text-btn` is a label-only button (no box) that hugs its text at min 38px tall with a 44px tap area. Used for the mobile Menu / Close.
 - **Buttons:** `.btn` is Square / 36 / Fill. Add `btn--44`, `btn--pill` and `btn--outline` to match the Figma variants. For an icon, put an inline SVG after the label (`<a class="btn">Label <svg…></a>`); it nudges right on hover and the label still rolls.
 - **Two-tone headings:** `.heading-48` with the second line in a `<span>` (CTA, icon list).
 - **Icon list:** built for 4 items but any number shares the row; 2 x 2 on tablet, stacked on mobile.
