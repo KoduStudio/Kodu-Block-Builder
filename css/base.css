@@ -200,12 +200,13 @@ a:focus-visible .roll .char { transform: translateY(-100%); }
 
 @media (prefers-reduced-motion: no-preference) {
   /* Blocks: one-shot animation (not a transition) so it never takes over an
-     element's own hover transitions once it has played */
+     element's own hover transitions once it has played. Background images
+     sitting directly in a stagger group are skipped (they may have parallax). */
   .js [data-reveal]:not(.is-in),
-  .js [data-reveal-stagger]:not(.is-in) > :not([data-reveal-words]) { opacity: 0; }
+  .js [data-reveal-stagger]:not(.is-in) > :not([data-reveal-words], img) { opacity: 0; }
 
   .js .is-in[data-reveal],
-  .js .is-in[data-reveal-stagger] > :not([data-reveal-words]) {
+  .js .is-in[data-reveal-stagger] > :not([data-reveal-words], img) {
     animation: reveal var(--reveal-dur) var(--ease) backwards;
     animation-delay: calc(var(--reveal-i, 0) * var(--reveal-step));
   }
