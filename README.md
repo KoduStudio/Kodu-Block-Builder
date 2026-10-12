@@ -15,9 +15,9 @@ Then open http://localhost:3200.
 ## Structure
 
 ```
-index.html              home: a full example page (hero, marquee, services, image + text, list, FAQ, CTA)
+index.html              home: a full example page (hero, marquee, services, icon list, image + text, list, FAQ, CTA)
 heroes.html             block library: hero variants
-lists.html              block library: lists, FAQs
+lists.html              block library: lists, icon list, FAQs
 image-text.html         block library: image + text blocks
 cards.html              block library: cards
 ctas.html               block library: calls to action
@@ -46,6 +46,7 @@ The nav links to one page per block type, so the library stays easy to browse as
 | Hero, centred             | `.hero-centred`            | Hero_Simple_Centred (+ Image w. Dots) |
 | Marquee info bar          | `.marquee`                 | Marquee Info Bar                    |
 | Services bento            | `.services-bento`          | from the Tarlo site                 |
+| Icon list, simple         | `.icon-list`               | Icon Simple List                    |
 | FAQ, split                | `.faq-split`               | ref: marketer.com                   |
 | CTA, centred frame        | `.cta-centred-frame`       | Centred Frame CTA                   |
 | Modern list               | `.modern-list`             | List_Modern                         |
@@ -74,6 +75,8 @@ If a marquee comes straight after the hero, they fill the first screen together.
 
 - **Fonts:** Inter Tight (headings, eyebrows, buttons) and Inter (body), loaded from Google Fonts in `index.html`. For a client, change the Google Fonts link and `--font-primary` / `--font-body`.
 - **Buttons:** `.btn` is Square / 36 / Fill. Add `btn--44`, `btn--pill` and `btn--outline` to match the Figma variants. For an icon, put an inline SVG after the label (`<a class="btn">Label <svg…></a>`); it nudges right on hover and the label still rolls.
+- **Two-tone headings:** `.heading-48` with the second line in a `<span>` (CTA, icon list).
+- **Icon list:** built for 4 items but any number shares the row; 2 x 2 on tablet, stacked on mobile.
 - **CTA gradient:** mixed from `--brand` with `color-mix()`, so it follows the client colour.
 - **CTA background image (option):** add `<img class="cta-centred-frame__bg">` as the panel's first child. The photo covers the gradient under `--overlay` and the text switches to `--text-on-image`. Add `data-parallax` to the panel for the drift. Remove the `<img>` to go back to the gradient.
 - **Hover roll:** every `.btn` gets the staggered letter roll from kodudesignlab.com. Add `data-roll` to any other link to opt in. Speed and stagger are `--roll-dur` / `--roll-step` in `base.css`.

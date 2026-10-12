@@ -115,13 +115,24 @@ a { color: inherit; text-decoration: none; }
   line-height: 1.04;
 }
 
-/* Large body text (Modern list rows, intro paragraphs) */
 .heading-lg {
   font-family: var(--font-heading);
   font-size: var(--heading-lg);
   font-weight: 700;
   line-height: 1.04;
 }
+
+/* Two-tone heading: wrap the second line in <span> (CTA, icon list) */
+.heading-48 {
+  font-family: var(--font-heading);
+  font-size: var(--heading-48);
+  font-weight: 600;
+  line-height: 1.1;
+  text-wrap: balance;
+}
+.heading-48 > span { display: block; color: var(--text-soft); }
+
+/* Large body text (Modern list rows, intro paragraphs) */
 
 .text-lg {
   font-size: var(--body-lg);

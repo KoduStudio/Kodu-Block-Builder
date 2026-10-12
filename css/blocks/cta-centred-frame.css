@@ -24,14 +24,6 @@
   text-align: center;
 }
 
-.cta-centred-frame__heading {
-  font-family: var(--font-heading);
-  font-size: var(--heading-48);
-  font-weight: 600;
-  line-height: 1.1;
-  text-wrap: balance;
-}
-.cta-centred-frame__heading span { display: block; color: var(--text-soft); }
 
 .cta-centred-frame__text { max-width: 492px; }
 
