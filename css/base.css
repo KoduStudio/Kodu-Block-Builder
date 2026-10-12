@@ -5,28 +5,37 @@
    ========================================================================== */
 
 :root {
-  /* Colour */
-  --brand: #ff3c1a;              /* Brand/Hot Orange-500 */
-  --bg-primary: #eeeeee;         /* Background/bg-primary */
-  --text-primary: #222222;       /* Text/text-primary */
-  --text-secondary: #eeeeee;     /* Text/text-secondary — on brand colour */
-  --text-muted: rgb(34 34 34 / 0.55); /* answers, secondary lines */
-  --text-soft: #525252;          /* second line of two-tone headings */
-  --text-tertiary: #757575;      /* lighter second line (FAQ heading) */
-  --text-on-image: #ffffff;      /* text over photos */
-  --overlay: rgb(17 17 17 / 0.5); /* darkens photos behind text */
-  --neutral-200: #afafaf;        /* Neutral/200 — dividers */
-  --neutral-100: #d9d9d9;        /* light borders, dot grid */
-  --neutral-600: #4b4b4b;        /* Neutral/600 — FAQ answers */
+  /* Neutrals (Figma Neutral/50–900): the base for every grey below */
+  --neutral-50:  #eeeeee;
+  --neutral-100: #c9c9c9;
+  --neutral-200: #afafaf;
+  --neutral-300: #8b8b8b;
+  --neutral-400: #757575;
+  --neutral-500: #525252;
+  --neutral-600: #4b4b4b;
+  --neutral-700: #3a3a3a;
+  --neutral-800: #2d2d2d;
+  --neutral-900: #222222;
+  --white: #ffffff;
   --black: #000000;
-  --dot: var(--neutral-100);
-  --surface: #ffffff;            /* cards */
+
+  /* Colour */
+  --brand: #ff3c1a;                       /* Brand/Hot Orange-500 */
+  --bg-primary: var(--neutral-50);        /* Background/bg-primary */
+  --text-primary: var(--neutral-900);     /* Text/text-primary */
+  --text-secondary: var(--neutral-50);    /* Text/text-secondary — on brand colour */
+  --text-soft: var(--neutral-500);        /* second line of two-tone headings */
+  --text-tertiary: var(--neutral-400);    /* lighter second line (FAQ heading) */
+  --text-on-image: var(--white);          /* text over photos */
+  --overlay: rgb(17 17 17 / 0.5);         /* darkens photos behind text */
+  --surface: var(--white);                /* cards */
+  --dot: #d9d9d9;                         /* dot field grid (Figma hero dots) */
 
   --btn-primary-bg: var(--brand);
-  --btn-primary-text: #ffffff;
+  --btn-primary-text: var(--white);
   --btn-outline-bg: transparent;
   --btn-outline-text: var(--text-primary);
-  --btn-outline-border: #8b8b8b;
+  --btn-outline-border: var(--neutral-300);
 
   /* Type */
   --font-primary: "Inter Tight", system-ui, sans-serif; /* eyebrows, buttons */

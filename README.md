@@ -74,7 +74,7 @@ If a marquee comes straight after the hero, they fill the first screen together.
 ## New client site
 
 1. Copy this repo.
-2. Edit the tokens in the `:root` block of `css/base.css`: colours, fonts, spacing.
+2. Edit the tokens in the `:root` block of `css/base.css`: colours, fonts, spacing. Greys come from the Neutral 50–900 scale (Figma); text and background colours point at it, so a client's greys are changed in one place.
 3. Swap `assets/logo.svg`.
 4. Build each page from blocks copied out of the library pages, keeping the `<link>`/`<script>` tags they need, then add the content.
 

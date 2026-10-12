@@ -19,7 +19,7 @@
   padding: var(--section-sm) var(--margin);
   border-radius: 32px;
   background: linear-gradient(143.5deg,
-    color-mix(in srgb, var(--brand) 55%, #fff) 26%,
+    color-mix(in srgb, var(--brand) 55%, var(--white)) 26%,
     color-mix(in srgb, var(--brand) 17%, #f3f3f3) 75%);
   text-align: center;
 }
