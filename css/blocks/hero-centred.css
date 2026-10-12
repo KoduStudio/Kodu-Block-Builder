@@ -1,0 +1,25 @@
+/* Hero — Simple Centred (Figma Hero_Simple_Centred)
+   Fills the first screen under the header. */
+
+.hero-centred {
+  min-height: calc(100svh - var(--header-h));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--text-gap-md);
+  padding-bottom: 72px;
+  text-align: center;
+}
+
+.hero-centred__heading { max-width: 688px; }
+
+.hero-centred__eyebrow,
+.hero-centred__text { max-width: 450px; }
+
+.hero-centred__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}

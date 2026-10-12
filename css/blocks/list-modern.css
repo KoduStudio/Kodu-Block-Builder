@@ -1,0 +1,62 @@
+/* List — Modern (Figma List_Modern)
+   Numbered rows: number · title · text · image. Numbers are automatic. */
+
+.list-modern {
+  padding-block: var(--section-md);
+}
+
+.list-modern__items {
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+  counter-reset: item;
+}
+
+.list-modern__item {
+  counter-increment: item;
+  align-items: start;
+  padding-top: 24px;
+  border-top: 1px solid var(--neutral-200);
+  font-size: var(--body-lg);
+  line-height: 1.44;
+}
+
+.list-modern__item::before {
+  content: counter(item, decimal-leading-zero);
+  grid-column: 1 / span 2;
+}
+
+.list-modern__title {
+  grid-column: 3 / span 3;
+  font: inherit;
+}
+
+.list-modern__text { grid-column: 6 / span 4; }
+
+/* Placeholder colour shows until an <img> is dropped inside */
+.list-modern__media {
+  grid-column: 11 / span 2;
+  aspect-ratio: 216 / 296;
+  background: var(--brand);
+  overflow: hidden;
+}
+.list-modern__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 1023px) {
+  .list-modern__item { row-gap: 24px; }
+  .list-modern__title { grid-column: 3 / span 4; }
+  .list-modern__text { grid-column: 7 / span 6; }
+  .list-modern__media { grid-column: 3 / span 4; }
+}
+
+@media (max-width: 767px) {
+  .list-modern__item { row-gap: 16px; }
+  .list-modern__item::before { grid-column: 1 / span 2; }
+  .list-modern__title { grid-column: 3 / -1; }
+  .list-modern__text { grid-column: 1 / -1; }
+  .list-modern__media { grid-column: 1 / span 6; }
+}

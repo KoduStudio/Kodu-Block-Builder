@@ -1,0 +1,29 @@
+/* Header — logo left, nav + button right (Figma Grid_Container) */
+
+.header {
+  padding-block: 24px;
+}
+
+.header__inner { align-items: center; }
+
+.header__logo { grid-column: 1 / span 3; }
+
+.header__nav {
+  grid-column: 7 / span 6;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 20px;
+}
+
+.header__link {
+  font-size: var(--body);
+  line-height: 1.4;
+}
+.header__link:hover { opacity: 0.6; }
+
+@media (max-width: 767px) {
+  .header__logo { grid-column: 1 / span 7; }
+  .header__nav { grid-column: 8 / span 5; }
+  .header__link { display: none; } /* mobile menu block to come */
+}

@@ -1,0 +1,121 @@
+/* ==========================================================================
+   Kodu Block Builder — base
+   Tokens mirror the Figma variables (Kodu Design Lab – Website Template).
+   Rebrand a client site by editing this :root block only.
+   ========================================================================== */
+
+:root {
+  /* Colour */
+  --brand: #ff3c1a;              /* Brand/Hot Orange-500 */
+  --bg-primary: #eeeeee;         /* Background/bg-primary */
+  --text-primary: #222222;       /* Text/text-primary */
+  --neutral-200: #afafaf;        /* Neutral/200 — dividers */
+
+  --btn-primary-bg: var(--brand);
+  --btn-primary-text: #ffffff;
+  --btn-outline-bg: transparent;
+  --btn-outline-text: var(--text-primary);
+  --btn-outline-border: #8b8b8b;
+
+  /* Type */
+  --font-primary: "SF Pro Display", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font-heading: var(--font-primary);
+  --font-body: "SF Pro Text", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+
+  --heading-xl: clamp(48px, 5.6vw, 84px); /* Headings/80 */
+  --eyebrow: 20px;                        /* Labels/Eyebrow 20 */
+  --body-lg: 20px;
+  --body: 16px;
+  --button: 15px;                         /* Labels/Button */
+
+  /* Space */
+  --margin: clamp(20px, 3.2vw, 48px);      /* Grid/margin */
+  --gutter: clamp(12px, 1.6vw, 24px);      /* Grid/column-gap */
+  --section-md: clamp(64px, 6.9vw, 104px); /* Section/section-md */
+  --text-gap-md: 28px;                     /* Text Gap/text-gap-md */
+  --max: 1512px;
+  --header-h: 84px;
+}
+
+/* ---------- Reset ---------- */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: var(--body);
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, p, ol, ul, figure { margin: 0; }
+ol, ul { padding: 0; list-style: none; }
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+:focus-visible { outline: 2px solid var(--text-primary); outline-offset: 3px; }
+
+/* ---------- Layout ---------- */
+
+.container {
+  max-width: var(--max);
+  margin-inline: auto;
+  padding-inline: var(--margin);
+}
+
+/* 12-column grid (Figma Grid_Main) */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gutter);
+}
+
+/* ---------- Type ---------- */
+
+.eyebrow {
+  font-family: var(--font-primary);
+  font-size: var(--eyebrow);
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+
+.heading-xl {
+  font-family: var(--font-heading);
+  font-size: var(--heading-xl);
+  font-weight: 700;
+  line-height: 1.04;
+}
+
+/* ---------- Buttons ----------
+   Figma "Button" variants: shape Square|Pill, size 36|44, style Fill|Outline.
+   Default = Square / 36 / Fill. */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 15px;
+  border: 1px solid var(--btn-primary-bg);
+  border-radius: 8px;
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+  font-family: var(--font-primary);
+  font-size: var(--button);
+  font-weight: 500;
+  line-height: 1.36;
+  white-space: nowrap;
+  transition: opacity 0.2s;
+}
+.btn:hover { opacity: 0.85; }
+
+.btn--44 { padding: 11px 21px; }
+.btn--pill { border-radius: 999px; }
+.btn--outline {
+  background: var(--btn-outline-bg);
+  border-color: var(--btn-outline-border);
+  color: var(--btn-outline-text);
+}

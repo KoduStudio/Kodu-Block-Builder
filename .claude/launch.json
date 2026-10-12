@@ -1,0 +1,6 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    { "name": "kodu-blocks", "runtimeExecutable": "npx", "runtimeArgs": ["--yes", "serve", ".", "-l", "3200"], "port": 3200 }
+  ]
+}
