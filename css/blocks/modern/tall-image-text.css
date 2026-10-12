@@ -1,5 +1,5 @@
 /* Modern — Tall Image + Text (ref: studiodado.com/approach)
-   Big uppercase statement top left, intro + link pinned to the bottom,
+   Big statement top left, intro + link pinned to the bottom,
    tall portrait image in the last 5 columns. */
 
 .modern-tall-image-text {
@@ -22,7 +22,6 @@
   font-weight: 500;
   line-height: 1.02;
   letter-spacing: -0.02em;
-  text-transform: uppercase;
 }
 
 .modern-tall-image-text__footer {
