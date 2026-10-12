@@ -17,8 +17,6 @@
   align-items: start;
   padding-top: 24px;
   border-top: 1px solid var(--neutral-200);
-  font-size: var(--body-lg);
-  line-height: 1.44;
 }
 
 .modern-list__item::before {
@@ -52,7 +50,7 @@
 
 /* Mobile: number | title, text under the title, full-width image */
 @media (max-width: 767px) {
-  .modern-list__item { row-gap: 40px; font-size: var(--body); }
+  .modern-list__item { row-gap: 40px; }
   .modern-list__item::before { grid-column: 1 / span 3; }
   .modern-list__title,
   .modern-list__text { grid-column: 4 / -1; }

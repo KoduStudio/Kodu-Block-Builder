@@ -100,6 +100,15 @@ a { color: inherit; text-decoration: none; }
   line-height: 1.04;
 }
 
+/* Large body text (Modern list rows, intro paragraphs) */
+.text-lg {
+  font-size: var(--body-lg);
+  line-height: 1.44;
+}
+@media (max-width: 767px) {
+  .text-lg { font-size: var(--body); }
+}
+
 /* ---------- Buttons ----------
    Figma "Button" variants: shape Square|Pill, size 36|44, style Fill|Outline.
    Default = Square / 36 / Fill. */

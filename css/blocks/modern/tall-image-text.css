@@ -31,9 +31,6 @@
   align-items: start;
   padding-top: var(--gutter);
   border-top: 1px solid var(--neutral-200);
-  font-size: var(--body-lg);
-  line-height: 1.2;
-  letter-spacing: -0.02em;
 }
 
 .modern-tall-image-text__text { grid-column: 1 / span 3; }
@@ -65,7 +62,7 @@
   .modern-tall-image-text__footer,
   .modern-tall-image-text__media { grid-column: 1 / -1; }
   .modern-tall-image-text__media { order: 1; }
-  .modern-tall-image-text__footer { order: 2; row-gap: 24px; font-size: var(--body); }
+  .modern-tall-image-text__footer { order: 2; row-gap: 24px; }
   .modern-tall-image-text__text,
   .modern-tall-image-text__link { grid-column: 1 / -1; justify-self: start; }
 }
