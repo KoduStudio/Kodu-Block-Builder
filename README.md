@@ -18,6 +18,7 @@ Then open http://localhost:3200.
 index.html              page: blocks stacked in order, each marked <!-- BLOCK: name -->
 css/base.css            brand tokens, reset, grid, type, buttons
 css/blocks/<name>.css   one file per block
+css/blocks/<style>/     blocks grouped by style, e.g. modern/
 js/smooth-scroll.js     Lenis smooth scroll (loaded from jsDelivr)
 js/roll.js              staggered text roll on button hover
 js/reveal.js            load-in reveals as blocks scroll into view
@@ -26,13 +27,14 @@ assets/                 logo and images
 
 ## Blocks
 
-| Block          | Class           | Figma frame         |
-| -------------- | --------------- | ------------------- |
-| Header         | `.header`       | Grid_Container      |
-| Hero, centred  | `.hero-centred` | Hero_Simple_Centred |
-| List, modern   | `.list-modern`  | List_Modern         |
+| Block                     | Class                      | Source                              |
+| ------------------------- | -------------------------- | ----------------------------------- |
+| Header                    | `.header`                  | Grid_Container                      |
+| Hero, centred             | `.hero-centred`            | Hero_Simple_Centred                 |
+| Modern list               | `.modern-list`             | List_Modern                         |
+| Modern tall image + text  | `.modern-tall-image-text`  | ref: studiodado.com/approach        |
 
-New layouts of the same block get their own name and file, e.g. `faq-accordion.css`, `faq-split.css`.
+Blocks that share a look are grouped by style in their own folder and named `<style>-<block>`, e.g. `modern/list.css` → `.modern-list`. That way a whole site's worth of blocks in one style can be picked up together.
 
 ## New client site
 
@@ -50,6 +52,6 @@ New layouts of the same block get their own name and file, e.g. `faq-accordion.c
   - `data-reveal`: the element fades up as it scrolls into view (e.g. each list row).
   - `data-reveal-stagger`: its children fade up one after another (e.g. the hero).
   - `data-reveal-words`: heading words slide up out of a mask.
-- **List images:** the orange box is a placeholder. Put an `<img>` inside `.list-modern__media` and it fills the frame.
+- **Images:** the orange boxes are placeholders. Put an `<img>` inside any `__media` element and it fills the frame.
 - **List numbers** (01, 02, …) are automatic.
 - **Mobile:** nav links hide under 768px until there's a mobile menu block. The list stacks to number | title, text under the title, then a full-width image.

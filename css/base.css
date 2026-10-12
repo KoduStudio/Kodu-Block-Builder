@@ -23,6 +23,7 @@
   --font-body: "Inter", system-ui, sans-serif;
 
   --heading-xl: clamp(48px, 5.6vw, 84px); /* Headings/80 */
+  --heading-lg: clamp(36px, 4.67vw, 78px);
   --eyebrow: 20px;                        /* Labels/Eyebrow 20 */
   --body-lg: 20px;
   --body: 16px;
@@ -144,7 +145,9 @@ a { color: inherit; text-decoration: none; }
   transition-delay: calc(var(--i) * var(--roll-step));
 }
 :hover > .roll .char,
-:focus-visible > .roll .char { transform: translateY(-100%); }
+:focus-visible > .roll .char,
+a:hover .roll .char,
+a:focus-visible .roll .char { transform: translateY(-100%); }
 
 @media (hover: none), (prefers-reduced-motion: reduce) {
   .roll .char { transition: none; }

@@ -7,7 +7,7 @@ const chars = text => [...text].map((ch, i) => `<span class="char" style="--i:${
 
 document.querySelectorAll('.btn, [data-roll]').forEach(el => {
   const text = el.textContent.trim();
-  el.setAttribute('aria-label', text);
+  (el.closest('a, button') || el).setAttribute('aria-label', text);
   el.innerHTML =
     `<span class="roll" aria-hidden="true">` +
       `<span class="roll__text">${chars(text)}</span>` +
