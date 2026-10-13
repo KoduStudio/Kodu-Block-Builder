@@ -9,11 +9,9 @@
   align-items: start;
 }
 
-/* Brand colour shows while the image loads */
 .steps-tall-image__media {
   grid-column: 1 / span 5;
   aspect-ratio: 576 / 806;
-  background: var(--brand);
 }
 
 .steps-tall-image__content {
