@@ -1,10 +1,11 @@
-// Header: scrolls away as you scroll down, slides back down (with a blurred
-// backdrop) when you scroll up, and settles back to normal at the top.
-// It only slides back once you're at least 1.5 screen heights down, so it
-// never pops in over the hero; nearer the top it just reappears naturally.
-// Only toggles a class; the motion is CSS (css/blocks/header.css).
+// Header: scrolls away as you scroll down, slides back down as soon as you
+// scroll up, and settles back to normal at the top.
+//   .is-pinned  slid down into view (scrolling up anywhere below the top)
+//   .is-solid   blurred backdrop on, only once you're a screen height down,
+//               so it never sits as a white blur over the hero
+// Only toggles classes; the motion is CSS (css/blocks/header.css).
 
-const PIN_FROM = 1.5; // screen heights from the top
+const SOLID_FROM = 1; // screen heights from the top
 
 const siteHeader = document.querySelector('.header');
 
@@ -13,9 +14,9 @@ if (siteHeader) {
 
   addEventListener('scroll', () => {
     const y = scrollY;
-    const farEnough = y >= innerHeight * PIN_FROM;
-    if (!farEnough || y > lastY + 2) siteHeader.classList.remove('is-pinned'); // near the top, or scrolling down
-    else if (y < lastY - 2) siteHeader.classList.add('is-pinned');             // scrolling up, far enough down
+    if (y <= 0 || y > lastY + 2) siteHeader.classList.remove('is-pinned'); // at the top, or scrolling down
+    else if (y < lastY - 2) siteHeader.classList.add('is-pinned');        // scrolling up
+    siteHeader.classList.toggle('is-solid', y >= innerHeight * SOLID_FROM);
     lastY = y;
   }, { passive: true });
 }

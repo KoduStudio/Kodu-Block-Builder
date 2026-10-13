@@ -109,6 +109,6 @@ Full-screen photo (`.hero-full-image__bg`) under a 40% overlay (`--overlay-hero`
 - **Steps:** automatic 01, 02… numbers; any number of steps. Mobile order: heading, image, steps.
 - **FAQ:** native `<details>`; `js/faq.js` animates open/close smoothly in every browser (incl. iPhone) and keeps one open at a time per `name`. Drop `name` to allow several; add `open` to start one expanded. Without JS the native accordion still works.
 - **List numbers** (01, 02, …) are automatic.
-- **Header on scroll:** scrolls away as you go down, slides back down with a blurred backdrop when you scroll up (only once you are 1.5 screen heights down, `PIN_FROM` in `js/header.js`), and returns to normal at the top. It stays in the page flow (`position: sticky`), so nothing jumps.
+- **Header on scroll:** scrolls away as you go down and slides back down as soon as you scroll up. The blurred backdrop only comes in once you are a screen height down (`SOLID_FROM` in `js/header.js`), so it never sits as a white blur over the hero; over the full-image hero it keeps its light text until then. It stays in the page flow (`position: sticky`), so nothing jumps.
 - **Mobile menu:** under 768px the header shows the logo (140px) and a Menu button that opens a full-screen `<dialog>` (Esc, Close or tapping a link closes it; page scroll pauses). Its links and contact details live in the dialog right after `</header>` on each page.
 - **Mobile:** The list stacks to number | title, text under the title, then a full-width image.

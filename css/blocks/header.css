@@ -12,7 +12,8 @@
 /* …and slides back down when you scroll up (js/header.js adds .is-pinned) */
 .header.is-pinned { top: 0; }
 
-/* Soft blurred backdrop, only while pinned: page colour fading to clear */
+/* Soft blurred backdrop once you're a screen height down (js/header.js adds
+   .is-solid): page colour fading to clear */
 .header::before {
   content: "";
   position: absolute;
@@ -28,13 +29,13 @@
   transition: opacity 0.4s var(--ease);
   pointer-events: none;
 }
-.header.is-pinned::before { opacity: 1; }
+.header.is-solid::before { opacity: 1; }
 
-/* Over a dark first block (full-image hero): light text and logo until it
-   pins with its light backdrop */
+/* Over a dark first block (full-image hero): light text and logo until the
+   light backdrop comes in */
 .header__logo img { transition: filter 0.4s var(--ease); }
-.header:has(~ main > .hero-full-image:first-child):not(.is-pinned) { color: var(--text-secondary); }
-.header:has(~ main > .hero-full-image:first-child):not(.is-pinned) .header__logo img { filter: brightness(0) invert(1); }
+.header:has(~ main > .hero-full-image:first-child):not(.is-solid) { color: var(--text-secondary); }
+.header:has(~ main > .hero-full-image:first-child):not(.is-solid) .header__logo img { filter: brightness(0) invert(1); }
 
 @media (prefers-reduced-motion: reduce) {
   .header, .header::before, .header__logo img { transition: none; }
