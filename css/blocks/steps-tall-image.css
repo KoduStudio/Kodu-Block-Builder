@@ -11,7 +11,7 @@
 
 .steps-tall-image__media {
   grid-column: 1 / span 5;
-  aspect-ratio: 576 / 806;
+  aspect-ratio: 5 / 7;
 }
 
 .steps-tall-image__content {

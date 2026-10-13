@@ -12,7 +12,7 @@ if (!CSS.supports('animation-timeline: view()') && matchMedia('(prefers-reduced-
     visible.forEach(img => {
       const r = img.parentElement.getBoundingClientRect(); // frame, so the transform doesn't feed back
       const p = Math.min(1, Math.max(0, (vh - r.top) / (vh + r.height)));
-      img.style.transform = `translateY(${-8 + 16 * p}%)`;
+      img.style.transform = `translateY(${-7 + 14 * p}%)`; // matches the CSS keyframes
     });
   };
   const queue = () => { if (!queued) { queued = true; requestAnimationFrame(update); } };

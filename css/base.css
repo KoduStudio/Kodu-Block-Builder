@@ -299,9 +299,11 @@ button { font: inherit; color: inherit; }
   }
 }
 
+/* ±7% of a 120% image = ±8.4% of the frame, inside the 10% spare each side,
+   so no edge can ever show (±8% left only a pixel or two) */
 @keyframes parallax {
-  from { transform: translateY(-8%); }
-  to   { transform: translateY(8%); }
+  from { transform: translateY(-7%); }
+  to   { transform: translateY(7%); }
 }
 
 /* ---------- Dot field (js/dots.js) ----------
