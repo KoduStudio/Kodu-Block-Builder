@@ -17,9 +17,9 @@ The scripts are ES modules (`<script type="module">`), so each file keeps its ow
 ## Structure
 
 ```
-index.html              home: a full example page (hero, marquee, services, icon list, image + text, list, FAQ, CTA)
+index.html              home: a full example page (hero, marquee, services, icon list, image + text, steps, list, FAQ, CTA)
 heroes.html             block library: hero variants
-lists.html              block library: lists, icon list, FAQs
+lists.html              block library: lists, icon list, steps, FAQs
 image-text.html         block library: image + text blocks
 cards.html              block library: cards
 ctas.html               block library: calls to action
@@ -55,6 +55,7 @@ The nav links to one page per block type, so the library stays easy to browse as
 | Marquee info bar          | `.marquee`                 | Marquee Info Bar                    |
 | Services bento            | `.services-bento`          | from the Tarlo site                 |
 | Icon list, simple         | `.icon-list`               | Icon Simple List                    |
+| Steps, tall image         | `.steps-tall-image`        | Step by Step tall image             |
 | FAQ, split                | `.faq-split`               | ref: marketer.com                   |
 | CTA, centred frame        | `.cta-centred-frame`       | Centred Frame CTA                   |
 | Modern list               | `.modern-list`             | List_Modern                         |
@@ -105,6 +106,7 @@ Full-screen photo (`.hero-full-image__bg`) under a 40% overlay (`--overlay-hero`
 - **Dot field:** `data-dots` works on any section. Dot colour is `--dot`; spacing and glow size are `--dot-gap` / `--dot-r`. Only animates while the mouse moves.
 - **Marquee:** write one group of items; `js/marquee.js` adds as many copies as the screen needs and loops by exactly one group, so it never gaps on wide screens. Speed is `MARQUEE_SPEED` in the script. Pauses on hover; still for reduced motion.
 - **Services bento:** cards 1–7 follow the bento layout; extra cards fall into rows of three. Above 1380px the grid is inset to page columns 2–11; at 1380px and below it is full width. Icons are Lucide, inline.
+- **Steps:** automatic 01, 02… numbers; any number of steps. Mobile order: heading, image, steps.
 - **FAQ:** native `<details>`; `js/faq.js` animates open/close smoothly in every browser (incl. iPhone) and keeps one open at a time per `name`. Drop `name` to allow several; add `open` to start one expanded. Without JS the native accordion still works.
 - **List numbers** (01, 02, …) are automatic.
 - **Header on scroll:** scrolls away as you go down, slides back down with a blurred backdrop when you scroll up (only once you are 1.5 screen heights down, `PIN_FROM` in `js/header.js`), and returns to normal at the top. It stays in the page flow (`position: sticky`), so nothing jumps.
