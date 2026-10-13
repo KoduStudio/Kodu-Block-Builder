@@ -2,7 +2,8 @@
    Full-screen photo with a dark overlay. Heading, text and buttons bottom
    left; optional glass CTA card bottom right (delete .hero-full-image__card
    to drop it). As the first block on a page it runs up behind the header,
-   which switches to light text over it (header.css). */
+   which switches to light text over it (header.css). On scroll it moves up
+   at half speed while the next blocks slide over it. */
 
 .hero-full-image {
   position: relative;
@@ -35,6 +36,30 @@
 
 /* First block: slide up behind the header */
 .hero-full-image:first-child { margin-top: calc(-1 * var(--header-h)); }
+
+/* Scroll effect (ref: studiodado.com): as you scroll past, the hero moves up
+   at half speed and the blocks after it slide up over it at normal speed.
+   CSS scroll-driven animation (no JS); unsupported browsers and reduced
+   motion just scroll normally. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .hero-full-image {
+      animation: hero-full-image-slow linear both;
+      animation-timeline: view();
+      animation-range: exit 0% exit 100%;
+    }
+    /* Everything after the hero sits above it, on the page colour
+       (:where keeps this weaker than each block's own background) */
+    :where(.hero-full-image ~ *) {
+      position: relative;
+      z-index: 1;
+      background: var(--bg-primary);
+    }
+  }
+}
+@keyframes hero-full-image-slow {
+  to { transform: translateY(50%); }
+}
 
 .hero-full-image__content {
   grid-column: 1 / span 7;
