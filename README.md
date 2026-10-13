@@ -75,7 +75,7 @@ If a marquee comes straight after the hero, they fill the first screen together.
 
 ### Hero, full image + CTA card
 
-Full-screen photo (`.hero-full-image__bg`) under a 40% overlay (`--overlay-hero`), heading/text/buttons bottom left. The glass CTA card is optional: delete `.hero-full-image__card` to drop it. As the first block on a page it runs up behind the header, which switches to light text automatically and back to dark when it slides in on scroll. On mobile the content centres and the card runs along the bottom (image left, text right). On scroll the hero moves up at half speed while the blocks after it slide over it at normal speed (ref: studiodado.com). Pure CSS scroll-driven animation: Chrome, Edge, Arc and Safari 26+; other browsers and reduced motion scroll normally. Speed is the `translateY(50%)` in `hero-full-image-slow`.
+Full-screen photo (`.hero-full-image__bg`) under a 40% overlay (`--overlay-hero`), heading/text/buttons bottom left. The glass CTA card is optional: delete `.hero-full-image__card` to drop it. As the first block on a page it runs up behind the header, which switches to light text automatically and back to dark when it slides in on scroll. On mobile the content centres and the card runs along the bottom (image left, text right). On scroll the hero moves up a little slower than the page and darkens, while the blocks after it slide over it at normal speed (ref: studiodado.com). Pure CSS scroll-driven animation: Chrome, Edge, Arc and Safari 26+; other browsers and reduced motion scroll normally. Speed is the `translateY(30%)` in `hero-full-image-slow` (higher = slower hero), darkness the `opacity` in `hero-full-image-darken`.
 
 ## New client site
 

@@ -3,7 +3,8 @@
    left; optional glass CTA card bottom right (delete .hero-full-image__card
    to drop it). As the first block on a page it runs up behind the header,
    which switches to light text over it (header.css). On scroll it moves up
-   at half speed while the next blocks slide over it. */
+   a little slower than the page and darkens while the next blocks slide
+   over it. */
 
 .hero-full-image {
   position: relative;
@@ -38,14 +39,28 @@
 .hero-full-image:first-child { margin-top: calc(-1 * var(--header-h)); }
 
 /* Scroll effect (ref: studiodado.com): as you scroll past, the hero moves up
-   at half speed and the blocks after it slide up over it at normal speed.
-   CSS scroll-driven animation (no JS); unsupported browsers and reduced
-   motion just scroll normally. */
+   a little slower than the page (70% speed) and darkens, while the blocks
+   after it slide up over it at normal speed. CSS scroll-driven animation
+   (no JS); unsupported browsers and reduced motion just scroll normally. */
 @supports (animation-timeline: view()) {
   @media (prefers-reduced-motion: no-preference) {
     .hero-full-image {
+      view-timeline: --hero-full-image;
       animation: hero-full-image-slow linear both;
-      animation-timeline: view();
+      animation-timeline: --hero-full-image;
+      animation-range: exit 0% exit 100%;
+    }
+    /* Darkening layer: fades in over the photo (opacity only, stays smooth) */
+    .hero-full-image::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: var(--black);
+      opacity: 0;
+      pointer-events: none;
+      animation: hero-full-image-darken linear both;
+      animation-timeline: --hero-full-image;
       animation-range: exit 0% exit 100%;
     }
     /* Everything after the hero sits above it, on the page colour
@@ -58,7 +73,11 @@
   }
 }
 @keyframes hero-full-image-slow {
-  to { transform: translateY(50%); }
+  to { transform: translateY(30%); } /* 30% = moves at 70% of scroll speed */
+}
+@keyframes hero-full-image-darken {
+  to { opacity: 0.4; }
+}
 }
 
 .hero-full-image__content {
