@@ -78,7 +78,6 @@
 @keyframes hero-full-image-darken {
   to { opacity: 0.4; }
 }
-}
 
 .hero-full-image__content {
   grid-column: 1 / span 7;
