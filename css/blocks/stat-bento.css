@@ -81,9 +81,21 @@
   }
 }
 
+/* Mobile: one column alternating photo, stat (ref: Terra Tory) */
 @media (max-width: 767px) {
   .stat-bento__head { flex-direction: column; align-items: flex-start; }
   .stat-bento__intro { flex: none; }
-  .stat-bento__grid { grid-auto-rows: 180px; }
-  .stat-bento__card { padding: 16px; }
+  .stat-bento__grid {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: none;
+    grid-auto-rows: auto;
+  }
+  .stat-bento__grid > :nth-child(n) { grid-area: auto; }
+  .stat-bento__grid > :nth-child(1) { order: 1; } /* photo, stat, tall photo, stat, photo, stat */
+  .stat-bento__grid > :nth-child(4) { order: 3; }
+  .stat-bento__grid > :nth-child(5) { order: 4; }
+  .stat-bento__grid > :nth-child(6) { order: 5; }
+  .stat-bento__grid > :nth-child(3) { order: 2; aspect-ratio: 9 / 8; }
+  .stat-bento__media { aspect-ratio: 16 / 9; }
+  .stat-bento__card { min-height: 200px; }
 }
