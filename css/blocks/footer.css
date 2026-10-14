@@ -38,7 +38,7 @@
 
 .footer__label {
   margin-bottom: 4px;
-  color: var(--text-tertiary);
+  color: var(--text-soft);
 }
 
 .footer__col a { width: fit-content; transition: opacity 0.3s; }
@@ -60,7 +60,7 @@
   justify-content: space-between;
   gap: 16px;
   padding-block: 24px;
-  color: var(--text-tertiary);
+  color: var(--text-soft);
   font-size: 14px;
 }
 .footer__bottom a:hover { color: var(--text-primary); }

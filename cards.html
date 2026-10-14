@@ -15,9 +15,8 @@
   <meta property="og:image:height" content="1080">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="assets/favicon.png" type="image/png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Inter:wght@400;500;600&display=swap">
+  <link rel="preload" href="assets/fonts/inter-tight-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/blocks/header.css">
   <link rel="stylesheet" href="css/blocks/menu.css">
@@ -25,8 +24,7 @@
   <link rel="stylesheet" href="css/blocks/services-bento.css">
   <link rel="stylesheet" href="css/blocks/stat-bento.css">
   <script src="js/components.js"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.css">
-  <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.min.js" defer></script>
+  <script src="js/vendor/lenis.min.js" defer></script>
   <script type="module" src="js/smooth-scroll.js"></script>
   <script type="module" src="js/roll.js"></script>
   <script type="module" src="js/menu.js"></script>
@@ -100,13 +98,13 @@
         <p class="stat-bento__label">Experienced</p>
         <p><strong class="stat-bento__value">10+</strong> years in the trade</p>
       </div>
-      <div class="stat-bento__media"><img src="assets/images/cattle-in-field.jpg" alt="" width="800" height="533" loading="lazy" decoding="async"></div>
-      <div class="stat-bento__media"><img src="assets/images/mountain-water.jpg" alt="" width="1000" height="1500" loading="lazy" decoding="async"></div>
+      <div class="stat-bento__media"><img src="assets/images/cattle-in-field.avif" alt="" width="800" height="533" loading="lazy" decoding="async"></div>
+      <div class="stat-bento__media"><img src="assets/images/mountain-water.avif" alt="" width="1000" height="1500" loading="lazy" decoding="async"></div>
       <div class="stat-bento__card">
         <p class="stat-bento__label">Trusted</p>
         <p><strong class="stat-bento__value">1,200+</strong> jobs completed across Sydney</p>
       </div>
-      <div class="stat-bento__media"><img src="assets/images/green-hills.jpg" alt="" width="1600" height="900" loading="lazy" decoding="async"></div>
+      <div class="stat-bento__media"><img src="assets/images/green-hills.avif" srcset="assets/images/green-hills-960.avif 960w, assets/images/green-hills.avif 1600w" sizes="(max-width: 767px) 100vw, 25vw" alt="" width="1600" height="900" loading="lazy" decoding="async"></div>
       <div class="stat-bento__card">
         <p class="stat-bento__label">Rated</p>
         <p><strong class="stat-bento__value">4.9 / 5</strong> from over 300 Google reviews</p>

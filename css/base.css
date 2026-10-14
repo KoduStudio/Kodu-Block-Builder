@@ -4,6 +4,24 @@
    Rebrand a client site by editing this :root block only.
    ========================================================================== */
 
+/* Fonts: self-hosted variable fonts (Latin), so text needs no third-party
+   request. Inter Tight 500–700 (headings, buttons), Inter 400–600 (body).
+   For a client, drop their woff2 files in assets/fonts and edit these. */
+@font-face {
+  font-family: "Inter Tight";
+  font-style: normal;
+  font-weight: 500 700;
+  font-display: swap;
+  src: url("../assets/fonts/inter-tight-latin.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url("../assets/fonts/inter-latin.woff2") format("woff2");
+}
+
 :root {
   /* Neutrals (Figma Neutral/50–900): the base for every grey below */
   --neutral-50:  #eeeeee;
@@ -359,3 +377,17 @@ button { font: inherit; color: inherit; }
   [data-dots] { --dot-gap: 32px; --dot-r: 260px; }
 }
 
+/* ---------- Lenis smooth scroll (js/vendor/lenis.min.js) ---------- */
+html.lenis, html.lenis body { height: auto; }
+.lenis:not(.lenis-autoToggle).lenis-stopped { overflow: clip; }
+.lenis [data-lenis-prevent],
+.lenis [data-lenis-prevent-wheel],
+.lenis [data-lenis-prevent-touch],
+.lenis [data-lenis-prevent-vertical],
+.lenis [data-lenis-prevent-horizontal] { overscroll-behavior: contain; }
+.lenis.lenis-smooth iframe { pointer-events: none; }
+.lenis.lenis-autoToggle {
+  transition-property: overflow;
+  transition-duration: 1ms;
+  transition-behavior: allow-discrete;
+}

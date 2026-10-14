@@ -29,7 +29,7 @@ css/base.css            brand tokens, reset, grid, type, buttons
 css/blocks/<name>.css   one file per block
 css/blocks/<style>/     blocks grouped by style, e.g. modern/
 js/components.js        shared header, mobile menu and footer (nav links in one place)
-js/smooth-scroll.js     Lenis smooth scroll (loaded from jsDelivr)
+js/smooth-scroll.js     Lenis smooth scroll (js/vendor/lenis.min.js, self-hosted)
 js/roll.js              staggered text roll on button hover
 js/reveal.js            load-in reveals as blocks scroll into view
 js/parallax.js          parallax fallback for browsers without CSS scroll timelines (Firefox)
@@ -40,7 +40,8 @@ js/header.js            header hides on scroll down, slides back on scroll up
 js/faq.js               smooth FAQ accordion in every browser
 assets/shareimage.jpg   link preview image (og:image, 1080 x 1080) for iMessage, Slack, socials
 assets/favicon.png      browser tab icon (192px, made from assets/BlockBuilder_thumbnail.png)
-assets/images/          web-sized photos (originals in placeholder-images/, not committed)
+assets/fonts/           self-hosted variable fonts (Inter Tight, Inter; Latin woff2)
+assets/images/          web-sized photos (AVIF) (originals in placeholder-images/, not committed)
 ```
 
 ## Pages
@@ -93,7 +94,7 @@ Full-screen photo (`.hero-full-image__bg`) under a 40% overlay (`--overlay-hero`
 
 ## Notes
 
-- **Fonts:** Inter Tight (headings, eyebrows, buttons) and Inter (body), loaded from Google Fonts in `index.html`. For a client, change the Google Fonts link and `--font-primary` / `--font-body`.
+- **Fonts:** Inter Tight (headings, eyebrows, buttons) and Inter (body), self-hosted variable woff2 files in `assets/fonts`, declared with `@font-face` at the top of `base.css` and preloaded in each page's `<head>`. No third-party requests, so text paints sooner. For a client, swap the woff2 files (grab them from Google Fonts or the foundry), the `@font-face` rules, the preload links and `--font-primary` / `--font-body`.
 - **Text buttons:** `.text-btn` is a label-only button (no box) that hugs its text at min 38px tall with a 44px tap area. Used for the mobile Menu / Close.
 - **Buttons:** `.btn` is Square / 36 / Fill. Add `btn--44`, `btn--pill`, `btn--outline` or `btn--light` (light fill, dark text, for dark backgrounds) to match the Figma variants. For an icon, put an inline SVG after the label (`<a class="btn">Label <svg…></a>`); it nudges right on hover and the label still rolls.
 - **Two-tone headings:** `.heading-48` with the second line in a `<span>` (CTA, icon list).
@@ -108,7 +109,7 @@ Full-screen photo (`.hero-full-image__bg`) under a 40% overlay (`--overlay-hero`
   - `data-reveal-lines`: the same, one line at a time (`--line-step`); inline images ride along. Used on the text blocks.
 - **Parallax:** add `data-parallax` to any `__media` frame and its image drifts as it scrolls past. CSS scroll-driven animation in Chrome, Edge, Arc and Safari 26+ (no JS); `js/parallax.js` covers Firefox. Off for reduced motion. Frames use `overflow: clip` — `hidden` would break the CSS version.
 - **Icons:** [Lucide](https://lucide.dev), pasted inline as SVG so they take the text colour.
-- **Images:** put an `<img>` in a block's `__media` frame and it fills it. Export at about 2x the size it shows (list ~800px wide, tall block ~1000px) and keep each under ~300KB.
+- **Images:** put an `<img>` in a block's `__media` frame and it fills it. Use AVIF (about half the size of JPEG; macOS: `sips -s format avif -s formatOptions 50 in.jpg --out out.avif`). Export at about 2x the size it shows (list ~800px wide, tall block ~1000px) and aim for under ~100KB each. Full-width photos get a 960px version too, via `srcset` (see the hero and CTA background).
 - **Modern tall image + text, image left (option):** add `modern-tall-image-text--image-left` to the section to flip it. Mobile stacks the same either way.
 - **Modern list image shape:** portrait by default; add `modern-list__media--landscape` for 3:2.
 - **Dot field:** `data-dots` works on any section. Dot colour is `--dot`; spacing and glow size are `--dot-gap` / `--dot-r`. Only animates while the mouse moves.
@@ -117,7 +118,7 @@ Full-screen photo (`.hero-full-image__bg`) under a 40% overlay (`--overlay-hero`
 - **Stat bento:** six tiles in source order: stat, photo, tall photo, stat, photo, wide stat. Each stat is a label (shown in caps), a big number and a line of text. Card colours are `--card-bg` / `--card-border`. Two columns on tablet (tall photo beside the first stat and photo, wide stat along the bottom); one column on mobile, alternating photo and stat.
 - **Steps:** automatic 01, 02… numbers; any number of steps. Mobile order: heading, image, steps.
 - **FAQ:** native `<details>`; `js/faq.js` animates open/close smoothly in every browser (incl. iPhone) and keeps one open at a time per `name`. Drop `name` to allow several; add `open` to start one expanded. Without JS the native accordion still works.
-- **Text, inline image:** one centred statement at heading 48 with small rounded photos in the line. Write it as one `<p>` and drop an `<img>` in wherever you want a photo (88 x 48 at desktop, they scale with the text; export 354 x 192, see `assets/images/inline-*.jpg`). 28px on mobile so the lines stay even (large: ~34px, scaling with the phone width). **Large option:** add `text-inline-image--large` to the section for the full-width version (68px, 118 x 64 photos, 12px gaps all round at desktop, `--section-xl` top and bottom, an extra margin of padding each side). Gaps (`--gap-x` / `--gap-y`) and photo size (`--img-w` / `--img-h`) are in em, so they shrink with the text on smaller screens.
+- **Text, inline image:** one centred statement at heading 48 with small rounded photos in the line. Write it as one `<p>` and drop an `<img>` in wherever you want a photo (88 x 48 at desktop, they scale with the text; export 354 x 192, see `assets/images/inline-*.avif`). 28px on mobile so the lines stay even (large: ~34px, scaling with the phone width). **Large option:** add `text-inline-image--large` to the section for the full-width version (68px, 118 x 64 photos, 12px gaps all round at desktop, `--section-xl` top and bottom, an extra margin of padding each side). Gaps (`--gap-x` / `--gap-y`) and photo size (`--img-w` / `--img-h`) are in em, so they shrink with the text on smaller screens.
 - **List numbers** (01, 02, …) are automatic.
 - **Header on scroll:** scrolls away as you go down and slides back down as soon as you scroll up. The blurred backdrop only comes in once you are a screen height down (`SOLID_FROM` in `js/header.js`), so it never sits as a white blur over the hero; over the full-image hero it keeps its light text until then. It stays in the page flow (`position: sticky`), so nothing jumps.
 - **Footer:** soft `--neutral-200` line on top, bio and two link columns, then the brand logo full width (inline SVG with `fill="currentColor"`, so it takes the text colour; paste a client's logo paths in its place) and a small bottom bar. The logo rises out of a mask as it scrolls in. Shared via `js/components.js`.

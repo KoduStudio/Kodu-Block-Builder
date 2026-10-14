@@ -15,9 +15,8 @@
   <meta property="og:image:height" content="1080">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="assets/favicon.png" type="image/png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Inter:wght@400;500;600&display=swap">
+  <link rel="preload" href="assets/fonts/inter-tight-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/blocks/header.css">
   <link rel="stylesheet" href="css/blocks/menu.css">
@@ -25,8 +24,7 @@
   <link rel="stylesheet" href="css/blocks/hero-centred.css">
   <link rel="stylesheet" href="css/blocks/hero-full-image.css">
   <script src="js/components.js"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.css">
-  <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.min.js" defer></script>
+  <script src="js/vendor/lenis.min.js" defer></script>
   <script type="module" src="js/smooth-scroll.js"></script>
   <script type="module" src="js/roll.js"></script>
   <script type="module" src="js/menu.js"></script>
@@ -43,7 +41,7 @@
 
   <!-- BLOCK: hero-full-image (option: CTA card) -->
   <section class="hero-full-image">
-    <img class="hero-full-image__bg" src="assets/images/hero-room.jpg" alt="" width="1920" height="1364" fetchpriority="high">
+    <img class="hero-full-image__bg" src="assets/images/hero-room.avif" srcset="assets/images/hero-room-960.avif 960w, assets/images/hero-room.avif 1920w" sizes="100vw" alt="" width="1920" height="1364" fetchpriority="high">
     <div class="container grid hero-full-image__inner">
       <div class="hero-full-image__content" data-reveal-stagger>
         <h1 class="hero-full-image__heading" data-reveal-words>Left aligned heading goes here</h1>
@@ -55,7 +53,7 @@
       </div>
       <a class="hero-full-image__card" href="#" data-reveal>
         <div class="hero-full-image__card-media">
-          <img src="assets/images/hero-card.jpg" alt="Electrician on site" width="500" height="750">
+          <img src="assets/images/hero-card.avif" alt="Electrician on site" width="500" height="750">
         </div>
         <div class="hero-full-image__card-body">
           <p class="hero-full-image__card-label">Get in touch</p>
@@ -72,9 +70,9 @@
   <section class="hero-centred" data-dots>
     <div class="container hero-centred__inner" data-reveal-stagger>
       <ul class="hero-centred__faces" aria-label="Our work">
-        <li><img src="assets/images/hero-face-1.jpg" alt="Wiring at the bench" width="240" height="240"></li>
-        <li><img src="assets/images/hero-face-2.jpg" alt="Electrician on site" width="240" height="240"></li>
-        <li><img src="assets/images/hero-face-3.jpg" alt="Testing a switchboard" width="240" height="240"></li>
+        <li><img src="assets/images/hero-face-1.avif" alt="Wiring at the bench" width="240" height="240"></li>
+        <li><img src="assets/images/hero-face-2.avif" alt="Electrician on site" width="240" height="240"></li>
+        <li><img src="assets/images/hero-face-3.avif" alt="Testing a switchboard" width="240" height="240"></li>
       </ul>
       <h2 class="heading-xl hero-centred__heading" data-reveal-words>Centred heading goes here</h2>
       <p class="hero-centred__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at iaculis tellus. Vestibulum leo dui, egestas nec lorem et, accumsan tincidunt eros.</p>
