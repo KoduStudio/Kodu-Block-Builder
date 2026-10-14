@@ -1,36 +1,56 @@
 /* Text — Inline Image (Figma Feature text with inline image)
-   One centred statement at heading 48 with small rounded photos sitting in
-   the line between words. Write it as one paragraph and drop an <img> in
-   wherever you want a photo; they scale with the text. */
+   One centred statement with small rounded photos sitting in the line
+   between words. Write it as one paragraph and drop an <img> in wherever
+   you want a photo; they scale with the text.
+   Option: add text-inline-image--large to the section for the full-width
+   version (heading 72 style, larger photos). */
 
 .text-inline-image {
   padding-block: var(--section-lg);
 }
 
 .text-inline-image__text {
+  --img-w: 1.834em; /* 88 x 48 at 48px */
+  --img-h: 1em;
+  --gap-x: 9px;     /* between words and photos */
+  --gap-y: 9px;     /* between lines */
   max-width: 936px;
   margin-inline: auto;
   padding-inline: 8px;
   font-family: var(--font-heading);
   font-size: var(--heading-48);
   font-weight: 600;
-  line-height: calc(1.1em + 9px); /* 1.1 + 9px row gap, as Figma */
-  word-spacing: -0.023em; /* 9px between words and photos, as Figma */
+  line-height: calc(1.1em + var(--gap-y)); /* 1.1 + row gap, as Figma */
+  word-spacing: calc(var(--gap-x) - 0.211em); /* a space is 0.211em */
   text-align: center;
   text-wrap: wrap; /* greedy, so lines break as Figma */
 }
 
-/* 88 x 48 at 48px text */
 .text-inline-image__text img {
   display: inline-block;
-  width: 1.834em;
-  height: 1em;
+  width: var(--img-w);
+  height: var(--img-h);
   border-radius: 8px;
   object-fit: cover;
-  vertical-align: -0.135em; /* centred on the text */
+  vertical-align: calc(0.365em - var(--img-h) / 2); /* centred on the text */
 }
 
-/* Mobile: 28px so the photos don't leave short, ragged lines */
+/* ---------- Option: large ----------
+   Full width with an extra margin of padding each side; 68px text with
+   118 x 64 photos and 12px / 10px gaps, as Figma */
+
+.text-inline-image--large .text-inline-image__text {
+  --img-w: 1.735em;
+  --img-h: 0.941em;
+  --gap-x: 12px;
+  --gap-y: 10px;
+  max-width: none;
+  padding-inline: calc(var(--margin) + 8px);
+  font-size: clamp(32px, 4.5vw, 68px);
+}
+
+/* Mobile: smaller so the photos don't leave short, ragged lines */
 @media (max-width: 767px) {
-  .text-inline-image__text { font-size: 28px; }
+  .text-inline-image .text-inline-image__text { font-size: 28px; }
+  .text-inline-image--large .text-inline-image__text { padding-inline: 8px; }
 }
