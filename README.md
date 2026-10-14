@@ -38,6 +38,7 @@ js/marquee.js           endless marquee: fills any screen width, seamless loop
 js/menu.js              mobile menu open/close (header)
 js/header.js            header hides on scroll down, slides back on scroll up
 js/faq.js               smooth FAQ accordion in every browser
+assets/shareimage.jpg   link preview image (og:image, 1080 x 1080) for iMessage, Slack, socials
 assets/favicon.png      browser tab icon (192px, made from assets/BlockBuilder_thumbnail.png)
 assets/images/          web-sized photos (originals in placeholder-images/, not committed)
 ```
@@ -87,7 +88,7 @@ Full-screen photo (`.hero-full-image__bg`) under a 40% overlay (`--overlay-hero`
 1. Copy this repo.
 2. Set the pages and nav in `PAGES` in `js/components.js`, and the footer bio/links there too.
 3. Edit the tokens in the `:root` block of `css/base.css`: colours, fonts, spacing. Greys come from the Neutral 50–900 scale (Figma); text and background colours point at it, so a client's greys are changed in one place.
-4. Swap `assets/logo.svg` (and the footer logo paths in `js/components.js`).
+4. Swap `assets/logo.svg` and `assets/shareimage.jpg`, and update the `og:` tags (site URL, description) in each page's `<head>`. (and the footer logo paths in `js/components.js`).
 5. Build each page from blocks copied out of the library pages, keeping the `<link>`/`<script>` tags they need, then add the content.
 
 ## Notes
