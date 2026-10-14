@@ -64,11 +64,15 @@
       animation-range: exit 0% exit 100%;
     }
     /* Everything after the hero sits above it, on the page colour
-       (:where keeps this weaker than each block's own background) */
+       (:where keeps this weaker than each block's own background). The
+       shadow + clip carry the colour edge to edge, so boxed blocks
+       (.container on the section) still cover the hero fully. */
     :where(.hero-full-image ~ *) {
       position: relative;
       z-index: 1;
       background: var(--bg-primary);
+      box-shadow: 0 0 0 100vmax var(--bg-primary);
+      clip-path: inset(0 -100vmax);
     }
   }
 }
