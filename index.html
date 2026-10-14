@@ -13,7 +13,8 @@
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/blocks/header.css">
   <link rel="stylesheet" href="css/blocks/menu.css">
-  <link rel="stylesheet" href="css/blocks/hero-centred.css">
+  <link rel="stylesheet" href="css/blocks/hero-full-image.css">
+  <link rel="stylesheet" href="css/blocks/text-inline-image.css">
   <link rel="stylesheet" href="css/blocks/marquee.css">
   <link rel="stylesheet" href="css/blocks/services-bento.css">
   <link rel="stylesheet" href="css/blocks/icon-list.css">
@@ -31,7 +32,6 @@
   <script type="module" src="js/reveal.js"></script>
   <script type="module" src="js/faq.js"></script>
   <script type="module" src="js/parallax.js"></script>
-  <script type="module" src="js/dots.js"></script>
   <script type="module" src="js/marquee.js"></script>
 </head>
 <body>
@@ -48,6 +48,7 @@
       <a class="header__link" href="image-text.html">Image &amp; Text</a>
       <a class="header__link" href="cards.html">Cards</a>
       <a class="header__link" href="ctas.html">CTAs</a>
+      <a class="header__link" href="text.html">Text</a>
       <a class="btn" href="#">Hero Button</a>
     </nav>
     <button class="text-btn header__menu-btn" type="button" aria-controls="menu" aria-expanded="false" data-menu-open>Menu</button>
@@ -67,6 +68,7 @@
       <a href="image-text.html">Image &amp; Text</a>
       <a href="cards.html">Cards</a>
       <a href="ctas.html">CTAs</a>
+      <a href="text.html">Text</a>
   </nav>
   <div class="menu__contact">
     <a href="mailto:hello@yourdomain.com">hello@yourdomain.com</a>
@@ -76,21 +78,36 @@
 
 <main>
 
-  <!-- BLOCK: hero-centred (options: data-dots, photo circles) -->
-  <section class="hero-centred" data-dots>
-    <div class="container hero-centred__inner" data-reveal-stagger>
-      <ul class="hero-centred__faces" aria-label="Our work">
-        <li><img src="assets/images/hero-face-1.jpg" alt="Wiring at the bench" width="240" height="240"></li>
-        <li><img src="assets/images/hero-face-2.jpg" alt="Electrician on site" width="240" height="240"></li>
-        <li><img src="assets/images/hero-face-3.jpg" alt="Testing a switchboard" width="240" height="240"></li>
-      </ul>
-      <h1 class="heading-xl hero-centred__heading" data-reveal-words>Centred heading goes here</h1>
-      <p class="hero-centred__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at iaculis tellus. Vestibulum leo dui, egestas nec lorem et, accumsan tincidunt eros.</p>
-      <div class="hero-centred__actions">
-        <a class="btn btn--44 btn--pill" href="#">Hero Button</a>
-        <a class="btn btn--44 btn--pill btn--outline" href="#">Hero Button</a>
+  <!-- BLOCK: hero-full-image (option: CTA card) -->
+  <section class="hero-full-image">
+    <img class="hero-full-image__bg" src="assets/images/hero-room.jpg" alt="" width="1920" height="1364" fetchpriority="high">
+    <div class="container grid hero-full-image__inner">
+      <div class="hero-full-image__content" data-reveal-stagger>
+        <h1 class="hero-full-image__heading" data-reveal-words>Left aligned heading goes here</h1>
+        <p class="hero-full-image__text">Connect the tools you already use. We learn your business from what is already there, and your team keeps working the way it does.</p>
+        <div class="hero-full-image__actions">
+          <a class="btn btn--44 btn--pill" href="#">Hero Button <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+          <a class="btn btn--44 btn--pill btn--light" href="#">Hero Button</a>
+        </div>
       </div>
+      <a class="hero-full-image__card" href="#" data-reveal>
+        <div class="hero-full-image__card-media">
+          <img src="assets/images/hero-card.jpg" alt="Electrician on site" width="500" height="750">
+        </div>
+        <div class="hero-full-image__card-body">
+          <p class="hero-full-image__card-label">Get in touch</p>
+          <div class="hero-full-image__card-row">
+            <p class="hero-full-image__card-title">Book in a quote today</p>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg><!-- Lucide arrow-up-right -->
+          </div>
+        </div>
+      </a>
     </div>
+  </section>
+
+  <!-- BLOCK: text-inline-image -->
+  <section class="container text-inline-image">
+    <p class="text-inline-image__text" data-reveal>Strategic guidance across <img src="assets/images/text-inline-mountain.jpg" alt="" width="264" height="144" loading="lazy"> business operations, <img src="assets/images/text-inline-mountain.jpg" alt="" width="264" height="144" loading="lazy"> organisational growth, and leadership planning to help companies move forward <img src="assets/images/text-inline-mountain.jpg" alt="" width="264" height="144" loading="lazy"> confidently</p>
   </section>
 
   <!-- BLOCK: marquee -->

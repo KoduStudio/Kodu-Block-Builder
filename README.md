@@ -17,12 +17,13 @@ The scripts are ES modules (`<script type="module">`), so each file keeps its ow
 ## Structure
 
 ```
-index.html              home: a full example page (hero, marquee, services, icon list, image + text, steps, list, FAQ, CTA)
+index.html              home: a full example page (full-image hero, text, marquee, services, icon list, image + text, steps, list, FAQ, CTA)
 heroes.html             block library: hero variants
 lists.html              block library: lists, icon list, steps, FAQs
 image-text.html         block library: image + text blocks
 cards.html              block library: cards
 ctas.html               block library: calls to action
+text.html               block library: text blocks
                         (each block marked <!-- BLOCK: name --> so it can be copied out)
 css/base.css            brand tokens, reset, grid, type, buttons
 css/blocks/<name>.css   one file per block
@@ -58,6 +59,7 @@ The nav links to one page per block type, so the library stays easy to browse as
 | Steps, tall image         | `.steps-tall-image`        | Step by Step tall image             |
 | FAQ, split                | `.faq-split`               | ref: marketer.com                   |
 | CTA, centred frame        | `.cta-centred-frame`       | Centred Frame CTA                   |
+| Text, inline image        | `.text-inline-image`       | Feature text with inline image      |
 | Modern list               | `.modern-list`             | List_Modern                         |
 | Modern tall image + text  | `.modern-tall-image-text`  | ref: studiodado.com/approach        |
 
@@ -108,6 +110,7 @@ Full-screen photo (`.hero-full-image__bg`) under a 40% overlay (`--overlay-hero`
 - **Services bento:** cards 1–7 follow the bento layout; extra cards fall into rows of three. Above 1380px the grid is inset to page columns 2–11; at 1380px and below it is full width. Icons are Lucide, inline.
 - **Steps:** automatic 01, 02… numbers; any number of steps. Mobile order: heading, image, steps.
 - **FAQ:** native `<details>`; `js/faq.js` animates open/close smoothly in every browser (incl. iPhone) and keeps one open at a time per `name`. Drop `name` to allow several; add `open` to start one expanded. Without JS the native accordion still works.
+- **Text, inline image:** one centred statement at heading 48 with small rounded photos in the line. Write it as one `<p>` and drop an `<img>` in wherever you want a photo (88 x 48 at desktop, they scale with the text; export ~264 x 144). 28px on mobile so the lines stay even.
 - **List numbers** (01, 02, …) are automatic.
 - **Header on scroll:** scrolls away as you go down and slides back down as soon as you scroll up. The blurred backdrop only comes in once you are a screen height down (`SOLID_FROM` in `js/header.js`), so it never sits as a white blur over the hero; over the full-image hero it keeps its light text until then. It stays in the page flow (`position: sticky`), so nothing jumps.
 - **Mobile menu:** under 768px the header shows the logo (140px) and a Menu button that opens a full-screen `<dialog>` (Esc, Close or tapping a link closes it; page scroll pauses). Its links and contact details live in the dialog right after `</header>` on each page.
