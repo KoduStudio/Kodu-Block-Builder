@@ -55,6 +55,7 @@
   /* Space */
   --margin: clamp(20px, 3.2vw, 48px);      /* Grid/margin */
   --gutter: clamp(12px, 1.6vw, 24px);      /* Grid/column-gap */
+  --section-xl: clamp(104px, 11.12vw, 168px); /* Section/section-xl */
   --section-lg: clamp(80px, 8.5vw, 128px); /* Section/section-lg */
   --section-md: clamp(64px, 6.9vw, 104px); /* Section/section-md */
   --section-sm: clamp(48px, 4.8vw, 72px);  /* Section/section-sm */

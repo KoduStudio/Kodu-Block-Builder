@@ -15,7 +15,7 @@
   --gap-x: 9px;     /* between words and photos */
   --gap-y: 9px;     /* between lines */
   max-width: 936px;
-  margin-inline: auto;
+  margin: calc(var(--gap-y) / -2) auto; /* trim the half gap above and below */
   padding-inline: 8px;
   font-family: var(--font-heading);
   font-size: var(--heading-48);
@@ -36,8 +36,10 @@
 }
 
 /* ---------- Option: large ----------
-   Full width with an extra margin of padding each side; 68px text with
-   118 x 64 photos and 12px gaps all round */
+   Full width with an extra margin of padding each side and section-xl
+   top and bottom; 68px text with 118 x 64 photos and 12px gaps all round */
+
+.text-inline-image--large { padding-block: var(--section-xl); }
 
 .text-inline-image--large .text-inline-image__text {
   --img-w: 1.735em;
