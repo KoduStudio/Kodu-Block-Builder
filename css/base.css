@@ -73,6 +73,7 @@
   --reveal-y: 24px;
   --reveal-step: 90ms; /* stagger between items */
   --word-step: 40ms;   /* stagger between heading words */
+  --line-step: 120ms;  /* stagger between lines (data-reveal-lines) */
 }
 
 /* ---------- Reset ---------- */
@@ -256,6 +257,7 @@ button { font: inherit; color: inherit; }
     transition-delay: calc(var(--reveal-i, 0) * var(--reveal-step) + var(--word-i) * var(--word-step));
   }
   .js .is-in .word > span { transform: none; }
+  [data-reveal-lines] { --word-step: var(--line-step); }
 }
 
 @keyframes reveal {

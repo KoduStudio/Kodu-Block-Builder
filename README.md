@@ -100,6 +100,7 @@ Full-screen photo (`.hero-full-image__bg`) under a 40% overlay (`--overlay-hero`
   - `data-reveal`: the element fades up as it scrolls into view (e.g. each list row).
   - `data-reveal-stagger`: its children fade up one after another (e.g. the hero).
   - `data-reveal-words`: heading words slide up out of a mask.
+  - `data-reveal-lines`: the same, one line at a time (`--line-step`); inline images ride along. Used on the text blocks.
 - **Parallax:** add `data-parallax` to any `__media` frame and its image drifts as it scrolls past. CSS scroll-driven animation in Chrome, Edge, Arc and Safari 26+ (no JS); `js/parallax.js` covers Firefox. Off for reduced motion. Frames use `overflow: clip` — `hidden` would break the CSS version.
 - **Icons:** [Lucide](https://lucide.dev), pasted inline as SVG so they take the text colour.
 - **Images:** put an `<img>` in a block's `__media` frame and it fills it. Export at about 2x the size it shows (list ~800px wide, tall block ~1000px) and keep each under ~300KB.
