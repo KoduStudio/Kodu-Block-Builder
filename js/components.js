@@ -59,7 +59,6 @@ const FOOTER = `
     <div class="footer__col">
       <p class="footer__label">Studio</p>
       <a href="https://www.kodudesignlab.com">Kodu Design Lab</a>
-      <a href="mailto:hello@yourdomain.com">Get in touch</a>
     </div>
   </div>
   <div class="container">
