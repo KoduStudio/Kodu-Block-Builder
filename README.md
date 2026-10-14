@@ -21,7 +21,7 @@ index.html              home: a full example page (full-image hero, large text, 
 heroes.html             block library: hero variants
 lists.html              block library: lists, icon list, steps, FAQs
 image-text.html         block library: image + text blocks
-cards.html              block library: cards
+cards.html              block library: cards (services bento, stat bento)
 ctas.html               block library: calls to action
 text.html               block library: text blocks
                         (each block marked <!-- BLOCK: name --> so it can be copied out)
@@ -55,6 +55,7 @@ The nav links to one page per block type, so the library stays easy to browse as
 | Hero, full image + CTA card | `.hero-full-image`     | Hero Full Image w. CTA Card         |
 | Marquee info bar          | `.marquee`                 | Marquee Info Bar                    |
 | Services bento            | `.services-bento`          | from the Tarlo site                 |
+| Stat + image bento        | `.stat-bento`              | Stat and Image Bento Grid           |
 | Icon list, simple         | `.icon-list`               | Icon Simple List                    |
 | Steps, tall image         | `.steps-tall-image`        | Step by Step tall image             |
 | FAQ, split                | `.faq-split`               | ref: marketer.com                   |
@@ -109,6 +110,7 @@ Full-screen photo (`.hero-full-image__bg`) under a 40% overlay (`--overlay-hero`
 - **Dot field:** `data-dots` works on any section. Dot colour is `--dot`; spacing and glow size are `--dot-gap` / `--dot-r`. Only animates while the mouse moves.
 - **Marquee:** write one group of items; `js/marquee.js` adds as many copies as the screen needs and loops by exactly one group, so it never gaps on wide screens. Speed is `MARQUEE_SPEED` in the script. Pauses on hover; still for reduced motion.
 - **Services bento:** cards 1–7 follow the bento layout; extra cards fall into rows of three. Above 1380px the grid is inset to page columns 2–11; at 1380px and below it is full width. Icons are Lucide, inline.
+- **Stat bento:** six tiles in source order: stat, photo, tall photo, stat, photo, wide stat. Each stat is a label (shown in caps), a big number and a line of text. Card colours are `--card-bg` / `--card-border`. Two columns on tablet and mobile (tall photo beside the first stat and photo, wide stat along the bottom).
 - **Steps:** automatic 01, 02… numbers; any number of steps. Mobile order: heading, image, steps.
 - **FAQ:** native `<details>`; `js/faq.js` animates open/close smoothly in every browser (incl. iPhone) and keeps one open at a time per `name`. Drop `name` to allow several; add `open` to start one expanded. Without JS the native accordion still works.
 - **Text, inline image:** one centred statement at heading 48 with small rounded photos in the line. Write it as one `<p>` and drop an `<img>` in wherever you want a photo (88 x 48 at desktop, they scale with the text; export 354 x 192, see `assets/images/inline-*.jpg`). 28px on mobile so the lines stay even. **Large option:** add `text-inline-image--large` to the section for the full-width version (68px, 118 x 64 photos, 12px gaps all round, `--section-xl` top and bottom, an extra margin of padding each side). Gaps are `--gap-x` / `--gap-y`, photo size `--img-w` / `--img-h`.
