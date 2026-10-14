@@ -52,8 +52,12 @@
   font-size: clamp(32px, 4.5vw, 68px);
 }
 
-/* Mobile: smaller so the photos don't leave short, ragged lines */
+/* Mobile: standard 28px so the photos don't leave short, ragged lines;
+   large a step up (34px on a 390px phone) */
 @media (max-width: 767px) {
   .text-inline-image .text-inline-image__text { font-size: 28px; }
-  .text-inline-image--large .text-inline-image__text { padding-inline: 8px; }
+  .text-inline-image--large .text-inline-image__text {
+    padding-inline: 8px;
+    font-size: clamp(30px, 8.7vw, 36px);
+  }
 }
