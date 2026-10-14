@@ -28,6 +28,7 @@ text.html               block library: text blocks
 css/base.css            brand tokens, reset, grid, type, buttons
 css/blocks/<name>.css   one file per block
 css/blocks/<style>/     blocks grouped by style, e.g. modern/
+js/components.js        shared header, mobile menu and footer (nav links in one place)
 js/smooth-scroll.js     Lenis smooth scroll (loaded from jsDelivr)
 js/roll.js              staggered text roll on button hover
 js/reveal.js            load-in reveals as blocks scroll into view
@@ -43,7 +44,7 @@ assets/images/          web-sized photos (originals in placeholder-images/, not 
 
 ## Pages
 
-The nav links to one page per block type, so the library stays easy to browse as it grows. New block types get their own page and nav link. Pages are plain HTML: the header is copied into each one, so nav changes go in every page. Each page only loads the CSS and JS its blocks need.
+The nav links to one page per block type, so the library stays easy to browse as it grows. New block types get their own page and nav link. The header, mobile menu and footer are shared components in `js/components.js`: each page just has `<site-header></site-header>` and `<site-footer></site-footer>`. Nav links live once, in `PAGES` at the top of that file; the current page is marked automatically. The script loads in `<head>` (not deferred) and swaps the tags for real markup as the page is read, so there is no flash. Each page only loads the CSS and JS its blocks need.
 
 ## Blocks
 
@@ -84,9 +85,10 @@ Full-screen photo (`.hero-full-image__bg`) under a 40% overlay (`--overlay-hero`
 ## New client site
 
 1. Copy this repo.
-2. Edit the tokens in the `:root` block of `css/base.css`: colours, fonts, spacing. Greys come from the Neutral 50–900 scale (Figma); text and background colours point at it, so a client's greys are changed in one place.
-3. Swap `assets/logo.svg`.
-4. Build each page from blocks copied out of the library pages, keeping the `<link>`/`<script>` tags they need, then add the content.
+2. Set the pages and nav in `PAGES` in `js/components.js`, and the footer bio/links there too.
+3. Edit the tokens in the `:root` block of `css/base.css`: colours, fonts, spacing. Greys come from the Neutral 50–900 scale (Figma); text and background colours point at it, so a client's greys are changed in one place.
+4. Swap `assets/logo.svg` (and the footer logo paths in `js/components.js`).
+5. Build each page from blocks copied out of the library pages, keeping the `<link>`/`<script>` tags they need, then add the content.
 
 ## Notes
 
@@ -117,6 +119,6 @@ Full-screen photo (`.hero-full-image__bg`) under a 40% overlay (`--overlay-hero`
 - **Text, inline image:** one centred statement at heading 48 with small rounded photos in the line. Write it as one `<p>` and drop an `<img>` in wherever you want a photo (88 x 48 at desktop, they scale with the text; export 354 x 192, see `assets/images/inline-*.jpg`). 28px on mobile so the lines stay even. **Large option:** add `text-inline-image--large` to the section for the full-width version (68px, 118 x 64 photos, 12px gaps all round, `--section-xl` top and bottom, an extra margin of padding each side). Gaps are `--gap-x` / `--gap-y`, photo size `--img-w` / `--img-h`.
 - **List numbers** (01, 02, …) are automatic.
 - **Header on scroll:** scrolls away as you go down and slides back down as soon as you scroll up. The blurred backdrop only comes in once you are a screen height down (`SOLID_FROM` in `js/header.js`), so it never sits as a white blur over the hero; over the full-image hero it keeps its light text until then. It stays in the page flow (`position: sticky`), so nothing jumps.
-- **Footer:** soft `--neutral-200` line on top, bio and two link columns, then the brand logo full width (inline SVG with `fill="currentColor"`, so it takes the text colour; paste a client's logo paths in its place) and a small bottom bar. The logo rises out of a mask as it scrolls in. Copied into every page after `</main>`, like the header.
-- **Mobile menu:** under 768px the header shows the logo (140px) and a Menu button that opens a full-screen `<dialog>` (Esc, Close or tapping a link closes it; page scroll pauses). Its links and contact details live in the dialog right after `</header>` on each page.
+- **Footer:** soft `--neutral-200` line on top, bio and two link columns, then the brand logo full width (inline SVG with `fill="currentColor"`, so it takes the text colour; paste a client's logo paths in its place) and a small bottom bar. The logo rises out of a mask as it scrolls in. Shared via `js/components.js`.
+- **Mobile menu:** under 768px the header shows the logo (140px) and a Menu button that opens a full-screen `<dialog>` (Esc, Close or tapping a link closes it; page scroll pauses). Its links and contact details are in `js/components.js`.
 - **Mobile:** The list stacks to number | title, text under the title, then a full-width image.
