@@ -37,13 +37,13 @@
 
 /* ---------- Option: large ----------
    Full width with an extra margin of padding each side; 68px text with
-   118 x 64 photos and 12px / 10px gaps, as Figma */
+   118 x 64 photos and 12px gaps all round */
 
 .text-inline-image--large .text-inline-image__text {
   --img-w: 1.735em;
   --img-h: 0.941em;
   --gap-x: 12px;
-  --gap-y: 10px;
+  --gap-y: 12px;
   max-width: none;
   padding-inline: calc(var(--margin) + 8px);
   font-size: clamp(32px, 4.5vw, 68px);
