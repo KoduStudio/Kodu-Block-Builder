@@ -1,0 +1,88 @@
+/* Footer
+   Soft line on top, short bio and simple link columns, then the brand logo
+   running the full width (it rises out of a mask as it scrolls in) and a
+   small bottom bar. The logo is inline SVG so it takes the text colour. */
+
+.footer {
+  border-top: 1px solid var(--neutral-200);
+}
+
+.footer__top {
+  row-gap: 40px;
+  padding-block: var(--section-sm) var(--section-md);
+}
+
+.footer__bio {
+  grid-column: 1 / span 4;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  line-height: 1.44;
+}
+.footer__bio p:last-child { color: var(--text-soft); }
+
+.footer__name {
+  font-family: var(--font-heading);
+  font-size: var(--body-lg);
+  font-weight: 600;
+}
+
+.footer__col {
+  grid-column: span 2;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  line-height: 1.44;
+}
+.footer__bio + .footer__col { grid-column: 9 / span 2; }
+
+.footer__label {
+  margin-bottom: 4px;
+  color: var(--text-tertiary);
+}
+
+.footer__col a { width: fit-content; transition: opacity 0.3s; }
+.footer__col a:hover { opacity: 0.6; }
+
+/* Full-width logo */
+.footer__logo {
+  overflow: clip;
+  color: var(--text-primary);
+}
+.footer__logo svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.footer__bottom {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding-block: 24px;
+  color: var(--text-tertiary);
+  font-size: 14px;
+}
+.footer__bottom a:hover { color: var(--text-primary); }
+
+/* Logo rises out of its mask (replaces the default data-reveal fade) */
+@media (prefers-reduced-motion: no-preference) {
+  .js .footer__logo[data-reveal] { opacity: 1; animation: none; }
+  .js .footer__logo svg {
+    transform: translateY(101%);
+    transition: transform 1.4s var(--ease);
+  }
+  .js .footer__logo.is-in svg { transform: none; }
+}
+
+@media (max-width: 1023px) {
+  .footer__bio { grid-column: 1 / span 6; }
+  .footer__col { grid-column: span 3; }
+  .footer__bio + .footer__col { grid-column: 7 / span 3; }
+}
+
+@media (max-width: 767px) {
+  .footer__bio { grid-column: 1 / -1; }
+  .footer__col,
+  .footer__bio + .footer__col { grid-column: span 6; }
+}
