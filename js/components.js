@@ -12,6 +12,7 @@ const PAGES = [
   ['cards.html', 'Cards'],
   ['ctas.html', 'CTAs'],
   ['text.html', 'Text'],
+  ['all-blocks.html', 'All blocks'],
 ];
 
 // Works with or without .html in the URL (Vercel / npx serve drop it)

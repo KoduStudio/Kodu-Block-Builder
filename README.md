@@ -24,10 +24,13 @@ image-text.html         block library: image + text blocks
 cards.html              block library: cards (services bento, stat bento)
 ctas.html               block library: calls to action
 text.html               block library: text blocks
+all-blocks.html         every block on one page, each labelled with its name (click a label to copy it)
                         (each block marked <!-- BLOCK: name --> so it can be copied out)
+css/all-blocks.css      All blocks page only: label styles
 css/base.css            brand tokens, reset, grid, type, buttons
 css/blocks/<name>.css   one file per block
 css/blocks/<style>/     blocks grouped by style, e.g. modern/
+js/block-labels.js      All blocks page only: name labels from the <!-- BLOCK: --> comments
 js/components.js        shared header, mobile menu and footer (nav links in one place)
 js/smooth-scroll.js     Lenis smooth scroll (js/vendor/lenis.min.js, self-hosted)
 js/roll.js              staggered text roll on button hover
@@ -84,6 +87,10 @@ If a marquee comes straight after the hero, they fill the first screen together.
 
 Full-screen photo (`.hero-full-image__bg`) under a 40% overlay (`--overlay-hero`), heading/text/buttons bottom left. The glass CTA card is optional: delete `.hero-full-image__card` to drop it. As the first block on a page it runs up behind the header, which switches to light text automatically and back to dark when it slides in on scroll. On mobile the content centres and the card runs along the bottom (image left, text right). On scroll the hero moves up a little slower than the page and darkens, while the blocks after it slide over it at normal speed (ref: studiodado.com). Pure CSS scroll-driven animation: Chrome, Edge, Arc and Safari 26+; other browsers and reduced motion scroll normally. Speed is the `translateY(30%)` in `hero-full-image-slow` (higher = slower hero), darkness the `opacity` in `hero-full-image-darken`.
 
+### All blocks page
+
+`all-blocks.html` shows every block and variant, grouped like the nav. Each block gets a small label top left with its name, taken from the `<!-- BLOCK: name -->` comment above it; click a label to copy the name, so a client build can start as a list of blocks to keep. The labels are added by `js/block-labels.js` and styled by `css/all-blocks.css`, which only this page loads, so the blocks themselves stay clean. When you add a block, add it here too (with its comment).
+
 ## New client site
 
 1. Copy this repo.
@@ -122,5 +129,5 @@ Full-screen photo (`.hero-full-image__bg`) under a 40% overlay (`--overlay-hero`
 - **List numbers** (01, 02, …) are automatic.
 - **Header on scroll:** scrolls away as you go down and slides back down as soon as you scroll up. The blurred backdrop only comes in once you are a screen height down (`SOLID_FROM` in `js/header.js`), so it never sits as a white blur over the hero; over the full-image hero it keeps its light text until then. It stays in the page flow (`position: sticky`), so nothing jumps.
 - **Footer:** soft `--neutral-200` line on top, bio and two link columns, then the brand logo full width (inline SVG with `fill="currentColor"`, so it takes the text colour; paste a client's logo paths in its place) and a small bottom bar. The logo rises out of a mask as it scrolls in. Shared via `js/components.js`.
-- **Mobile menu:** under 768px the header shows the logo (140px) and a Menu button that opens a full-screen `<dialog>` (Esc, Close or tapping a link closes it; page scroll pauses). Its links and contact details are in `js/components.js`.
+- **Mobile menu:** under 1024px the header shows the logo (140px under 768px) and a Menu button that opens a full-screen `<dialog>` (Esc, Close or tapping a link closes it; page scroll pauses). Its links and contact details are in `js/components.js`.
 - **Mobile:** The list stacks to number | title, text under the title, then a full-width image.

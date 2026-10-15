@@ -24,5 +24,5 @@ if (menu && openBtn) {
   menu.addEventListener('close', closed);  // any other way it closes
 
   // Close if the screen grows past mobile while open
-  matchMedia('(min-width: 768px)').addEventListener('change', e => { if (e.matches && menu.open) closeMenu(); });
+  matchMedia('(min-width: 1024px)').addEventListener('change', e => { if (e.matches && menu.open) closeMenu(); });
 }

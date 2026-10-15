@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <script>document.documentElement.classList.add('js')</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>All blocks — Kodu Block Builder</title>
+  <meta name="description" content="A library of clean, fast HTML and CSS blocks for building simple, premium client sites.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="All blocks — Kodu Block Builder">
+  <meta property="og:description" content="A library of clean, fast HTML and CSS blocks for building simple, premium client sites.">
+  <meta property="og:url" content="https://kodublockbuilder.vercel.app/all-blocks">
+  <meta property="og:image" content="https://kodublockbuilder.vercel.app/assets/shareimage.jpg">
+  <meta property="og:image:width" content="1080">
+  <meta property="og:image:height" content="1080">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="assets/favicon.png" type="image/png">
+  <link rel="preload" href="assets/fonts/inter-tight-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/blocks/header.css">
+  <link rel="stylesheet" href="css/blocks/menu.css">
+  <link rel="stylesheet" href="css/blocks/footer.css">
+  <link rel="stylesheet" href="css/blocks/hero-full-image.css">
+  <link rel="stylesheet" href="css/blocks/hero-centred.css">
+  <link rel="stylesheet" href="css/blocks/marquee.css">
+  <link rel="stylesheet" href="css/blocks/text-inline-image.css">
+  <link rel="stylesheet" href="css/blocks/modern/tall-image-text.css">
+  <link rel="stylesheet" href="css/blocks/modern/list.css">
+  <link rel="stylesheet" href="css/blocks/icon-list.css">
+  <link rel="stylesheet" href="css/blocks/steps-tall-image.css">
+  <link rel="stylesheet" href="css/blocks/faq-split.css">
+  <link rel="stylesheet" href="css/blocks/services-bento.css">
+  <link rel="stylesheet" href="css/blocks/stat-bento.css">
+  <link rel="stylesheet" href="css/blocks/cta-centred-frame.css">
+  <link rel="stylesheet" href="css/all-blocks.css">
+  <script src="js/components.js"></script>
+  <script src="js/vendor/lenis.min.js" defer></script>
+  <script type="module" src="js/smooth-scroll.js"></script>
+  <script type="module" src="js/roll.js"></script>
+  <script type="module" src="js/menu.js"></script>
+  <script type="module" src="js/header.js"></script>
+  <script type="module" src="js/reveal.js"></script>
+  <script type="module" src="js/faq.js"></script>
+  <script type="module" src="js/parallax.js"></script>
+  <script type="module" src="js/dots.js"></script>
+  <script type="module" src="js/marquee.js"></script>
+  <script type="module" src="js/block-labels.js"></script>
+</head>
+<body>
+
+<!-- BLOCK: header + mobile menu (js/components.js) -->
+<site-header></site-header>
+
+<main>
+
+  <!-- ===== Heroes ===== -->
+
+  <!-- BLOCK: hero-full-image (option: CTA card) -->
+  <section class="hero-full-image">
+    <img class="hero-full-image__bg" src="assets/images/hero-room.avif" srcset="assets/images/hero-room-960.avif 960w, assets/images/hero-room.avif 1920w" sizes="100vw" alt="" width="1920" height="1364" fetchpriority="high">
+    <div class="container grid hero-full-image__inner">
+      <div class="hero-full-image__content" data-reveal-stagger>
+        <h1 class="hero-full-image__heading" data-reveal-words>Left aligned heading goes here</h1>
+        <p class="hero-full-image__text">Connect the tools you already use. We learn your business from what is already there, and your team keeps working the way it does.</p>
+        <div class="hero-full-image__actions">
+          <a class="btn btn--44 btn--pill" href="#">Hero Button <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+          <a class="btn btn--44 btn--pill btn--light" href="#">Hero Button</a>
+        </div>
+      </div>
+      <a class="hero-full-image__card" href="#" data-reveal>
+        <div class="hero-full-image__card-media">
+          <img src="assets/images/hero-card.avif" alt="Electrician on site" width="500" height="750">
+        </div>
+        <div class="hero-full-image__card-body">
+          <p class="hero-full-image__card-label">Get in touch</p>
+          <div class="hero-full-image__card-row">
+            <p class="hero-full-image__card-title">Book in a quote today</p>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg><!-- Lucide arrow-up-right -->
+          </div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- BLOCK: hero-centred (options: data-dots, photo circles) -->
+  <section class="hero-centred" data-dots>
+    <div class="container hero-centred__inner" data-reveal-stagger>
+      <ul class="hero-centred__faces" aria-label="Our work">
+        <li><img src="assets/images/hero-face-1.avif" alt="Wiring at the bench" width="240" height="240"></li>
+        <li><img src="assets/images/hero-face-2.avif" alt="Electrician on site" width="240" height="240"></li>
+        <li><img src="assets/images/hero-face-3.avif" alt="Testing a switchboard" width="240" height="240"></li>
+      </ul>
+      <h2 class="heading-xl hero-centred__heading" data-reveal-words>Centred heading goes here</h2>
+      <p class="hero-centred__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at iaculis tellus. Vestibulum leo dui, egestas nec lorem et, accumsan tincidunt eros.</p>
+      <div class="hero-centred__actions">
+        <a class="btn btn--44 btn--pill" href="#">Hero Button</a>
+        <a class="btn btn--44 btn--pill btn--outline" href="#">Hero Button</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOCK: hero-centred (no options: eyebrow only) -->
+  <section class="hero-centred">
+    <div class="container hero-centred__inner" data-reveal-stagger>
+      <p class="eyebrow hero-centred__eyebrow">Eyebrow here</p>
+      <h2 class="heading-xl hero-centred__heading" data-reveal-words>Centred heading goes here</h2>
+      <p class="hero-centred__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at iaculis tellus. Vestibulum leo dui, egestas nec lorem et, accumsan tincidunt eros.</p>
+      <div class="hero-centred__actions">
+        <a class="btn btn--44 btn--pill" href="#">Hero Button</a>
+        <a class="btn btn--44 btn--pill btn--outline" href="#">Hero Button</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Marquee ===== -->
+
+  <!-- BLOCK: marquee -->
+  <div class="marquee" data-marquee>
+    <div class="marquee__track">
+      <ul class="marquee__group"><li>10 years in the trade</li><li aria-hidden="true">/</li><li>Licence no. 123456C</li><li aria-hidden="true">/</li><li>Fully insured</li><li aria-hidden="true">/</li><li>Sydney based</li><li aria-hidden="true">/</li></ul>
+    </div>
+  </div>
+
+  <!-- ===== Text ===== -->
+
+  <!-- BLOCK: text-inline-image -->
+  <section class="text-inline-image">
+    <div class="container">
+      <p class="text-inline-image__text" data-reveal-lines>Strategic guidance across <img src="assets/images/inline-hills.avif" alt="" width="354" height="192" loading="lazy"> business operations, <img src="assets/images/inline-mountain.avif" alt="" width="354" height="192" loading="lazy"> organisational growth, and leadership planning to help companies move forward <img src="assets/images/inline-rock.avif" alt="" width="354" height="192" loading="lazy"> confidently</p>
+    </div>
+  </section>
+
+  <!-- BLOCK: text-inline-image (option: large) -->
+  <section class="text-inline-image text-inline-image--large">
+    <div class="container">
+      <p class="text-inline-image__text" data-reveal-lines>Strategic guidance across <img src="assets/images/inline-road.avif" alt="" width="354" height="192" loading="lazy"> business operations, <img src="assets/images/inline-house.avif" alt="" width="354" height="192" loading="lazy"> organisational growth, and leadership planning to help companies move forward <img src="assets/images/inline-room.avif" alt="" width="354" height="192" loading="lazy"> confidently</p>
+    </div>
+  </section>
+
+  <!-- ===== Image & Text ===== -->
+
+  <!-- BLOCK: modern-tall-image-text -->
+  <section class="container grid modern-tall-image-text">
+    <div class="modern-tall-image-text__content">
+      <h2 class="modern-tall-image-text__heading" data-reveal-words>A big statement about the brand goes here, set across a few confident lines that hold the space.</h2>
+      <div class="text-lg modern-tall-image-text__footer" data-reveal>
+        <p class="modern-tall-image-text__text">A supporting paragraph that introduces the approach. Keep it to a few sentences that explain what makes the work distinctive and why it matters to the people it's for.</p>
+        <a class="modern-tall-image-text__link" href="#">
+          <span data-roll>Let's work together</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg><!-- Lucide arrow-right -->
+        </a>
+      </div>
+    </div>
+    <div class="modern-tall-image-text__media" data-reveal data-parallax>
+      <img src="assets/images/mountain-water.avif" alt="Mountain above a lake" width="1000" height="1500" loading="lazy" decoding="async">
+    </div>
+  </section>
+
+  <!-- BLOCK: modern-tall-image-text (option: image left) -->
+  <section class="container grid modern-tall-image-text modern-tall-image-text--image-left">
+    <div class="modern-tall-image-text__content">
+      <h2 class="modern-tall-image-text__heading" data-reveal-words>A big statement about the brand goes here, set across a few confident lines that hold the space.</h2>
+      <div class="text-lg modern-tall-image-text__footer" data-reveal>
+        <p class="modern-tall-image-text__text">A supporting paragraph that introduces the approach. Keep it to a few sentences that explain what makes the work distinctive and why it matters to the people it's for.</p>
+        <a class="modern-tall-image-text__link" href="#">
+          <span data-roll>Let's work together</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg><!-- Lucide arrow-right -->
+        </a>
+      </div>
+    </div>
+    <div class="modern-tall-image-text__media" data-reveal data-parallax>
+      <img src="assets/images/person-on-rock-tall.avif" alt="Person standing on a rock" width="1000" height="1500" loading="lazy" decoding="async">
+    </div>
+  </section>
+
+  <!-- ===== Lists ===== -->
+
+  <!-- BLOCK: modern-list -->
+  <section class="container modern-list">
+    <ol class="modern-list__items">
+      <li class="grid text-lg modern-list__item" data-reveal>
+        <h3 class="modern-list__title">Research</h3>
+        <p class="modern-list__text">Our best ideas start with knowing our clients. And our clients' clients. The deeper the connection, the more distinctive the design.</p>
+        <div class="modern-list__media" data-parallax>
+          <img src="assets/images/person-on-rock.avif" alt="Person standing on a rock" width="800" height="1200" loading="lazy" decoding="async">
+        </div>
+      </li>
+      <li class="grid text-lg modern-list__item" data-reveal>
+        <h3 class="modern-list__title">Storyline</h3>
+        <p class="modern-list__text">We begin by scripting a narrative or storyline that informs every decision. The result is design that feels rooted, intentional, and alive.</p>
+        <div class="modern-list__media modern-list__media--landscape" data-parallax>
+          <img src="assets/images/cattle-in-field.avif" alt="Cattle grazing in a field" width="800" height="533" loading="lazy" decoding="async">
+        </div>
+      </li>
+      <li class="grid text-lg modern-list__item" data-reveal>
+        <h3 class="modern-list__title">Creation</h3>
+        <p class="modern-list__text">The story unfolds with through a series of memorable experiences. From big, bold gestures to the smallest of details, every element builds the foundation for an emotional connection with the guest.</p>
+        <div class="modern-list__media" data-parallax>
+          <img src="assets/images/concrete-road.avif" alt="Concrete road" width="800" height="1200" loading="lazy" decoding="async">
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <!-- BLOCK: icon-list -->
+  <section class="container icon-list">
+    <div class="icon-list__head" data-reveal-stagger>
+      <h2 class="heading-48">How we work. <span>Simple from the first call.</span></h2>
+      <p class="icon-list__text">Four clear steps from hello to launch. You always know what is happening next, and nothing goes live until you are happy with it.</p>
+      <div class="icon-list__actions">
+        <a class="btn btn--44 btn--pill" href="#">Book a call <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+        <a class="btn btn--44 btn--pill btn--outline" href="#">See our work</a>
+      </div>
+    </div>
+    <ul class="icon-list__items" data-reveal-stagger>
+      <li class="icon-list__item">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2a9 9 0 0 1 9 9"/><path d="M13 6a5 5 0 0 1 5 5"/><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"/></svg>
+        <h3 class="icon-list__title">Book a call</h3>
+        <p>A quick chat about your business, your goals and what the site needs to do.</p>
+      </li>
+      <li class="icon-list__item">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m18 13-.654-4.736a4 4 0 00-2.756-3.266l-9.163-2.9a2 2 0 00-2.017.493l-.82.819a2 2 0 00-.492 2.017l2.9 9.163a4 4 0 003.266 2.756L13 18"/><path d="M18.648 12.352a1.205 1.205 0 011.704 0l1.296 1.296a1.205 1.205 0 010 1.704l-6.296 6.296a1.205 1.205 0 01-1.704 0l-1.296-1.296a1.205 1.205 0 010-1.704z"/><path d="m3 3 6.586 6.586"/><circle cx="11" cy="11" r="2"/></svg>
+        <h3 class="icon-list__title">Design</h3>
+        <p>We shape the look around your brand and share it for feedback before anything is built.</p>
+      </li>
+      <li class="icon-list__item">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg>
+        <h3 class="icon-list__title">Build</h3>
+        <p>Your site is built fast, clean and easy to update, then tested on every screen.</p>
+      </li>
+      <li class="icon-list__item">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09"/><path d="M9 12a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.4 22.4 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 .05 5 .05"/></svg>
+        <h3 class="icon-list__title">Launch</h3>
+        <p>We go live together and stay on hand for the tweaks that come after launch.</p>
+      </li>
+    </ul>
+  </section>
+
+  <!-- BLOCK: steps-tall-image -->
+  <section class="container grid steps-tall-image">
+    <div class="steps-tall-image__media" data-parallax>
+      <img src="assets/images/person-on-rock-tall.avif" alt="Person standing on a rock" width="1000" height="1500" loading="lazy" decoding="async">
+    </div>
+    <div class="steps-tall-image__content">
+      <h2 class="heading-48" data-reveal>About our process. <span>From start to finish.</span></h2>
+      <ol class="steps-tall-image__list" data-reveal-stagger>
+        <li class="steps-tall-image__step">
+          <h3 class="steps-tall-image__title">We start with a call</h3>
+          <p class="steps-tall-image__text">A quick chat about your business, your goals and what the site needs to do, so we know exactly what we are building.</p>
+        </li>
+        <li class="steps-tall-image__step">
+          <h3 class="steps-tall-image__title">Then we plan and design</h3>
+          <p class="steps-tall-image__text">We map out the pages and shape the look around your brand, then share it with you for feedback.</p>
+        </li>
+        <li class="steps-tall-image__step">
+          <h3 class="steps-tall-image__title">After that, we build</h3>
+          <p class="steps-tall-image__text">Your site is built fast, clean and easy to update, then tested on every screen size.</p>
+        </li>
+        <li class="steps-tall-image__step">
+          <h3 class="steps-tall-image__title">Finally, we launch</h3>
+          <p class="steps-tall-image__text">We go live together and stay on hand for the small tweaks that come after launch.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- BLOCK: faq-split -->
+  <section class="container grid faq-split">
+    <h2 class="faq-split__heading" data-reveal>Have you got questions? <span>We have the answers.</span></h2>
+    <div class="faq-split__items" data-reveal-stagger>
+      <details class="faq-split__item" name="faq" open>
+        <summary class="faq-split__q"><span>What do you do?</span><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5v14"/></svg></summary>
+        <p class="faq-split__a">A short answer that explains the service in a sentence or two. Keep it plain and specific so people know straight away if you&#39;re the right fit.</p>
+      </details>
+      <details class="faq-split__item" name="faq">
+        <summary class="faq-split__q"><span>How long does a project take?</span><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5v14"/></svg></summary>
+        <p class="faq-split__a">Most projects take a few weeks from kick-off to launch. We&#39;ll give you a clear timeline before anything starts.</p>
+      </details>
+      <details class="faq-split__item" name="faq">
+        <summary class="faq-split__q"><span>Can you work alongside our existing team?</span><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5v14"/></svg></summary>
+        <p class="faq-split__a">Yes. We can lead the work or slot in beside your team, whichever suits how you already work.</p>
+      </details>
+      <details class="faq-split__item" name="faq">
+        <summary class="faq-split__q"><span>Who do you work with?</span><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5v14"/></svg></summary>
+        <p class="faq-split__a">Small and growing businesses that want a site that looks premium and is easy to keep up to date.</p>
+      </details>
+      <details class="faq-split__item" name="faq">
+        <summary class="faq-split__q"><span>What does it cost?</span><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5v14"/></svg></summary>
+        <p class="faq-split__a">Pricing depends on the scope. Most projects fall into a few set packages, and we&#39;ll quote a fixed price up front.</p>
+      </details>
+      <details class="faq-split__item" name="faq">
+        <summary class="faq-split__q"><span>How do we get started?</span><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5v14"/></svg></summary>
+        <p class="faq-split__a">Get in touch with a little about your business and what you need. We&#39;ll come back within a day to book a quick call.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- ===== Cards ===== -->
+
+  <!-- BLOCK: services-bento -->
+  <section class="container services-bento">
+    <div class="services-bento__head" data-reveal>
+      <h2 class="heading-lg">Our Services</h2>
+      <p class="services-bento__lede">A short line about who you work with. Tap a service to get started.</p>
+    </div>
+    <div class="grid services-bento__grid" data-reveal-stagger>
+        <a class="services-bento__card" href="#">
+          <svg class="services-bento__icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 4h-7M10 4H3M21 12h-9M8 12H3M21 20h-5M12 20H3M14 2v4M8 10v4M16 18v4"/></svg>
+          <p class="text-lg">Switchboard &amp; safety switch upgrades</p>
+          <span class="services-bento__go" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+        </a>
+        <a class="services-bento__card" href="#">
+          <svg class="services-bento__icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22v-5"/><path d="M9 8V2"/><path d="M15 8V2"/><path d="M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8Z"/></svg>
+          <p class="text-lg">Powerpoints &amp; lighting</p>
+          <span class="services-bento__go" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+        </a>
+        <a class="services-bento__card" href="#">
+          <svg class="services-bento__icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.827 16.379a6.082 6.082 0 0 1-8.618-7.002l5.412 1.45a6.082 6.082 0 0 1 7.002-8.618l-1.45 5.412a6.082 6.082 0 0 1 8.618 7.002l-5.412-1.45a6.082 6.082 0 0 1-7.002 8.618l1.45-5.412Z"/><path d="M12 12v.01"/></svg>
+          <p class="text-lg">Ceiling fans</p>
+          <span class="services-bento__go" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+        </a>
+        <a class="services-bento__card" href="#">
+          <svg class="services-bento__icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 13.866a4 4 0 0 1 5 .01"/><path d="M12 17h.01"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M7 10.754a8 8 0 0 1 10 0"/></svg>
+          <p class="text-lg">Hot water systems</p>
+          <span class="services-bento__go" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+        </a>
+        <a class="services-bento__card" href="#">
+          <svg class="services-bento__icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 13.866a4 4 0 0 1 5 .01"/><path d="M12 17h.01"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M7 10.754a8 8 0 0 1 10 0"/></svg>
+          <p class="text-lg">Renovation rewires</p>
+          <span class="services-bento__go" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+        </a>
+        <a class="services-bento__card" href="#">
+          <svg class="services-bento__icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 21c0-2.5 2-2.5 2-5"/><path d="M16 21c0-2.5 2-2.5 2-5"/><path d="m19 8-.8 3a1.25 1.25 0 0 1-1.2 1H7a1.25 1.25 0 0 1-1.2-1L5 8"/><path d="M21 3a1 1 0 0 1 1 1v2a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4a1 1 0 0 1 1-1z"/><path d="M6 21c0-2.5 2-2.5 2-5"/></svg>
+          <p class="text-lg">Smoke alarms</p>
+          <span class="services-bento__go" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+        </a>
+        <a class="services-bento__card" href="#">
+          <svg class="services-bento__icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.513 4.856 13.12 2.17a.5.5 0 0 1 .86.46l-1.377 4.317"/><path d="M15.656 10H20a1 1 0 0 1 .78 1.63l-1.72 1.773"/><path d="M16.273 16.273 10.88 21.83a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14H4a1 1 0 0 1-.78-1.63l4.507-4.643"/><path d="m2 2 20 20"/></svg>
+          <p class="text-lg">Fault finding</p>
+          <span class="services-bento__go" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+        </a>
+    </div>
+  </section>
+
+  <!-- BLOCK: stat-bento -->
+  <section class="container stat-bento">
+    <div class="stat-bento__head" data-reveal-stagger>
+      <div class="stat-bento__intro">
+        <h2 class="heading-48">Put your marketing to work. <span>Your team makes the calls.</span></h2>
+        <p>Connect the tools you already use. We learn your business from what is already there, and your team keeps working the way it does.</p>
+      </div>
+      <a class="btn btn--44 btn--pill" href="#">Hero Button <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+    </div>
+    <div class="stat-bento__grid" data-reveal-stagger>
+      <div class="stat-bento__card">
+        <p class="stat-bento__label">Experienced</p>
+        <p><strong class="stat-bento__value">10+</strong> years in the trade</p>
+      </div>
+      <div class="stat-bento__media"><img src="assets/images/cattle-in-field.avif" alt="" width="800" height="533" loading="lazy" decoding="async"></div>
+      <div class="stat-bento__media"><img src="assets/images/mountain-water.avif" alt="" width="1000" height="1500" loading="lazy" decoding="async"></div>
+      <div class="stat-bento__card">
+        <p class="stat-bento__label">Trusted</p>
+        <p><strong class="stat-bento__value">1,200+</strong> jobs completed across Sydney</p>
+      </div>
+      <div class="stat-bento__media"><img src="assets/images/green-hills.avif" srcset="assets/images/green-hills-960.avif 960w, assets/images/green-hills.avif 1600w" sizes="(max-width: 767px) 100vw, 25vw" alt="" width="1600" height="900" loading="lazy" decoding="async"></div>
+      <div class="stat-bento__card">
+        <p class="stat-bento__label">Rated</p>
+        <p><strong class="stat-bento__value">4.9 / 5</strong> from over 300 Google reviews</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTAs ===== -->
+
+  <!-- BLOCK: cta-centred-frame -->
+  <section class="container grid cta-centred-frame">
+    <div class="cta-centred-frame__panel" data-reveal-stagger>
+      <h2 class="heading-48 cta-centred-frame__heading">Put your marketing to work. <span>Your team makes the calls.</span></h2>
+      <p class="text-lg cta-centred-frame__text">A short line that tells people what happens next and why it&#39;s worth getting in touch today.</p>
+      <div class="cta-centred-frame__actions">
+        <a class="btn btn--44 btn--pill" href="#">Hero Button <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOCK: cta-centred-frame (option: background image) -->
+  <section class="container grid cta-centred-frame">
+    <div class="cta-centred-frame__panel" data-reveal-stagger data-parallax>
+      <img class="cta-centred-frame__bg" src="assets/images/green-hills.avif" srcset="assets/images/green-hills-960.avif 960w, assets/images/green-hills.avif 1600w" sizes="100vw" alt="" width="1600" height="900" loading="lazy" decoding="async">
+      <h2 class="heading-48 cta-centred-frame__heading">Put your marketing to work. <span>Your team makes the calls.</span></h2>
+      <p class="text-lg cta-centred-frame__text">A short line that tells people what happens next and why it&#39;s worth getting in touch today.</p>
+      <div class="cta-centred-frame__actions">
+        <a class="btn btn--44 btn--pill" href="#">Hero Button <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- BLOCK: footer (js/components.js) -->
+<site-footer></site-footer>
+
+</body>
+</html>

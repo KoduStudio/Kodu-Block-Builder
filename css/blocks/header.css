@@ -46,7 +46,7 @@
 .header__logo { grid-column: 1 / span 3; }
 
 .header__nav {
-  grid-column: 7 / span 6;
+  grid-column: 4 / -1;
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -54,6 +54,7 @@
 }
 
 .header__link {
+  white-space: nowrap;
   font-size: var(--body);
   line-height: 1.4;
 }
@@ -66,11 +67,15 @@
 /* "Menu" button (.text-btn): mobile only, opens the menu (css/blocks/menu.css) */
 .header__menu-btn { display: none; }
 
-/* Mobile: smaller logo + Menu button */
-@media (max-width: 767px) {
-  .header { padding-block: 20px; }
+/* Tablet and mobile: Menu button instead of the nav */
+@media (max-width: 1023px) {
   .header__logo { grid-column: 1 / span 7; }
-  .header__logo img { width: 140px; height: auto; }
   .header__nav { display: none; }
   .header__menu-btn { display: block; grid-column: 8 / -1; justify-self: end; }
+}
+
+/* Mobile: smaller logo */
+@media (max-width: 767px) {
+  .header { padding-block: 20px; }
+  .header__logo img { width: 140px; height: auto; }
 }
