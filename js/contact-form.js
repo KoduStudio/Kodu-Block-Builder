@@ -1,4 +1,6 @@
-// Contact form: photo previews (up to 3, removable) and a demo submit.
+// Contact forms (any form with data-contact-form): photo previews (up to 3,
+// removable) when the form has a photo input, our own error messages, and a
+// demo submit that shows the [data-sent] message.
 // For a live site, set the form's action to your form service (e.g.
 // Formspree) and remove data-demo; the photos go with the form as normal.
 
@@ -7,11 +9,12 @@ const X = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="c
 
 document.querySelectorAll('[data-contact-form]').forEach(form => {
   const input = form.querySelector('input[type="file"]');
-  const drop = input.closest('.contact-form__drop');
+  const drop = input?.closest('.contact-form__drop');
   const list = form.querySelector('.contact-form__previews');
   let photos = [];
 
   const render = () => {
+    if (!input) return;
     const files = new DataTransfer();
     photos.forEach(photo => files.items.add(photo));
     input.files = files.files;
@@ -28,7 +31,7 @@ document.querySelectorAll('[data-contact-form]').forEach(form => {
   };
 
   // Each pick adds to the photos already chosen, up to the limit
-  input.addEventListener('change', () => {
+  input?.addEventListener('change', () => {
     const picked = [...input.files].filter(file => file.type.startsWith('image/'));
     photos = [...photos, ...picked].slice(0, MAX_PHOTOS);
     render();
@@ -47,7 +50,7 @@ document.querySelectorAll('[data-contact-form]').forEach(form => {
       form.reset();
       photos = [];
       render();
-      form.querySelector('.contact-form__sent').hidden = false;
+      form.querySelector('[data-sent]').hidden = false;
     });
   }
 });

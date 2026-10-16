@@ -1,0 +1,75 @@
+/* Contact — Split (ref: next:well "Schedule a demo", light mode)
+   Tall photo across columns 1–6, form in columns 9–11, centred beside it.
+   Heading and text, a line, the fields (fields.css), a full-width button,
+   a line, then a call-us note. Shares js/contact-form.js. */
+
+.contact-split {
+  padding-block: var(--section-lg);
+  row-gap: var(--content-gap-md);
+}
+
+.contact-split__media {
+  grid-column: 1 / span 6;
+  position: relative;
+  border-radius: var(--radius);
+}
+/* Shape is a minimum (6:7 here), not fixed, so the photo stretches to
+   match a longer form. The photo sits over the spacer. */
+.contact-split__media::before {
+  content: "";
+  display: block;
+  padding-top: calc(7 / 6 * 100%);
+}
+:where(.contact-split__media) > img { position: absolute; inset: 0; }
+
+.contact-split__body {
+  grid-column: 9 / span 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 32px;
+}
+
+.contact-split__head {
+  display: flex;
+  flex-direction: column;
+  gap: var(--text-gap-md);
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--card-border);
+}
+.contact-split__head p { color: var(--text-soft); }
+
+.contact-split__form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-split__submit {
+  width: 100%;
+  margin-top: 8px;
+}
+
+.contact-split__foot {
+  padding-top: 24px;
+  border-top: 1px solid var(--card-border);
+  line-height: 1.44;
+}
+.contact-split__foot a { text-decoration: underline; text-underline-offset: 3px; }
+.contact-split__foot a:hover { color: var(--brand); }
+
+/* Wide tablet / small laptop: give the form more room */
+@media (max-width: 1279px) {
+  .contact-split__body { grid-column: 8 / -1; }
+}
+
+/* Tablet and mobile: photo on top, form under it */
+@media (max-width: 1023px) {
+  .contact-split__media { grid-column: 1 / -1; }
+  .contact-split__media::before { padding-top: 62.5%; } /* 16:10 */
+  .contact-split__body { grid-column: 1 / -1; max-width: 560px; }
+}
+
+@media (max-width: 767px) {
+  .contact-split__media::before { padding-top: 75%; } /* 4:3 */
+}

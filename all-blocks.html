@@ -35,6 +35,7 @@
   <link rel="stylesheet" href="css/blocks/cta-centred-frame.css">
   <link rel="stylesheet" href="css/blocks/fields.css">
   <link rel="stylesheet" href="css/blocks/contact-form.css">
+  <link rel="stylesheet" href="css/blocks/contact-split.css">
   <link rel="stylesheet" href="css/all-blocks.css">
   <script src="js/components.js"></script>
   <script src="js/vendor/lenis.min.js" defer></script>
@@ -456,7 +457,7 @@
           <span>By sending this form, I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</span>
         </label>
         <button class="btn btn--44 btn--pill contact-form__submit" type="submit">Send request <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></button>
-        <p class="contact-form__sent" role="status" hidden>Thanks, your request is in. We&rsquo;ll be in touch within one business day.</p>
+        <p class="contact-form__sent" role="status" data-sent hidden>Thanks, your request is in. We&rsquo;ll be in touch within one business day.</p>
       </form>
       <div class="contact-form__details">
         <div class="contact-form__item">
@@ -475,6 +476,53 @@
           <p>Based in Parramatta, out to the Hills, Inner West and Sutherland Shire.</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- BLOCK: contact-split -->
+  <section class="container grid contact-split">
+    <div class="contact-split__media" data-parallax>
+      <img src="assets/images/person-on-rock-tall.avif" alt="" width="1000" height="1500" loading="lazy" decoding="async">
+    </div>
+    <div class="contact-split__body">
+      <div class="contact-split__head" data-reveal-stagger>
+        <h2 class="heading-48">Book a quote</h2>
+        <p class="text-lg">Tell us about the job and we&rsquo;ll come back to you within one business day with a price.</p>
+      </div>
+      <form class="contact-split__form" action="#" method="post" data-contact-form data-demo data-reveal>
+          <label class="field">
+            <span class="field__label">Full name</span>
+            <span class="field__control"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><input type="text" name="name" placeholder="Jane Smith" autocomplete="name" required></span>
+            <span class="field__error"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg> Please add your name</span>
+          </label>
+          <label class="field">
+            <span class="field__label">Email</span>
+            <span class="field__control"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg><input type="email" name="email" placeholder="jane@email.com" autocomplete="email" required></span>
+            <span class="field__error"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg> Please add a valid email</span>
+          </label>
+          <label class="field">
+            <span class="field__label">Phone</span>
+            <span class="field__control"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><input type="tel" name="phone" placeholder="0400 000 000" autocomplete="tel" required></span>
+            <span class="field__error"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg> Please add a phone number</span>
+          </label>
+          <label class="field">
+            <span class="field__label">Type of job</span>
+            <span class="field__control"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg><select name="job" required><option value="" disabled selected>Choose a job type</option><option>Switchboard upgrade</option><option>Powerpoints &amp; lighting</option><option>Ceiling fans</option><option>Hot water</option><option>Renovation rewire</option><option>Something else</option></select><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span>
+            <span class="field__error"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg> Please choose a job type</span>
+          </label>
+          <label class="field">
+            <span class="field__label">Job details</span>
+            <span class="field__control"><textarea name="message" placeholder="What needs doing, and roughly when?" required></textarea></span>
+            <span class="field__error"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg> Please tell us a little about the job</span>
+          </label>
+          <label class="field-check">
+            <input type="checkbox" name="consent" required>
+            <span>I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</span>
+          </label>
+          <button class="btn btn--44 btn--pill contact-split__submit" type="submit">Send request <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></button>
+          <p role="status" data-sent hidden>Thanks, your request is in. We&rsquo;ll be in touch within one business day.</p>
+      </form>
+      <p class="contact-split__foot">Or call us on <a href="tel:+61400000000">0400 000 000</a></p>
     </div>
   </section>
 
