@@ -59,7 +59,7 @@
 .contact-split--wide .contact-split__body {
   grid-column: 7 / span 5;
   min-width: 460px;
-  padding-block: 3.5rem; /* photo runs 3.5rem past the form top and bottom */
+  padding-block: 4rem; /* photo runs 4rem past the form top and bottom */
 }
 .contact-split--wide .contact-split__form {
   display: grid;
