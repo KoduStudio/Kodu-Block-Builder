@@ -57,7 +57,10 @@
   min-height: 140px;
   resize: vertical;
 }
-.field__control:has(textarea) { align-items: flex-start; }
+/* Textarea fills its control (padding moves onto it), so the resize
+   handle sits in the field's corner */
+.field__control:has(textarea) { padding: 0; }
+.field__control textarea { padding: 13px 14px; border-radius: inherit; }
 
 /* Hover: 1.5px blue (the extra half pixel is a shadow, so nothing shifts) */
 .field__control:hover {
