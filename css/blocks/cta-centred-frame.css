@@ -52,6 +52,8 @@
   position: absolute;
   inset: 0;
   z-index: -1;
+  border-radius: inherit; /* rounded itself: while the parallax runs, browsers
+                             can skip clipping this layer to the panel */
   background: var(--overlay);
 }
 
