@@ -56,7 +56,11 @@
 /* ---------- Option: wide form ---------- */
 
 .contact-split--wide .contact-split__media { grid-column: 1 / span 5; }
-.contact-split--wide .contact-split__body { grid-column: 7 / span 5; min-width: 460px; }
+.contact-split--wide .contact-split__body {
+  grid-column: 7 / span 5;
+  min-width: 460px;
+  padding-block: 2.5rem; /* photo runs 2.5rem past the form top and bottom */
+}
 .contact-split--wide .contact-split__form {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -71,7 +75,7 @@
   .contact-split__media,
   .contact-split--wide .contact-split__media { grid-column: 1 / -1; }
   .contact-split__body,
-  .contact-split--wide .contact-split__body { grid-column: 1 / -1; min-width: 0; max-width: 560px; }
+  .contact-split--wide .contact-split__body { grid-column: 1 / -1; min-width: 0; max-width: 560px; padding-block: 0; }
 }
 
 @media (max-width: 767px) {
