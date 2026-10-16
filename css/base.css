@@ -5,12 +5,12 @@
    ========================================================================== */
 
 /* Fonts: self-hosted variable fonts (Latin), so text needs no third-party
-   request. Inter Tight 500–700 (headings, buttons), Inter 400–600 (body).
+   request. Inter Tight 400–700 (headings, buttons, field text), Inter 400–600 (body).
    For a client, drop their woff2 files in assets/fonts and edit these. */
 @font-face {
   font-family: "Inter Tight";
   font-style: normal;
-  font-weight: 500 700;
+  font-weight: 400 700;
   font-display: swap;
   src: url("../assets/fonts/inter-tight-latin.woff2") format("woff2");
 }
@@ -50,6 +50,16 @@
   --surface: var(--white);                /* cards */
   --card-bg: #f2f2f2;                     /* Brand Colours/Off-White (stat cards) */
   --card-border: #d4d4d8;                 /* card outline */
+
+  /* Form fields (Figma Input Field) */
+  --field-bg: var(--white);
+  --field-text: var(--neutral-900);
+  --field-text-placeholder: var(--neutral-500);
+  --field-border: var(--neutral-200);
+  --field-border-hover: #4874f6;
+  --field-border-active: #1a51f4;
+  --field-border-focus: #96affa;
+  --field-border-error: #c41212;
   --dot: #d9d9d9;                         /* dot field grid (Figma hero dots) */
 
   --btn-primary-bg: var(--brand);
@@ -80,6 +90,7 @@
   --section-md: clamp(64px, 6.9vw, 104px); /* Section/section-md */
   --section-sm: clamp(48px, 4.8vw, 72px);  /* Section/section-sm */
   --text-gap-md: 28px;                     /* Text Gap/text-gap-md */
+  --content-gap-md: clamp(40px, 3.7vw, 56px); /* Conent Gap/content-gap-md */
   --max: 1680px;
   --radius: 16px;
   --header-h: 84px;

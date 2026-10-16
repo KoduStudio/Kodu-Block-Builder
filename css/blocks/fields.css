@@ -1,0 +1,104 @@
+/* Form fields (Figma Input Field) — shared by any block with a form.
+   <label class="field">
+     <span class="field__label">Label</span>
+     <span class="field__control">[icon] <input> [icon]</span>
+     <span class="field__error">[icon] Message</span>
+   </label>
+   States: hover, active (focus) and error, as Figma. Errors show once the
+   visitor has interacted with an invalid field (:user-invalid), no JS. */
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  color: var(--field-text);
+}
+
+.field__label {
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.field__control {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 14px;
+  border: 1px solid var(--field-border);
+  border-radius: 6px;
+  background: var(--field-bg);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.field__control > svg { flex: none; }
+
+.field__control :is(input, select, textarea) {
+  flex: 1;
+  min-width: 0;
+  padding-block: 13px;
+  border: 0;
+  outline: 0;
+  background: none;
+  color: inherit;
+  font-family: var(--font-primary);  /* Labels/Large: Inter Tight 16, 1% tracking */
+  font-size: var(--body);
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+}
+.field__control ::placeholder { color: var(--field-text-placeholder); opacity: 1; }
+
+/* Select: native list, own chevron (the svg after it) */
+.field__control select { appearance: none; cursor: pointer; }
+.field__control select:invalid { color: var(--field-text-placeholder); }
+.field__control select + svg { margin-left: -24px; pointer-events: none; }
+.field__control select { padding-right: 24px; }
+
+.field__control textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+.field__control:has(textarea) { align-items: flex-start; }
+
+/* Hover: 1.5px blue (the extra half pixel is a shadow, so nothing shifts) */
+.field__control:hover {
+  border-color: var(--field-border-hover);
+  box-shadow: 0 0 0 0.5px var(--field-border-hover);
+}
+
+/* Active */
+.field__control:focus-within {
+  border-color: var(--field-border-active);
+  box-shadow: 0 0 0 2px var(--field-border-focus);
+}
+
+/* Error */
+.field__control:has(:user-invalid) {
+  border-color: var(--field-border-error);
+  box-shadow: 0 0 0 0.5px var(--field-border-error);
+}
+.field__error {
+  display: none;
+  align-items: center;
+  gap: 3px;
+  color: var(--field-border-error);
+  font-size: 14px;
+  line-height: 1.4;
+}
+.field:has(:user-invalid) .field__error { display: flex; }
+
+/* Checkbox (consent) */
+.field-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+.field-check input {
+  flex: none;
+  width: 18px;
+  height: 18px;
+  margin: 1px 0 0;
+  accent-color: var(--brand);
+}
+.field-check a { text-decoration: underline; text-underline-offset: 3px; }

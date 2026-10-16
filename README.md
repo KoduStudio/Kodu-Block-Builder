@@ -22,7 +22,7 @@ heroes.html             block library: hero variants
 lists.html              block library: lists, icon list, steps, FAQs
 image-text.html         block library: image + text blocks
 cards.html              block library: cards (services bento, stat bento)
-ctas.html               block library: calls to action
+ctas.html               block library: calls to action, contact form
 text.html               block library: text blocks
 all-blocks.html         every block on one page, each labelled with its name (click a label to copy it)
                         (each block marked <!-- BLOCK: name --> so it can be copied out)
@@ -31,6 +31,7 @@ css/base.css            brand tokens, reset, grid, type, buttons
 css/blocks/<name>.css   one file per block
 css/blocks/<style>/     blocks grouped by style, e.g. modern/
 js/block-labels.js      All blocks page only: name labels from the <!-- BLOCK: --> comments
+js/contact-form.js      contact form: photo previews (max 3), error handling, demo submit
 js/components.js        shared header, mobile menu and footer (nav links in one place)
 js/smooth-scroll.js     Lenis smooth scroll (js/vendor/lenis.min.js, self-hosted)
 js/roll.js              staggered text roll on button hover
@@ -68,6 +69,7 @@ The nav links to one page per block type, so the library stays easy to browse as
 | FAQ, split                | `.faq-split`               | ref: marketer.com                   |
 | CTA, centred frame        | `.cta-centred-frame`       | Centred Frame CTA                   |
 | Text, inline image        | `.text-inline-image`       | Feature text with inline image      |
+| Contact form + details    | `.contact-form`            | Input Field (Figma) + ref: BYQ      |
 | Modern list               | `.modern-list`             | List_Modern                         |
 | Modern tall image + text  | `.modern-tall-image-text`  | ref: studiodado.com/approach        |
 
@@ -123,6 +125,8 @@ Full-screen photo (`.hero-full-image__bg`) under a 40% overlay (`--overlay-hero`
 - **Marquee:** write one group of items; `js/marquee.js` adds as many copies as the screen needs and loops by exactly one group, so it never gaps on wide screens. Speed is `MARQUEE_SPEED` in the script. Pauses on hover; still for reduced motion.
 - **Services bento:** cards 1–7 follow the bento layout; extra cards fall into rows of three. Above 1380px the grid is inset to page columns 2–11; at 1380px and below it is full width. Icons are Lucide, inline.
 - **Stat bento:** six tiles in source order: stat, photo, tall photo, stat, photo, wide stat. Each stat is a label (shown in caps), a big number and a line of text. Card colours are `--card-bg` / `--card-border`. Two columns on tablet (tall photo beside the first stat and photo, wide stat along the bottom); one column on mobile, alternating photo and stat.
+- **Form fields:** `css/blocks/fields.css` is shared by any form: label, control (optional Lucide icons left/right), error message, plus a consent checkbox. Hover, focus and error states match the Figma Input Field; colours are the `--field-*` tokens. Errors show only after the visitor has interacted with a field (`:user-invalid`), so no validation script is needed.
+- **Contact form:** job enquiry form (name, email, phone, suburb, job type, details, up to 3 photos) and contact details. Same width as services bento. It ships in demo mode (`data-demo`: shows a thanks message, sends nothing). For a live site, set the form's `action` to a form service such as Formspree and remove `data-demo`. Heading to panel is `--content-gap-md`.
 - **Steps:** automatic 01, 02… numbers; any number of steps. Mobile order: heading, image, steps.
 - **FAQ:** native `<details>`; `js/faq.js` animates open/close smoothly in every browser (incl. iPhone) and keeps one open at a time per `name`. Drop `name` to allow several; add `open` to start one expanded. Without JS the native accordion still works.
 - **Text, inline image:** one centred statement at heading 48 with small rounded photos in the line. Write it as one `<p>` and drop an `<img>` in wherever you want a photo (88 x 48 at desktop, they scale with the text; export 354 x 192, see `assets/images/inline-*.avif`). 28px on mobile so the lines stay even (large: ~34px, scaling with the phone width). **Large option:** add `text-inline-image--large` to the section for the full-width version (68px, 118 x 64 photos, 12px gaps all round at desktop, `--section-xl` top and bottom, an extra margin of padding each side). Gaps (`--gap-x` / `--gap-y`) and photo size (`--img-w` / `--img-h`) are in em, so they shrink with the text on smaller screens.
