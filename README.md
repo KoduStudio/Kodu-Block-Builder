@@ -17,7 +17,7 @@ The scripts are ES modules (`<script type="module">`), so each file keeps its ow
 ## Structure
 
 ```
-index.html              home: a full example page (full-image hero, large text, marquee, services, stats, icon list, image + text, steps, list, FAQ, CTA)
+index.html              home: a full example page (full-image hero, large text, marquee, services, stats, icon list, image + text, steps, list, FAQ, CTA, contact form)
 heroes.html             block library: hero variants
 lists.html              block library: lists, icon list, steps, FAQs
 image-text.html         block library: image + text blocks
