@@ -1,7 +1,9 @@
 /* Contact — Split (ref: next:well "Schedule a demo", light mode)
    Tall photo across columns 1–6, form in columns 8–11 (min 380px wide, so
    it stays usable on smaller desktops). Heading and text, a line, the fields
-   (fields.css) and a full-width button. Shares js/contact-form.js. */
+   (fields.css) and a full-width button. Shares js/contact-form.js.
+   Option: contact-split--wide = photo across 5 columns, form in 7–11 with
+   fields paired up in rows (mark full-width fields with field--full). */
 
 .contact-split {
   padding-block: var(--section-lg);
@@ -51,13 +53,28 @@
   margin-top: 8px;
 }
 
+/* ---------- Option: wide form ---------- */
+
+.contact-split--wide .contact-split__media { grid-column: 1 / span 5; }
+.contact-split--wide .contact-split__body { grid-column: 7 / span 5; min-width: 460px; }
+.contact-split--wide .contact-split__form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.contact-split--wide .contact-split__form > :is(.field--full, .field-check, .contact-split__submit, [data-sent]) {
+  grid-column: 1 / -1;
+}
+
 /* Tablet and mobile: photo on top, form under it */
 @media (max-width: 1023px) {
-  .contact-split__media { grid-column: 1 / -1; }
   .contact-split__media::before { padding-top: 62.5%; } /* 16:10 */
-  .contact-split__body { grid-column: 1 / -1; min-width: 0; max-width: 560px; }
+  .contact-split__media,
+  .contact-split--wide .contact-split__media { grid-column: 1 / -1; }
+  .contact-split__body,
+  .contact-split--wide .contact-split__body { grid-column: 1 / -1; min-width: 0; max-width: 560px; }
 }
 
 @media (max-width: 767px) {
   .contact-split__media::before { padding-top: 75%; } /* 4:3 */
+  .contact-split--wide .contact-split__form { grid-template-columns: minmax(0, 1fr); }
 }
