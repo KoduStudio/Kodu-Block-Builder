@@ -1,7 +1,7 @@
 /* Contact — Split (ref: next:well "Schedule a demo", light mode)
-   Tall photo across columns 1–6, form in columns 9–11, centred beside it.
-   Heading and text, a line, the fields (fields.css), a full-width button,
-   a line, then a call-us note. Shares js/contact-form.js. */
+   Tall photo across columns 1–6, form in columns 8–11 (min 380px wide, so
+   it stays usable on smaller desktops). Heading and text, a line, the fields
+   (fields.css) and a full-width button. Shares js/contact-form.js. */
 
 .contact-split {
   padding-block: var(--section-lg);
@@ -23,7 +23,8 @@
 :where(.contact-split__media) > img { position: absolute; inset: 0; }
 
 .contact-split__body {
-  grid-column: 9 / span 3;
+  grid-column: 8 / span 4;
+  min-width: 380px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -50,24 +51,11 @@
   margin-top: 8px;
 }
 
-.contact-split__foot {
-  padding-top: 24px;
-  border-top: 1px solid var(--card-border);
-  line-height: 1.44;
-}
-.contact-split__foot a { text-decoration: underline; text-underline-offset: 3px; }
-.contact-split__foot a:hover { color: var(--brand); }
-
-/* Wide tablet / small laptop: give the form more room */
-@media (max-width: 1279px) {
-  .contact-split__body { grid-column: 8 / -1; }
-}
-
 /* Tablet and mobile: photo on top, form under it */
 @media (max-width: 1023px) {
   .contact-split__media { grid-column: 1 / -1; }
   .contact-split__media::before { padding-top: 62.5%; } /* 16:10 */
-  .contact-split__body { grid-column: 1 / -1; max-width: 560px; }
+  .contact-split__body { grid-column: 1 / -1; min-width: 0; max-width: 560px; }
 }
 
 @media (max-width: 767px) {
