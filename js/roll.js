@@ -1,4 +1,4 @@
-// Staggered text roll on hover (as on kodudesignlab.com).
+// Staggered text roll on hover (as on kodustudio.com).
 // Splits the label into letters plus a copy underneath; CSS in base.css does the motion.
 // Applies to every .btn, and to anything else marked data-roll. Only the text
 // label rolls, so icons inside a button are left alone.

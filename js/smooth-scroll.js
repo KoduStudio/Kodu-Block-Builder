@@ -1,4 +1,4 @@
-// Lenis smooth scroll — same feel as kodudesignlab.com.
+// Lenis smooth scroll — same feel as kodustudio.com.
 // Wheel/trackpad only; touch keeps native scrolling. Off for reduced motion.
 
 if (window.Lenis && !matchMedia('(prefers-reduced-motion: reduce)').matches) {

@@ -2,7 +2,7 @@
 
 Template for building simple client sites from blocks. Plain HTML, CSS and a little JS: no build step, no dependencies.
 
-Design source: Figma, Kodu Design Lab – Website Template (page "Master Designs").
+Design source: Figma, Kodu Block Builder (Kodu Studio).
 
 ## Run locally
 
@@ -111,7 +111,7 @@ Full-screen photo (`.hero-full-image__bg`) under a 40% overlay (`--overlay-hero`
 - **Icon list:** built for 4 items but any number shares the row; 2 x 2 on tablet, stacked on mobile.
 - **CTA gradient:** mixed from `--brand` with `color-mix()`, so it follows the client colour.
 - **CTA background image (option):** add `<img class="cta-centred-frame__bg">` as the panel's first child. The photo covers the gradient under `--overlay` and the text switches to `--text-on-image`. Add `data-parallax` to the panel for the drift. Remove the `<img>` to go back to the gradient.
-- **Hover roll:** every `.btn` gets the staggered letter roll from kodudesignlab.com. Add `data-roll` to any other link to opt in. Speed and stagger are `--roll-dur` / `--roll-step` in `base.css`.
+- **Hover roll:** every `.btn` gets the staggered letter roll from kodustudio.com. Add `data-roll` to any other link to opt in. Speed and stagger are `--roll-dur` / `--roll-step` in `base.css`.
 - **Load-ins:** add to any element in a block. One-shot CSS animations on transform/opacity only, so they stay smooth on slow devices and never override hover effects. Timing is `--reveal-*` / `--word-step` in `base.css`. Off for reduced motion.
   - `data-reveal`: the element fades up as it scrolls into view (e.g. each list row).
   - `data-reveal-stagger`: its children fade up one after another (e.g. the hero).

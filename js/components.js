@@ -59,7 +59,7 @@ const FOOTER = `
     </nav>
     <div class="footer__col">
       <p class="footer__label">Studio</p>
-      <a href="https://www.kodudesignlab.com">Kodu Design Lab</a>
+      <a href="https://www.kodustudio.com">Kodu Studio</a>
     </div>
   </div>
   <div class="container">
